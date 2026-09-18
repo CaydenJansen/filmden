@@ -12,7 +12,7 @@
   <meta name="format-detection" content="telephone=no" />
   <meta name="color-scheme" content="dark" />
   <title>FilmDen</title>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='40' fill='%23e94b35'/%3E%3Crect x='38' y='54' width='104' height='72' rx='12' fill='%2312110f'/%3E%3Cpath d='M38 70h104M55 54l14 16M83 54l14 16M111 54l14 16' stroke='%23f6efdf' stroke-width='8'/%3E%3Ccircle cx='90' cy='98' r='14' fill='%23f6efdf'/%3E%3C/svg%3E" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='40' fill='%23e94b35'/%3E%3Crect x='44' y='72' width='92' height='60' rx='14' fill='%2312110f'/%3E%3Crect x='42' y='50' width='96' height='18' rx='8' fill='%2312110f'/%3E%3Cpath d='M47 65 L58 50 M76 68 L89 50 M107 68 L120 50 M137 68 L144 58' stroke='%23f6efdf' stroke-width='7' stroke-linecap='round'/%3E%3Ccircle cx='90' cy='101' r='8' fill='%23f6efdf'/%3E%3C/svg%3E" />
   <style>
     :root {
       --page:#12110f;
@@ -46,10 +46,13 @@
     .hidden{display:none!important}
     .shell{width:min(650px,100%);margin:auto;display:flex;flex-direction:column;min-height:0}
     .topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:9px;padding:0 3px}
-    .brand{display:flex;align-items:center;gap:9px;min-width:0}
-    .brand-mark{width:30px;height:30px;border-radius:9px;background:var(--accent);position:relative;flex:0 0 auto;box-shadow:inset 0 0 0 1px rgba(255,255,255,.12)}
-    .brand-mark:before{content:"";position:absolute;left:7px;right:7px;top:9px;height:12px;border-radius:3px;background:var(--page)}
-    .brand-mark:after{content:"";position:absolute;width:7px;height:7px;border-radius:50%;background:var(--text);left:12px;top:11px}
+    .brand{display:flex;align-items:center;gap:0;min-width:0}
+    .brand-mark{width:30px;height:30px;border-radius:9px;background:linear-gradient(180deg,#f35b45,#e94b35);position:relative;flex:0 0 auto;box-shadow:inset 0 0 0 1px rgba(255,255,255,.12),0 3px 10px rgba(0,0,0,.16)}
+    .brand-mark:before{content:"";position:absolute;left:6px;right:6px;bottom:6px;height:10px;border-radius:3px;background:
+      radial-gradient(circle at 50% 56%,rgba(246,239,223,.98) 0 1.7px,transparent 1.95px),
+      linear-gradient(180deg,#171512,#11100e);box-shadow:inset 0 0 0 1px rgba(246,239,223,.07)}
+    .brand-mark:after{content:"";position:absolute;left:5px;right:5px;top:6px;height:6px;border-radius:3px 3px 2px 2px;background:
+      repeating-linear-gradient(-55deg,rgba(246,239,223,.96) 0 3px,#13110f 3px 6px);box-shadow:0 4px 0 -1px #13110f,inset 0 0 0 1px rgba(246,239,223,.08)}
     .title{font-size:clamp(1.05rem,3.4vw,1.35rem);font-weight:900;letter-spacing:-.045em}
     .top-actions{display:flex;align-items:center;gap:8px;min-width:0}
     .progress-text{color:var(--muted);font-size:.84rem;font-variant-numeric:tabular-nums;white-space:nowrap}
@@ -119,7 +122,7 @@
     .round-complete-score{margin-top:3px;padding:7px 10px;border-radius:999px;background:rgba(246,239,223,.07);border:1px solid rgba(246,239,223,.08);font-size:.72rem;font-weight:900;color:var(--text)}
     .overlay{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:max(12px,env(safe-area-inset-top)) 12px max(12px,env(safe-area-inset-bottom));background:rgba(10,9,8,.78);backdrop-filter:blur(12px)}
     .menu{width:min(560px,100%);max-height:calc(100dvh - 24px);overflow:auto;background:#1a1916;border:1px solid var(--line);border-radius:26px;box-shadow:0 30px 100px rgba(0,0,0,.55);padding:20px}
-    .menu-brand{display:flex;align-items:center;gap:11px}
+    .menu-brand{display:flex;align-items:center;gap:0}
     .menu h1{margin:0;font-size:clamp(2rem,7vw,3rem);letter-spacing:-.06em}
     .menu-intro{margin:8px 0 18px;color:var(--muted);line-height:1.45;max-width:46ch}
     .section-label{margin:16px 0 8px;color:var(--muted);font-size:.66rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
@@ -533,7 +536,7 @@
       html,body{height:100%;overflow:hidden}
       body{height:100dvh;padding:max(8px,env(safe-area-inset-top)) 10px max(8px,env(safe-area-inset-bottom))}
       .shell{height:100%;width:100%;margin:0;display:grid;grid-template-rows:auto auto minmax(0,1fr) auto}
-      .topbar{margin-bottom:5px}.brand-mark{width:26px;height:26px}.brand-mark:before{left:6px;right:6px;top:8px;height:10px}.brand-mark:after{left:10px;top:9px}
+      .topbar{margin-bottom:5px}.brand-mark{width:26px;height:26px}.brand-mark:before{left:5px;right:5px;bottom:5px;height:9px}.brand-mark:after{left:4px;right:4px;top:5px;height:5px;box-shadow:0 4px 0 -1px #13110f,inset 0 0 0 1px rgba(246,239,223,.08)}
       .title{font-size:.96rem}.progress-text{font-size:.72rem}.home-btn{min-height:30px;font-size:.69rem;padding:0 9px}
       .progress-track{height:5px;margin-bottom:7px}.card{height:100%;min-height:0;border-radius:20px}
       .game-header{min-height:55px;padding:8px 11px}.mode-name{font-size:.96rem}.kicker{font-size:.58rem}.score-pill{font-size:.67rem;padding:5px 8px}
@@ -726,7 +729,7 @@
 <body>
   <main class="shell" id="app">
     <header class="topbar">
-      <div class="brand"><span class="brand-mark" aria-hidden="true"></span><div class="title">FilmDen</div></div>
+      <div class="brand"><div class="title">FilmDen</div></div>
       <div class="top-actions"><div class="progress-text" id="progressText">Ready</div><button class="home-btn" id="homeBtn" type="button">Games</button></div>
     </header>
     <div class="progress-track" aria-hidden="true"><div class="progress-fill" id="progressFill"></div></div>
@@ -745,7 +748,7 @@
 
   <div class="overlay" id="startOverlay" role="dialog" aria-modal="true" aria-labelledby="startTitle">
     <section class="menu">
-      <div class="menu-brand"><span class="brand-mark" aria-hidden="true"></span><h1 id="startTitle">FilmDen</h1></div>
+      <div class="menu-brand"><h1 id="startTitle">FilmDen</h1></div>
       <p class="menu-intro">Movie knowledge without the usual trivia questions. Find the people, links and films hiding between the clues.</p>
 
       <div class="daily-head"><div class="section-label">Today's games</div><div class="daily-date" id="dailyDate"></div></div>
