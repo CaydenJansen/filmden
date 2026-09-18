@@ -183,7 +183,8 @@
     .ensemble-inline-actions .game-assist-btn{min-height:32px;padding:0 10px;font-size:.64rem}
     .ensemble-find-section .ensemble-clue-nav{margin-top:0}
     .ensemble-cast-section .ensemble-shared-cta{width:100%;margin-top:2px}
-    .local-spelling-fix{margin-top:6px}
+    .local-spelling-fix{margin-top:5px;justify-self:start;width:auto;min-height:30px;padding:0 9px;border-radius:8px;font-size:.64rem}
+    .statham-gap-entry .spelling-fix.local-spelling-fix{min-height:30px!important;padding:0 9px!important;border-radius:8px!important;background:rgba(241,184,75,.10)!important;border:1px solid rgba(241,184,75,.28)!important;color:var(--gold)!important;font-size:.64rem!important;font-weight:900!important;justify-self:start;width:auto}
     .choice-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;margin-top:8px}
     .choice-option{min-height:36px;padding:7px 8px;border-radius:10px;border:1px solid var(--line);background:rgba(246,239,223,.05);color:var(--text);font-size:.69rem;font-weight:800;line-height:1.16;text-align:center}
     .choice-option.selected{border-color:rgba(241,184,75,.46);background:rgba(241,184,75,.10);color:var(--gold)}
@@ -283,10 +284,12 @@
     .box-selected-submit:hover{background:var(--accent-dark)}
     .movie-search-empty{padding:13px 9px;color:var(--muted);font-size:.76rem;text-align:center}
      .boxoffice-ladder-wrap{width:min(590px,100%);display:grid;gap:8px;padding:12px;border-radius:18px;border:1px solid rgba(246,239,223,.14);background:linear-gradient(180deg,rgba(246,239,223,.055),rgba(246,239,223,.025));box-shadow:inset 0 1px 0 rgba(255,255,255,.025)}
-    .boxoffice-ladder-head{display:flex;align-items:end;justify-content:space-between;gap:10px;text-align:left}
+    .boxoffice-ladder-head{display:flex;align-items:end;justify-content:space-between;gap:10px;text-align:left;min-width:0}
+    .boxoffice-ladder-head>div{min-width:0}
     .boxoffice-ladder-title{font-size:.9rem;font-weight:950;letter-spacing:-.02em}
     .boxoffice-ladder-meta{color:var(--muted);font-size:.64rem;font-weight:820;white-space:nowrap}
-    .boxoffice-chart{width:100%;max-height:min(430px,48dvh);overflow-y:auto;overflow-x:hidden;display:grid;gap:4px;padding:2px 4px 3px 1px;scrollbar-gutter:stable;overscroll-behavior:contain}
+    .boxoffice-ladder-head>div:first-child .boxoffice-ladder-meta{white-space:normal}
+    .boxoffice-chart{width:100%;min-width:0;max-height:min(430px,48dvh);overflow-y:auto;overflow-x:hidden;display:grid;gap:4px;padding:2px 4px 3px 1px;scrollbar-gutter:stable;overscroll-behavior:contain}
     .chart-row{display:grid;grid-template-columns:46px minmax(0,1fr);align-items:center;gap:10px;min-height:54px;padding:6px 10px;border-radius:10px;background:rgba(246,239,223,.055);border:1px solid rgba(246,239,223,.09);text-align:left;overflow:hidden}
     .chart-row.unknown{background:rgba(246,239,223,.018);border-color:rgba(246,239,223,.045)}
     .chart-row.revealed{background:rgba(246,239,223,.085);border-color:rgba(246,239,223,.13)}
@@ -377,6 +380,10 @@
     .career-slot.correct{border-style:solid;border-color:rgba(82,185,123,.35);background:rgba(82,185,123,.08);color:var(--text)}
     .career-slot.tap-ready{border-color:rgba(233,75,53,.65);background:rgba(233,75,53,.07)}
     .career-slot.drag-over{border-color:rgba(233,75,53,.8);background:rgba(233,75,53,.11)}
+    .career-slot.has-letter-hint{border-style:solid;border-color:rgba(241,184,75,.32);background:rgba(241,184,75,.055);color:var(--gold)}
+    .career-letter-hint{display:inline-flex;align-items:center;gap:7px;font-size:.65rem;font-weight:850}
+    .career-letter-hint span{color:var(--muted);font-weight:780}
+    .career-letter-hint strong{display:grid;place-items:center;min-width:25px;height:25px;padding:0 6px;border-radius:8px;background:rgba(241,184,75,.12);border:1px solid rgba(241,184,75,.24);color:var(--gold);font-size:.84rem;font-weight:950}
     .career-drawer{position:relative;bottom:auto;display:grid;gap:7px;margin-top:2px;padding:10px 2px 8px;background:linear-gradient(180deg,rgba(31,30,27,.94),#1f1e1b 24%);border-top:1px solid var(--line);box-shadow:none;flex:0 0 auto}
     .career-drawer-head{display:flex;align-items:end;justify-content:space-between;gap:10px}
     .career-drawer-title{font-size:.82rem;font-weight:950}
@@ -671,6 +678,47 @@
       .match-person-name .media-title{font-size:.61rem}
       .match-slot{min-height:44px;padding:5px 4px}
       .match-drawer{gap:4px;padding-top:5px}
+    }
+
+  
+    /* Ensemble Cast hierarchy: one clear active task, compact progress, secondary film guess. */
+    .ensemble-focus-card{gap:12px;padding:14px 15px;background:linear-gradient(180deg,rgba(246,239,223,.035),rgba(246,239,223,.018));border-color:rgba(246,239,223,.11)}
+    .ensemble-clue-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .ensemble-step-label{color:var(--gold);font-size:.66rem;font-weight:950;letter-spacing:.11em;text-transform:uppercase}
+    .ensemble-clue-switch{display:flex;align-items:center;gap:7px;color:var(--muted);font-size:.58rem;font-weight:850;white-space:nowrap}
+    .ensemble-clue-switch button{width:38px;height:38px;min-height:38px;border-radius:11px;border:1px solid var(--line);background:rgba(246,239,223,.055);color:var(--text);font-weight:950}
+    .ensemble-clue-switch button:disabled{opacity:.25;cursor:not-allowed}
+    .ensemble-focus-card .question{margin-top:2px}
+    .ensemble-focus-card .ensemble-answer-row{margin-top:1px}
+    .ensemble-focus-card .ensemble-inline-tools{padding-top:1px}
+    .ensemble-cast-strip{width:min(560px,100%);display:grid;gap:7px;padding:2px 2px 0;text-align:left}
+    .ensemble-cast-strip .ensemble-section-head{align-items:center}
+    .ensemble-cast-strip .ensemble-section-head>div:first-child{display:flex;align-items:baseline;gap:8px;min-width:0}
+    .ensemble-cast-strip .ensemble-section-title{font-size:.76rem}
+    .ensemble-cast-strip .ensemble-section-meta{font-size:.61rem}
+    .ensemble-cast-strip .ensemble-cast{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+    .ensemble-cast-strip .ensemble-cast-chip{padding:7px 8px;border-radius:12px;background:rgba(246,239,223,.035);border-color:rgba(246,239,223,.08)}
+    .ensemble-cast-strip .ensemble-cast-empty{grid-column:1/-1;padding:2px 0;border:0;background:transparent;color:#777269;font-size:.67rem;font-weight:720}
+    .ensemble-shared-cta{width:100%;min-height:52px;padding:0 16px;border-radius:14px;background:var(--accent);border:1px solid rgba(255,255,255,.05);color:#fff;font-size:.88rem;font-weight:950;letter-spacing:-.01em;box-shadow:0 10px 24px rgba(233,75,53,.16);white-space:nowrap}
+    .ensemble-shared-cta:hover{background:var(--accent-dark)}
+    .ensemble-guess-panel{width:min(560px,100%);display:grid;gap:12px;padding:14px 15px;border:1px solid rgba(246,239,223,.11);border-radius:17px;background:linear-gradient(180deg,rgba(246,239,223,.035),rgba(246,239,223,.018));text-align:left}
+    .ensemble-guess-panel>.question{text-align:center;margin-top:3px}
+    .ensemble-guess-panel .ensemble-cast-strip{padding:0}
+    @media(max-width:560px){
+      .ensemble-focus-card{padding:11px;gap:10px}
+      .ensemble-clue-toolbar{gap:8px}
+      .ensemble-clue-switch span{display:none}
+      .ensemble-clue-switch{gap:5px}
+      .ensemble-clue-switch button{width:40px;height:40px;min-height:40px}
+      .ensemble-cast-strip .ensemble-cast{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .ensemble-cast-strip .ensemble-cast-chip{padding:6px 7px}
+      .ensemble-cast-strip .ensemble-cast-chip .media-title{font-size:.68rem}
+      .ensemble-shared-cta{min-height:40px;padding:0 11px}
+      .ensemble-guess-panel{padding:11px;gap:10px}
+    }
+    @media(max-width:350px){
+      .ensemble-cast-strip .ensemble-cast{grid-template-columns:1fr}
+      .ensemble-clue-toolbar{align-items:flex-start}
     }
 
   </style>
@@ -6224,7 +6272,7 @@ The Machine`.split("\n")
     [norm("The Equalizer")]: "2014"
   };
 
-  const MEDIA_CACHE_KEY = "filmden-media-cache-v8";
+  const MEDIA_CACHE_KEY = "filmden-media-cache-v10";
 
   const MOVIE_WIKI_PAGE_OVERRIDES = {
     [norm("Scarface")]: ["Scarface (1983 film)"],
@@ -6270,6 +6318,12 @@ The Machine`.split("\n")
   const mediaPending = new Map();
   const mediaVerified = new Set();
   const mediaRejected = new Set();
+  const mediaImagePending = new Map();
+  // These assets are never displayed anywhere near 520px wide. Requesting
+  // smaller Wikimedia thumbnails cuts transfer/decode time substantially,
+  // especially on mobile, while still leaving enough pixels for retina screens.
+  const MOVIE_MEDIA_THUMB_SIZE = 320;
+  const PERSON_MEDIA_THUMB_SIZE = 256;
   // Optional exact-media registry for production-quality assets.
   // Key format:
   //   movie posters -> "normalized title|year"  (example: "priscilla|2023")
@@ -6343,23 +6397,49 @@ The Machine`.split("\n")
     const f=normalizeLooseLabel(raw.replace(/^File:/i,"").replace(/\.[a-z0-9]{2,5}$/i,""));
     const t=normalizeLooseLabel(filmTitle);
     if(!f || /logo|icon|symbol|flag|map|signature|wordmark|soundtrack|album|dvd|blu ray|bluray|video game/.test(f)) return -999;
-    let score=0;
+    // A title match on its own is not enough: film articles often contain
+    // premiere/cast photos whose filenames also include the movie title.
+    // Only accept files that explicitly identify themselves as poster art.
+    if(!/poster|theatrical|promotional|release one sheet|one sheet/.test(f)) return -999;
+    let score=100;
     if(/poster/.test(f)) score+=120;
     if(/theatrical/.test(f)) score+=80;
     if(/film poster|movie poster/.test(f)) score+=60;
+    if(/promotional/.test(f)) score+=45;
+    if(/one sheet/.test(f)) score+=45;
     if(t && f.includes(t)) score+=35;
-    if(/cover/.test(f)) score+=8;
     if(/\.svg$/i.test(raw)) score-=100;
     return score;
   }
-  async function wikiFileThumb(fileTitle, thumbSize=520){
+  async function wikiMovieInfoboxPoster(pageTitle){
+    const url=`https://en.wikipedia.org/w/api.php?action=parse&format=json&origin=*&redirects=1&prop=text&section=0&page=${encodeURIComponent(pageTitle)}`;
+    const json=await fetchJson(url);
+    const html=json?.parse?.text?.["*"] || "";
+    if(!html || typeof DOMParser==="undefined") return "";
+    try{
+      const doc=new DOMParser().parseFromString(html,"text/html");
+      const box=doc.querySelector("table.infobox");
+      if(!box) return "";
+      const image=box.querySelector(".infobox-image img");
+      if(!image) return "";
+      const caption=normalizeLooseLabel(box.querySelector(".infobox-caption")?.textContent || "");
+      // Film infoboxes normally label the art as a theatrical/release/poster image.
+      // If the caption says something else, do not risk showing a cast/premiere photo.
+      if(caption && !/poster|theatrical|promotional|release/.test(caption)) return "";
+      let src=image.getAttribute("src") || image.getAttribute("data-src") || "";
+      if(src.startsWith("//")) src=`https:${src}`;
+      else if(src.startsWith("/")) src=`https://en.wikipedia.org${src}`;
+      return /^https?:\/\//i.test(src) ? src : "";
+    }catch(_){ return ""; }
+  }
+  async function wikiFileThumb(fileTitle, thumbSize=MOVIE_MEDIA_THUMB_SIZE){
     const url=`https://en.wikipedia.org/w/api.php?action=query&format=json&origin=*&prop=imageinfo&iiprop=url&iiurlwidth=${thumbSize}&titles=${encodeURIComponent(fileTitle)}`;
     const json=await fetchJson(url);
     const pages=Object.values(json?.query?.pages||{});
     const info=pages[0]?.imageinfo?.[0];
     return info?.thumburl || info?.url || "";
   }
-  async function wikiMoviePosterExact(pageTitle, filmTitle, thumbSize=520){
+  async function wikiMoviePosterExact(pageTitle, filmTitle, thumbSize=MOVIE_MEDIA_THUMB_SIZE){
     const url=`https://en.wikipedia.org/w/api.php?action=query&format=json&origin=*&redirects=1&prop=images%7Cpageprops&imlimit=100&titles=${encodeURIComponent(pageTitle)}`;
     const json=await fetchJson(url);
     const pages=Object.values(json?.query?.pages||{});
@@ -6381,18 +6461,17 @@ The Machine`.split("\n")
     const pendingKey=`movie:${key}`;
     if(mediaPending.has(pendingKey)) return mediaPending.get(pendingKey);
     const job=(async()=>{
-      let image="",fallbackImage="",matchedPage="";
+      let image="",matchedPage="",source="";
       for(const pageTitle of wikiMovieCandidatePages(title,resolvedYear)){
-        image=await wikiMoviePosterExact(pageTitle,title,520);
-        if(image){ matchedPage=pageTitle; break; }
-        if(!fallbackImage){
-          const generic=await wikiPageThumbExact(pageTitle,520);
-          if(generic){ fallbackImage=generic; matchedPage=pageTitle; }
-        }
+        // First choice: the image explicitly used as poster art in the film infobox.
+        image=await wikiMovieInfoboxPoster(pageTitle);
+        if(image){ matchedPage=pageTitle; source="wikipedia-infobox-poster"; break; }
+        // Second choice: a file on the article whose filename explicitly says poster.
+        image=await wikiMoviePosterExact(pageTitle,title,MOVIE_MEDIA_THUMB_SIZE);
+        if(image){ matchedPage=pageTitle; source="wikipedia-poster-file"; break; }
       }
-      const primary=image || fallbackImage;
-      mediaCache.movies[key]=primary
-        ? {title,year:resolvedYear,image:primary,fallbackImage:image&&fallbackImage&&image!==fallbackImage?fallbackImage:"",source:image?"wikipedia-poster":"wikipedia-pageimage",page:matchedPage,ts:Date.now()}
+      mediaCache.movies[key]=image
+        ? {title,year:resolvedYear,image,source,page:matchedPage,ts:Date.now()}
         : {missing:true,title,year:resolvedYear,source:"wikipedia",ts:Date.now()};
       saveMediaCacheSoon();
       return mediaCache.movies[key];
@@ -6402,14 +6481,14 @@ The Machine`.split("\n")
   }
 
   async function wikiThumbForPerson(name){
-    const exactUrl = `https://en.wikipedia.org/w/api.php?action=query&format=json&origin=*&redirects=1&prop=pageimages%7Cpageprops&piprop=thumbnail&pithumbsize=520&titles=${encodeURIComponent(name)}`;
+    const exactUrl = `https://en.wikipedia.org/w/api.php?action=query&format=json&origin=*&redirects=1&prop=pageimages%7Cpageprops&piprop=thumbnail&pithumbsize=${PERSON_MEDIA_THUMB_SIZE}&titles=${encodeURIComponent(name)}`;
     let json = await fetchJson(exactUrl);
     let pages = Object.values(json?.query?.pages || {});
     let hit = pages.find(page => page?.thumbnail?.source && !page?.missing && page?.pageprops?.disambiguation === undefined);
     if(hit?.thumbnail?.source) return hit.thumbnail.source;
 
     const target = normalizeLooseLabel(name);
-    const searchUrl = `https://en.wikipedia.org/w/api.php?action=query&format=json&origin=*&generator=search&gsrnamespace=0&gsrlimit=8&gsrsearch=${encodeURIComponent(`"${name}" actor actress director producer writer comedian musician`)}&prop=pageimages%7Cpageprops&piprop=thumbnail&pithumbsize=520`;
+    const searchUrl = `https://en.wikipedia.org/w/api.php?action=query&format=json&origin=*&generator=search&gsrnamespace=0&gsrlimit=8&gsrsearch=${encodeURIComponent(`"${name}" actor actress director producer writer comedian musician`)}&prop=pageimages%7Cpageprops&piprop=thumbnail&pithumbsize=${PERSON_MEDIA_THUMB_SIZE}`;
     json = await fetchJson(searchUrl);
     pages = Object.values(json?.query?.pages || {});
     const exactTitleHit = pages.find(page => page?.thumbnail?.source && page?.pageprops?.disambiguation === undefined && normalizeLooseLabel(page?.title) === target);
@@ -6448,7 +6527,8 @@ The Machine`.split("\n")
     if(!clean) return Promise.resolve(false);
     if(mediaVerified.has(clean)) return Promise.resolve(true);
     if(mediaRejected.has(clean)) return Promise.resolve(false);
-    return new Promise(resolve=>{
+    if(mediaImagePending.has(clean)) return mediaImagePending.get(clean);
+    const job=new Promise(resolve=>{
       const probe=new Image();
       let settled=false;
       const done=ok=>{
@@ -6460,12 +6540,15 @@ The Machine`.split("\n")
       probe.onload=()=>done(probe.naturalWidth>20 && probe.naturalHeight>20);
       probe.onerror=()=>done(false);
       probe.referrerPolicy="no-referrer";
+      probe.decoding="async";
       probe.src=clean;
-    });
+    }).finally(()=>mediaImagePending.delete(clean));
+    mediaImagePending.set(clean,job);
+    return job;
   }
   function moviePosterMarkup(title, imageUrl, sizeClass=""){
     if(!imageUrl) return "";
-    return `<div class="media-thumb poster ${sizeClass}"><img src="${escapeAttr(imageUrl)}" alt="" loading="lazy" referrerpolicy="no-referrer" /></div>`;
+    return `<div class="media-thumb poster ${sizeClass}"><img src="${escapeAttr(imageUrl)}" alt="" loading="eager" decoding="async" referrerpolicy="no-referrer" /></div>`;
   }
   async function chooseWorkingMediaUrl(meta){
     if(!meta?.image) return "";
@@ -6505,10 +6588,10 @@ The Machine`.split("\n")
     if(field.id === "movie" || field.id === "recent") return movieMarkup(value,{size:"tiny"});
     return escapeHtml(value);
   }
-  function hydrateMedia(root=document){
-    if(!root) return;
-    root.querySelectorAll('[data-media-kind="movie"]').forEach(node => {
-      if(node.dataset.mediaHydrated==="1" || node.dataset.mediaHydrating==="1") return;
+  async function hydrateMediaNode(node){
+    if(!node || !node.isConnected || node.dataset.mediaHydrated==="1" || node.dataset.mediaHydrating==="1") return;
+    const kind=node.dataset.mediaKind||"";
+    if(kind==="movie"){
       const title=node.dataset.title||"",year=node.dataset.year||"",sizeClass=node.dataset.mediaSize||"";
       const key=movieCacheKey(title,year);
       const renderMeta=async meta=>{
@@ -6522,15 +6605,15 @@ The Machine`.split("\n")
       };
       const meta=movieMeta(title,year);
       node.dataset.mediaHydrating="1";
-      if(meta?.image){ renderMeta(meta); return; }
+      if(meta?.image){renderMeta(meta);return;}
       const recentlyMissing=meta?.missing && Date.now()-(Number(meta.ts)||0)<5*60*1000;
-      if(recentlyMissing){ node.dataset.mediaHydrating="0"; node.dataset.mediaHydrated="1"; return; }
+      if(recentlyMissing){node.dataset.mediaHydrating="0";node.dataset.mediaHydrated="1";return;}
       fetchMovieMeta(title,year).then(renderMeta).catch(()=>{
-        if(node.isConnected){ node.dataset.mediaHydrating="0"; node.dataset.mediaHydrated="1"; }
+        if(node.isConnected){node.dataset.mediaHydrating="0";node.dataset.mediaHydrated="1";}
       });
-    });
-    root.querySelectorAll('[data-media-kind="person"]').forEach(node => {
-      if(node.dataset.mediaHydrated==="1" || node.dataset.mediaHydrating==="1") return;
+      return;
+    }
+    if(kind==="person"){
       const name=node.dataset.name||"";
       const key=personCacheKey(name);
       const thumb=node.querySelector('.media-thumb.person');
@@ -6540,16 +6623,36 @@ The Machine`.split("\n")
         if(!node.isConnected) return;
         node.dataset.mediaHydrating="0";
         node.dataset.mediaHydrated="1";
-        if(imageUrl) thumb.innerHTML=`<img src="${escapeAttr(imageUrl)}" alt="" loading="lazy" referrerpolicy="no-referrer" />`;
+        if(imageUrl) thumb.innerHTML=`<img src="${escapeAttr(imageUrl)}" alt="" loading="eager" decoding="async" referrerpolicy="no-referrer" />`;
       };
       const meta=personMeta(name);
       node.dataset.mediaHydrating="1";
-      if(meta?.image){ renderMeta(meta); return; }
+      if(meta?.image){renderMeta(meta);return;}
       const recentlyMissing=meta?.missing && Date.now()-(Number(meta.ts)||0)<5*60*1000;
-      if(recentlyMissing){ node.dataset.mediaHydrating="0"; node.dataset.mediaHydrated="1"; return; }
+      if(recentlyMissing){node.dataset.mediaHydrating="0";node.dataset.mediaHydrated="1";return;}
       fetchPersonMeta(name).then(renderMeta).catch(()=>{
-        if(node.isConnected){ node.dataset.mediaHydrating="0"; node.dataset.mediaHydrated="1"; }
+        if(node.isConnected){node.dataset.mediaHydrating="0";node.dataset.mediaHydrated="1";}
       });
+    }
+  }
+
+  const mediaVisibilityObserver=typeof IntersectionObserver!=="undefined"
+    ? new IntersectionObserver(entries=>{
+        for(const entry of entries){
+          if(!entry.isIntersecting)continue;
+          mediaVisibilityObserver.unobserve(entry.target);
+          hydrateMediaNode(entry.target);
+        }
+      },{root:null,rootMargin:"280px 0px",threshold:0.01})
+    : null;
+
+  function hydrateMedia(root=document){
+    if(!root)return;
+    root.querySelectorAll('[data-media-kind="movie"],[data-media-kind="person"]').forEach(node=>{
+      if(node.dataset.mediaHydrated==="1" || node.dataset.mediaHydrating==="1" || node.dataset.mediaObserved==="1")return;
+      if(!mediaVisibilityObserver){hydrateMediaNode(node);return;}
+      node.dataset.mediaObserved="1";
+      mediaVisibilityObserver.observe(node);
     });
   }
 
@@ -6697,17 +6800,39 @@ The Machine`.split("\n")
     search(0,new Set());
     return signatures.size;
   }
+  function peopleBoardOverlapStats(set){
+    const fields={};
+    let strongFieldCount=0,totalAmbiguousCards=0,totalExtraFits=0;
+    for(const field of PEOPLE_MATCH_FIELDS){
+      let ambiguousCards=0,maxFits=1,extraFits=0;
+      (set.people||[]).forEach((person,owner)=>{
+        const fits=peopleDataValidOwners(set,field.id,owner,person?.[field.id]).size;
+        if(fits>1)ambiguousCards+=1;
+        maxFits=Math.max(maxFits,fits);
+        extraFits+=Math.max(0,fits-1);
+      });
+      // A field is "Sudoku-like" when there is a chain of at least two ambiguous
+      // cards, or one especially ambiguous card that can plausibly fit 3+ people.
+      const strong=ambiguousCards>=2||maxFits>=3;
+      if(strong)strongFieldCount+=1;
+      totalAmbiguousCards+=ambiguousCards;totalExtraFits+=extraFits;
+      fields[field.id]={ambiguousCards,maxFits,extraFits,strong};
+    }
+    return {ok:strongFieldCount>0,strongFieldCount,totalAmbiguousCards,totalExtraFits,fields};
+  }
   function validatePeopleBoardData(set,limit=2){
     const fieldCounts={};
     let boardSolutions=1;
     for(const field of PEOPLE_MATCH_FIELDS){
       const count=peopleFieldSolutionCountForData(set,field.id,limit);
       fieldCounts[field.id]=count;
-      if(count===0)return {ok:false,solutionCount:0,fieldCounts,reason:`${field.label} has no complete solution`};
+      if(count===0)return {ok:false,solutionCount:0,fieldCounts,overlap:peopleBoardOverlapStats(set),reason:`${field.label} has no complete solution`};
       boardSolutions=Math.min(limit,boardSolutions*count);
-      if(boardSolutions>=limit)return {ok:false,solutionCount:limit,fieldCounts,reason:"multiple distinct full-board solutions"};
+      if(boardSolutions>=limit)return {ok:false,solutionCount:limit,fieldCounts,overlap:peopleBoardOverlapStats(set),reason:"multiple distinct full-board solutions"};
     }
-    return {ok:boardSolutions===1,solutionCount:boardSolutions,fieldCounts,reason:boardSolutions===1?"unique":"invalid"};
+    const overlap=peopleBoardOverlapStats(set);
+    if(boardSolutions===1&&!overlap.ok)return {ok:false,solutionCount:1,fieldCounts,overlap,reason:"unique but lacks a strong crossover field"};
+    return {ok:boardSolutions===1&&overlap.ok,solutionCount:boardSolutions,fieldCounts,overlap,reason:boardSolutions===1?"unique with crossover":"invalid"};
   }
   function validatePeopleMatchBoards(){
     return PEOPLE_MATCH.map((set,index)=>({index,names:(set.people||[]).map(person=>person.name),...validatePeopleBoardData(set,2)}));
@@ -6731,6 +6856,28 @@ The Machine`.split("\n")
     }
     throw new Error("People Match has no uniquely solvable boards. Check validatePeopleMatchBoards().");
   }
+  function validateCareerRoundData(set){
+    const films=new Set((set?.films||[]).map(norm));
+    const seen=new Set(),duplicates=[];
+    for(const category of set?.categories||[]){
+      const answer=norm(category?.answer);
+      if(!answer||!films.has(answer))return {ok:false,reason:`Category answer is not in the movie pool: ${category?.answer||"(missing)"}`};
+      if(seen.has(answer))duplicates.push(category.answer);
+      seen.add(answer);
+    }
+    if(duplicates.length)return {ok:false,reason:`A movie is reused across multiple categories: ${[...new Set(duplicates)].join(", ")}`};
+    return {ok:true,reason:"unique movie per category"};
+  }
+  function makeCareerRound(rng=Math.random){
+    for(const set of shuffle(CAREER_MATCH,rng)){
+      const validation=validateCareerRoundData(set);
+      if(validation.ok)return set;
+      console.warn("Rejected Career Résumé round:",validation.reason,set?.person);
+    }
+    throw new Error("Career Résumé has no valid rounds. Each category needs a different movie.");
+  }
+  window.validateCareerResumeRounds=()=>CAREER_MATCH.map((set,index)=>({index,person:set.person,...validateCareerRoundData(set)}));
+
   function prepareEnsembleRound(set,rng=Math.random){
     // Curated data is kept in an author-friendly order, but players should not
     // get an implicit billing/star-power hint from that order. Shuffle once
@@ -6742,8 +6889,8 @@ The Machine`.split("\n")
     if(type==="title") return {type,data:pickOne(TITLE_LINK,rng)};
     if(type==="boxoffice") return {type,data:makeBoxOfficeRound(rng)};
     if(type==="people") return {type,data:makePeopleRound(rng)};
-    if(type==="career") return {type,data:pickOne(CAREER_MATCH,rng)};
-    if(type==="collab") return {type,data:pickOne(COLLABORATORS,rng)};
+    if(type==="career") return {type,data:makeCareerRound(rng)};
+    if(type==="collab") return {type,data:makeCollaboratorRound(rng)};
     if(type==="statham") return {type,data:makeStathamRound(rng)};
     return makeRound(pickOne(DAILY_MODES,rng),rng);
   }
@@ -6781,16 +6928,16 @@ The Machine`.split("\n")
     overlay.classList.add("hidden"); bottom.classList.remove("hidden"); loadRound();
   }
   function initRoundState(round){
-    if(round.type==="ensemble") return {done:false,phase:"cast",clueIndex:0,resolvedClues:[],people:[],castReveals:0,actorHintLevels:{},actorHintsUsed:0,points:0,finalRevealed:false,feedback:"",feedbackType:""};
-    if(round.type==="boxoffice") return {done:false,guessedRanks:[],wrong:0,hintLevel:0,manualHints:0,points:0,revealed:false,feedback:"",feedbackType:""};
+    if(round.type==="ensemble") return {done:false,phase:"cast",clueIndex:0,resolvedClues:[],people:[],castReveals:0,actorHintLevels:{},actorHintsUsed:0,actorDrafts:{},filmDraft:"",points:0,finalRevealed:false,feedback:"",feedbackType:""};
+    if(round.type==="boxoffice") return {done:false,guessedRanks:[],wrong:0,hintLevel:0,manualHints:0,selectedRank:null,searchDraft:"",points:0,revealed:false,feedback:"",feedbackType:""};
     if(round.type==="people"){
       const pools=Object.fromEntries(round.data.fields.map((field,i)=>[field.id,shuffle(round.data.people.map((p,owner)=>({owner,value:p[field.id]})),seededRng(`${Date.now()}|${i}|${Math.random()}`))]));
       return {done:false,activeFieldIndex:0,points:0,revealedFields:[],completedFields:[],checks:0,wrongChecks:0,hintsUsed:0,selected:null,assignments:{},locked:[],pools,feedback:"",feedbackType:""};
     }
-    if(round.type==="career") return {done:false,points:0,assignments:{},locked:[],selected:null,checks:0,reveals:0,hintsUsed:0,feedback:"",feedbackType:""};
+    if(round.type==="career") return {done:false,points:0,assignments:{},locked:[],selected:null,checks:0,reveals:0,hintsUsed:0,hinted:{},feedback:"",feedbackType:""};
     if(round.type==="collab") return {done:false,activeIndex:0,points:0,answers:{},locked:[],hintLevels:{},revealed:[],checks:0,filmFound:{},filmRevealed:{},filmHinted:{},filmHintText:{},filmInputs:{},filmFeedback:{},feedback:"",feedbackType:""};
-    if(round.type==="statham") return {done:false,points:0,nodes:[round.data.start,"Jason Statham",round.data.end],insertions:[],selectedGap:null,hintsUsed:0,giveUpsUsed:0,hintHistory:[],feedback:"",feedbackType:""};
-    return {done:false,points:0,usedReveal:false,shownCount:2};
+    if(round.type==="statham") return {done:false,points:0,nodes:[round.data.start,"Jason Statham",round.data.end],insertions:[],selectedGap:null,gapDraft:"",hintsUsed:0,giveUpsUsed:0,hintHistory:[],feedback:"",feedbackType:""};
+    return {done:false,points:0,usedReveal:false,shownCount:2,answerDraft:""};
   }
   function loadRound(){
     if(!session) return;
@@ -6819,8 +6966,8 @@ The Machine`.split("\n")
     if(session.style==="infinite") return "Next round →";
     return session.index+1<session.rounds.length?"Next daily →":"Daily complete →";
   }
-  function inputPanel(placeholder="Type your answer"){
-    return `<div class="answer-panel"><input class="answer-input" id="answerInput" autocomplete="off" autocapitalize="words" spellcheck="false" placeholder="${placeholder}" /><div class="feedback" id="feedback"></div><button class="spelling-fix hidden" id="spellingFixBtn" type="button">Fix my spelling</button></div>`;
+  function inputPanel(placeholder="Type your answer",value=""){
+    return `<div class="answer-panel"><input class="answer-input" id="answerInput" autocomplete="off" autocapitalize="words" spellcheck="false" placeholder="${placeholder}" value="${escapeAttr(value)}" /><div class="feedback" id="feedback"></div><button class="spelling-fix hidden" id="spellingFixBtn" type="button">Fix my spelling</button></div>`;
   }
   function renderRound(){
     bottom.classList.remove("hidden","ensemble-guess-cta","title-submit-cta");
@@ -6871,10 +7018,13 @@ The Machine`.split("\n")
 
   function castCards(people){return `<div class="cast-list">${people.map((person,i)=>`<div class="person-card"><div class="person-label">Cast member ${i+1}</div>${personMarkup(person,{meta:`Cast member ${i+1}`})}</div>`).join("")}</div>`;}
   function ensembleBoard(st,d,withGuess=false){
-    const chips=st.people.length?st.people.map(person=>`<div class="ensemble-cast-chip">${personMarkup(person,{size:"tiny"})}</div>`).join(""):`<div class="ensemble-cast-empty">Cast members you solve or reveal will appear here.</div>`;
-    const nudge=withGuess&&st.people.length>=1?`<div class="ensemble-guess-nudge"><div class="ensemble-guess-nudge-title">Think you know the film?</div><div class="ensemble-guess-nudge-copy">You have ${st.people.length} cast member${st.people.length===1?"":"s"} now. Take a guess below, or keep unlocking more cast if you need them.</div></div>`:"";
-    const guess=withGuess?`<button class="ensemble-shared-cta" id="ensembleGuessSharedBtn" type="button" ${st.people.length?'':'disabled'}>Guess the shared film →</button>`:"";
-    return `<section class="ensemble-cast-section"><div class="ensemble-section-head"><div class="ensemble-section-title">Cast found</div><div class="ensemble-section-meta">${st.people.length} / ${d.cast.length}</div></div><div class="ensemble-cast">${chips}</div>${nudge}${guess}</section>`;
+    const chips=st.people.length
+      ? st.people.map(person=>`<div class="ensemble-cast-chip">${personMarkup(person,{size:"tiny"})}</div>`).join("")
+      : `<div class="ensemble-cast-empty">Solve a cast clue and the name will appear here.</div>`;
+    const guess=withGuess&&st.people.length
+      ? `<button class="ensemble-shared-cta" id="ensembleGuessSharedBtn" type="button">Guess film →</button>`
+      : "";
+    return `<section class="ensemble-cast-strip"><div class="ensemble-section-head"><div><div class="ensemble-section-title">Cast found</div><div class="ensemble-section-meta">${st.people.length} of ${d.cast.length}</div></div></div><div class="ensemble-cast">${chips}</div>${guess}</section>`;
   }
   function ensemblePoints(st){return Math.max(1,4-Math.max(0,st.people.length-2)-st.castReveals-(st.actorHintsUsed||0));}
   function ensembleActorHintText(clue,level){
@@ -6920,8 +7070,8 @@ The Machine`.split("\n")
     if(!open.includes(st.clueIndex)) st.clueIndex=open[0];
     st.phase="cast";st.feedback="";st.feedbackType="";renderRound();
   }
-  function ensembleActorInputPanel(){
-    return `<div class="ensemble-clue-feedback"><div class="ensemble-answer-row"><input class="answer-input" id="answerInput" autocomplete="off" autocapitalize="words" spellcheck="false" placeholder="Actor name" /><button class="ensemble-add-actor" id="ensembleAddActorBtn" type="button">Add</button></div><div class="feedback" id="feedback"></div><button class="spelling-fix hidden" id="spellingFixBtn" type="button">Fix my spelling</button></div>`;
+  function ensembleActorInputPanel(value=""){
+    return `<div class="ensemble-clue-feedback"><div class="ensemble-answer-row"><input class="answer-input" id="answerInput" autocomplete="off" autocapitalize="words" spellcheck="false" placeholder="Actor name" value="${escapeAttr(value)}" /><button class="ensemble-add-actor" id="ensembleAddActorBtn" type="button">Check</button></div><div class="feedback" id="feedback"></div><button class="spelling-fix hidden" id="spellingFixBtn" type="button">Fix my spelling</button></div>`;
   }
   function ensembleResolveCurrent(revealed=false){
     const round=session.rounds[session.index],st=session.current,d=round.data;
@@ -6929,6 +7079,7 @@ The Machine`.split("\n")
     const idx=st.clueIndex,clue=d.cast[idx];
     if(!clue||ensembleResolvedSet(st).has(idx))return;
     st.resolvedClues=[...(st.resolvedClues||[]),idx];
+    if(st.actorDrafts)delete st.actorDrafts[idx];
     if(!st.people.includes(clue.person)) st.people.push(clue.person);
     if(revealed){st.castReveals+=1;session.revealed+=1;}
     st.feedback=`${revealed?"Revealed":"Added"} ${clue.person} to the cast.`;st.feedbackType="correct";
@@ -6959,7 +7110,8 @@ The Machine`.split("\n")
       const clue=d.cast[st.clueIndex];
       const solved=(st.resolvedClues||[]).length;
       const openCount=open.length;
-      stage.innerHTML=`<div class="stage-label">ENSEMBLE CAST</div>${gamePremiseMarkup("ensemble")}<section class="ensemble-find-section"><div class="ensemble-section-head"><div><div class="ensemble-section-title">Find a cast member</div></div><div class="ensemble-section-meta">${solved+1} / ${d.cast.length}</div></div><h2 class="question small">Who appears in both films?</h2><div class="movie-pair"><div class="movie-chip">${movieMarkup(clue.movies[0])}</div><div class="plus">+</div><div class="movie-chip">${movieMarkup(clue.movies[1])}</div></div>${ensembleActorInputPanel()}${(()=>{const level=Number(st.actorHintLevels?.[st.clueIndex])||0,hintText=ensembleActorHintText(clue,level),left=Math.max(0,2-level);return `${hintText?`<div class="assist-hint-copy">${escapeHtml(hintText)}</div>`:""}<div class="ensemble-inline-tools"><div class="ensemble-inline-status ${clueUrgencyClass(left,2)}">${left} hint${left===1?'':'s'} left</div><div class="ensemble-inline-actions"><button class="game-assist-btn hint" id="ensembleHintBtn" type="button" ${level>=2?'disabled':''}>Hint</button><button class="game-assist-btn give-up" id="ensembleRevealActorBtn" type="button">Give up</button></div></div>`;})()}<div class="ensemble-clue-nav"><button id="ensemblePrevClueBtn" type="button" ${openCount<=1?'disabled':''}>← Previous cast member</button><button id="ensembleNextClueBtn" type="button" ${openCount<=1?'disabled':''}>Next cast member →</button></div></section>${ensembleBoard(st,d,true)}`;
+      stage.innerHTML=`<div class="stage-label">ENSEMBLE CAST</div>${gamePremiseMarkup("ensemble")}<section class="ensemble-find-section ensemble-focus-card"><div class="ensemble-clue-toolbar"><div><div class="ensemble-step-label">Build the cast</div><div class="ensemble-section-meta">${solved} found · ${openCount} clue${openCount===1?'':'s'} left</div></div><div class="ensemble-clue-switch"><button id="ensemblePrevClueBtn" type="button" ${openCount<=1?'disabled':''} aria-label="Previous cast clue">←</button><span>Browse clues</span><button id="ensembleNextClueBtn" type="button" ${openCount<=1?'disabled':''} aria-label="Next cast clue">→</button></div></div><h2 class="question small">Who appears in both films?</h2><div class="movie-pair"><div class="movie-chip">${movieMarkup(clue.movies[0])}</div><div class="plus">+</div><div class="movie-chip">${movieMarkup(clue.movies[1])}</div></div>${ensembleActorInputPanel(st.actorDrafts?.[st.clueIndex]||"")}${(()=>{const level=Number(st.actorHintLevels?.[st.clueIndex])||0,hintText=ensembleActorHintText(clue,level),left=Math.max(0,2-level);return `${hintText?`<div class="assist-hint-copy">${escapeHtml(hintText)}</div>`:""}<div class="ensemble-inline-tools"><div class="ensemble-inline-status ${clueUrgencyClass(left,2)}">${left} hint${left===1?'':'s'} left</div><div class="ensemble-inline-actions"><button class="game-assist-btn hint" id="ensembleHintBtn" type="button" ${level>=2?'disabled':''}>Hint</button><button class="game-assist-btn give-up" id="ensembleRevealActorBtn" type="button">Give up</button></div></div>`;})()}</section>${ensembleBoard(st,d,true)}`;
+      $("answerInput")?.addEventListener("input",event=>{st.actorDrafts={...(st.actorDrafts||{}),[st.clueIndex]:event.target.value};});
       $("ensemblePrevClueBtn")?.addEventListener("click",()=>ensembleMoveClue(-1));
       $("ensembleNextClueBtn")?.addEventListener("click",()=>ensembleMoveClue(1));
       $("ensembleHintBtn")?.addEventListener("click",giveEnsembleActorHint);
@@ -6971,7 +7123,8 @@ The Machine`.split("\n")
     }
     if(st.phase==="guess"){
       const open=ensembleUnresolvedIndices(st,d),canAdd=open.length>0;
-      stage.innerHTML=`<div class="stage-label">ENSEMBLE CAST</div>${gamePremiseMarkup("ensemble")}<div class="ensemble-loop-head"><div class="ensemble-loop-copy"><div class="ensemble-loop-title">Guess the shared film</div><div class="ensemble-loop-meta">${canAdd?`${open.length} cast member${open.length===1?'':'s'} still available.`:'You have used every cast member clue.'}</div></div></div><h2 class="question small">What film are they all in?</h2>${inputPanel("Movie title")}<div class="game-assist-actions"><button class="game-assist-btn hint" id="ensembleFilmHintBtn" type="button" ${canAdd?'':'disabled'}>${canAdd?'Back to cast members':'No cast members left'}</button><button class="game-assist-btn give-up" id="ensembleFilmGiveUpBtn" type="button">Give up · reveal film</button></div>${ensembleBoard(st,d,false)}`;
+      stage.innerHTML=`<div class="stage-label">ENSEMBLE CAST</div>${gamePremiseMarkup("ensemble")}<section class="ensemble-guess-panel"><div class="ensemble-step-label">Guess the film</div>${ensembleBoard(st,d,false)}<h2 class="question small">What film are they all in?</h2>${inputPanel("Movie title",st.filmDraft||"")}<div class="game-assist-actions"><button class="game-assist-btn hint" id="ensembleFilmHintBtn" type="button" ${canAdd?'':'disabled'}>${canAdd?'Back to cast clues':'No cast clues left'}</button><button class="game-assist-btn give-up" id="ensembleFilmGiveUpBtn" type="button">Give up · reveal film</button></div></section>`;
+      $("answerInput")?.addEventListener("input",event=>{st.filmDraft=event.target.value;});
       $("ensembleFilmHintBtn")?.addEventListener("click",backToCastClue);
       $("ensembleFilmGiveUpBtn")?.addEventListener("click",giveUpEnsembleFilm);
       const fb=$("feedback");if(fb&&st.feedback){fb.textContent=st.feedback;fb.className=`feedback ${st.feedbackType||''}`;}
@@ -7028,7 +7181,8 @@ The Machine`.split("\n")
     if(!st.done){
       const remaining=d.links.length-st.shownCount,canAdd=remaining>0;
       const revealLabel=remaining>1?`Reveal another actor · ${remaining} left`:remaining===1?"Reveal final actor":"Reveal word";
-      stage.innerHTML=`<div class="stage-label">TITLE LINK</div>${gamePremiseMarkup("title")}<h2 class="question small">What word connects their movie titles?</h2>${titleProgress(d,st)}${titleActorChips(d,st)}<div class="game-assist-actions"><button class="game-assist-btn hint" id="titleRevealNextBtn" type="button" ${!canAdd?'disabled':''}>${canAdd?revealLabel:"No actor hints left"}</button><button class="game-assist-btn give-up" id="titleGiveUpBtn" type="button">Give up · reveal word</button></div>${inputPanel("Connecting word")}`;
+      stage.innerHTML=`<div class="stage-label">TITLE LINK</div>${gamePremiseMarkup("title")}<h2 class="question small">What word connects their movie titles?</h2>${titleProgress(d,st)}${titleActorChips(d,st)}<div class="game-assist-actions"><button class="game-assist-btn hint" id="titleRevealNextBtn" type="button" ${!canAdd?'disabled':''}>${canAdd?revealLabel:"No actor hints left"}</button><button class="game-assist-btn give-up" id="titleGiveUpBtn" type="button">Give up · reveal word</button></div>${inputPanel("Connecting word",st.answerDraft||"")}`;
+      $("answerInput")?.addEventListener("input",event=>{st.answerDraft=event.target.value;});
       $("titleRevealNextBtn")?.addEventListener("click",requestAnotherTitleActor);
       $("titleGiveUpBtn")?.addEventListener("click",giveUpTitleLink);
       bottom.classList.add("title-submit-cta");
@@ -7114,12 +7268,13 @@ The Machine`.split("\n")
       results.innerHTML=matches.length?matches.map(item=>`<button class="movie-search-result" type="button" data-box-rank="${item.rank}">${movieMarkup(item.movie,{size:"tiny",year:round.data.year})}</button>`).join(""):`<div class="movie-search-empty">No matching movies.</div>`;
       hydrateMedia(results);
     };
-    input.addEventListener("input",draw);
+    input.addEventListener("input",()=>{st.searchDraft=input.value;draw();});
     input.addEventListener("focus",()=>{if(st.selectedRank)return;draw();});
     results.addEventListener("click",e=>{
       if(e.target.closest("[data-box-submit]")){submitAnswer();return;}
       if(e.target.closest("[data-box-change]")){
         input.value="";
+        st.searchDraft="";
         clearSelection();
         draw();
         requestAnimationFrame(()=>input.focus({preventScroll:true}));
@@ -7127,9 +7282,11 @@ The Machine`.split("\n")
       }
       const btn=e.target.closest("[data-box-rank]");if(!btn)return;
       const rank=Number(btn.dataset.boxRank);if(!rank)return;
+      st.searchDraft=round.data.movies[rank-1]||"";
       showSelection(rank);
     });
-    draw();
+    input.value=st.searchDraft||"";
+    if(st.selectedRank)showSelection(st.selectedRank);else draw();
   }
   function renderBoxOfficeHints(round,st){
     const hints=(round.data.hints||[]).slice(0,Math.min(st.hintLevel||0,hintsLength(round)));
@@ -7311,6 +7468,7 @@ The Machine`.split("\n")
     const key=peopleSlotKey(field.id,target);st.assignments[key]=target;locked.add(key);st.locked=[...locked];st.selected=null;st.hintsUsed=(st.hintsUsed||0)+1;
     peopleRegisterCompletedFields(round,st);st.points=matchingBoardScore(round.data.fields.length,st.checks||0,st.revealedFields.length,st.hintsUsed||0);
     if(peopleBoardComplete(round,st)){st.done=true;completeCurrentRound(st.points,st.points>0);renderRound();return;}
+    if(peopleFieldComplete(round,st,field.id))peopleMoveToNextIncomplete(round,st);
     st.feedback=`Hint locked one ${field.label.toLowerCase()} match. · Score now ${st.points}/${round.data.fields.length}`;st.feedbackType="near";renderPeopleMatch(round);
   }
   function checkPeopleMatches(){
@@ -7407,8 +7565,12 @@ The Machine`.split("\n")
     btn.classList.remove("hidden");
     btn.onclick=()=>{
       input.value=canonical;
+      input.dispatchEvent(new Event("input",{bubbles:true}));
       clearSpellingFix();
-      submitAnswer();
+      const feedbackEl=$("feedback");
+      if(feedbackEl){feedbackEl.textContent="";feedbackEl.className="feedback";}
+      input.focus();
+      try{input.setSelectionRange(input.value.length,input.value.length);}catch(_){ }
     };
     input.focus();
     return true;
@@ -7422,40 +7584,71 @@ The Machine`.split("\n")
     for(const [idx,value] of Object.entries(st.assignments)){ if(value===movie&&!st.locked.includes(Number(idx))) delete st.assignments[idx]; }
     st.assignments[categoryIndex]=movie; st.selected=null; st.feedback=""; st.feedbackType=""; renderCareerMatch(round);
   }
+  function careerFirstLetter(title){
+    const clean=String(title||"").trim();
+    return (clean.match(/[A-Za-z0-9]/)?.[0]||"?").toUpperCase();
+  }
   function hintCareerMatch(round){
     const st=session.current,d=round.data,locked=new Set(st.locked);if(round.type!=="career"||st.done)return;
-    const idx=d.categories.findIndex((_,i)=>!locked.has(i));if(idx<0)return;
+    st.hinted=st.hinted||{};
+    const idx=d.categories.findIndex((_,i)=>!locked.has(i)&&!st.hinted[i]);
+    if(idx<0){
+      st.feedback="First-letter hints are already shown for every unresolved category.";
+      st.feedbackType="near";
+      renderCareerMatch(round);
+      return;
+    }
     const answer=d.categories[idx].answer;
-    for(const [key,value] of Object.entries(st.assignments)){if(value===answer&&!locked.has(Number(key)))delete st.assignments[key];}
-    st.assignments[idx]=answer;locked.add(idx);st.locked=[...locked];st.selected=null;st.hintsUsed=(st.hintsUsed||0)+1;
+    st.hinted[idx]=careerFirstLetter(answer);
+    st.hintsUsed=(st.hintsUsed||0)+1;
     st.points=matchingBoardScore(d.categories.length,st.checks||0,st.reveals||0,st.hintsUsed||0);
-    st.feedback=`Hint placed one movie correctly. · Score now ${st.points}/${d.categories.length}`;st.feedbackType="near";
-    if(st.locked.length===d.categories.length){st.done=true;completeCurrentRound(st.points,st.points>0);}renderCareerMatch(round);
+    st.feedback=`Hint: the movie for “${d.categories[idx].label}” starts with “${st.hinted[idx]}”. · Score now ${st.points}/${d.categories.length}`;
+    st.feedbackType="near";
+    renderCareerMatch(round);
   }
   function giveUpCareerMatch(round){
-    const st=session.current,d=round.data;if(round.type!=="career"||st.done)return;
-    st.reveals=(st.reveals||0)+1;session.revealed+=1;
-    d.categories.forEach((c,i)=>{if(!st.locked.includes(i))st.assignments[i]=c.answer;});st.locked=d.categories.map((_,i)=>i);
-    st.points=0;st.done=true;completeCurrentRound(0,false);renderCareerMatch(round);
+    const st=session.current,d=round.data,locked=new Set(st.locked);if(round.type!=="career"||st.done)return;
+    const idx=d.categories.findIndex((_,i)=>!locked.has(i));
+    if(idx<0)return;
+    const answer=d.categories[idx].answer;
+    for(const [key,value] of Object.entries(st.assignments||{})){
+      if(value===answer&&!locked.has(Number(key)))delete st.assignments[key];
+    }
+    st.assignments[idx]=answer;
+    locked.add(idx);
+    st.locked=[...locked];
+    st.selected=null;
+    st.reveals=(st.reveals||0)+1;
+    session.revealed+=1;
+    st.points=matchingBoardScore(d.categories.length,st.checks||0,st.reveals||0,st.hintsUsed||0);
+    st.feedback=`Revealed ${answer} for ${d.categories[idx].label}.`;
+    st.feedbackType="near";
+    if(st.locked.length===d.categories.length){
+      st.done=true;
+      completeCurrentRound(st.points,false);
+    }
+    renderCareerMatch(round);
   }
   function renderCareerMatch(round){
     const st=session.current,d=round.data,locked=new Set(st.locked);
     if(st.done){
       const rows=d.categories.map((c,i)=>`<div class="career-row correct"><div class="career-label">${escapeHtml(c.label)}</div><div class="career-slot correct">${movieMarkup(c.answer,{size:"tiny"})}</div></div>`).join("");
-      const careerDetail=`${d.person} · ${st.checks||0} check${st.checks===1?'':'s'}${st.reveals?` · ${st.reveals} reveal`:""}${st.hintsUsed?` · ${st.hintsUsed} hint${st.hintsUsed===1?"":"s"}`:""}`;
+      const careerDetail=`${d.person} · ${st.checks||0} check${st.checks===1?'':'s'}${st.reveals?` · ${st.reveals} reveal${st.reveals===1?"":"s"}`:""}${st.hintsUsed?` · ${st.hintsUsed} hint${st.hintsUsed===1?"":"s"}`:""}`;
       stage.innerHTML=`<div class="stage-label">CAREER RÉSUMÉ COMPLETE</div>${roundCompleteHero("Résumé complete",careerDetail,st.points,d.categories.length)}<div class="career-board">${rows}</div><div class="subcopy">Every comparison was only among this round's selected films.</div>`;
       activateRoundCompleteUI();return;
     }
     const used=careerUsedMovies(st);
     const rows=d.categories.map((c,i)=>{
-      const value=st.assignments[i]||"",isLocked=locked.has(i);
-      const classes=["career-slot",value?"filled":"",isLocked?"correct":"",st.selected&&!isLocked?"tap-ready":""].filter(Boolean).join(" ");
-      return `<div class="career-row ${isLocked?'correct':''}" data-career-row="${i}"><div class="career-label">${escapeHtml(c.label)}</div><button class="${classes}" type="button" data-career-slot="${i}" ${isLocked?'disabled':''}>${value?movieMarkup(value,{size:'tiny'}):'Drop or tap a movie here'}</button></div>`;
+      const value=st.assignments[i]||"",isLocked=locked.has(i),letter=(st.hinted||{})[i]||"";
+      const classes=["career-slot",value?"filled":"",isLocked?"correct":"",st.selected&&!isLocked?"tap-ready":"",letter&&!value?"has-letter-hint":""].filter(Boolean).join(" ");
+      const emptyCopy=letter?`<span class="career-letter-hint"><span>Starts with</span><strong>${escapeHtml(letter)}</strong></span>`:'Drop or tap a movie here';
+      return `<div class="career-row ${isLocked?'correct':''}" data-career-row="${i}"><div class="career-label">${escapeHtml(c.label)}</div><button class="${classes}" type="button" data-career-slot="${i}" ${isLocked?'disabled':''}>${value?movieMarkup(value,{size:'tiny'}):emptyCopy}</button></div>`;
     }).join("");
     const remaining=d.films.filter(movie=>!used.has(movie));
     const pool=remaining.length?remaining.map(movie=>`<button class="career-film ${st.selected===movie?'selected':''}" type="button" draggable="true" data-career-movie="${escapeAttr(movie)}">${movieMarkup(movie,{size:'tiny'})}</button>`).join(""):`<div class="career-pool-empty">All movies are placed. Check the board or tap a placed movie to return it to the pool.</div>`;
     const open=careerOpenIndices(round,st),drafts=careerDraftIndices(st);
-    stage.innerHTML=`<div class="stage-label">CAREER RÉSUMÉ</div>${gamePremiseMarkup("career")}<div class="career-wrap"><div class="career-person"><div class="career-person-name">${escapeHtml(d.person)}</div><button class="career-info-btn" id="careerInfoBtn" type="button" aria-label="About Career Résumé" aria-expanded="false">i</button></div><div class="career-info-panel hidden" id="careerInfoPanel"><strong>Only among these ${d.films.length} films.</strong> These are not career records. Every category compares only this round's selected collection, and each movie is used exactly once.</div><div class="career-board">${rows}</div><div class="career-drawer"><div class="career-drawer-head"><div class="career-drawer-title">Movies</div><div class="career-drawer-meta">${remaining.length} unplaced · ${st.checks||0} check${st.checks===1?'':'s'}</div></div><div class="career-pool" id="careerPool">${pool}</div>${scoreBudgetMarkup(matchingBoardScore(d.categories.length,st.checks||0,st.reveals||0,st.hintsUsed||0),d.categories.length)}<div class="game-assist-actions"><button class="game-assist-btn hint" id="careerHintBtn" type="button">Hint · place one movie</button><button class="game-assist-btn give-up" id="careerGiveUpBtn" type="button">Give up · reveal remaining</button></div><div class="feedback ${st.feedbackType||''}">${st.feedback||''}</div></div></div>`;
+    const hintable=d.categories.some((_,i)=>!locked.has(i)&&!(st.hinted||{})[i]);
+    stage.innerHTML=`<div class="stage-label">CAREER RÉSUMÉ</div>${gamePremiseMarkup("career")}<div class="career-wrap"><div class="career-person"><div class="career-person-name">${escapeHtml(d.person)}</div><button class="career-info-btn" id="careerInfoBtn" type="button" aria-label="About Career Résumé" aria-expanded="false">i</button></div><div class="career-info-panel hidden" id="careerInfoPanel"><strong>Only among these ${d.films.length} films.</strong> These are not career records. Every category compares only this round's selected collection, and each movie is used exactly once.</div><div class="career-board">${rows}</div><div class="career-drawer"><div class="career-drawer-head"><div class="career-drawer-title">Movies</div><div class="career-drawer-meta">${remaining.length} unplaced · ${st.checks||0} check${st.checks===1?'':'s'}</div></div><div class="career-pool" id="careerPool">${pool}</div>${scoreBudgetMarkup(matchingBoardScore(d.categories.length,st.checks||0,st.reveals||0,st.hintsUsed||0),d.categories.length)}<div class="game-assist-actions"><button class="game-assist-btn hint" id="careerHintBtn" type="button" ${hintable?'':'disabled'}>${hintable?'Hint · first letter':'First letters shown'}</button><button class="game-assist-btn give-up" id="careerGiveUpBtn" type="button">Give up · reveal one movie</button></div><div class="feedback ${st.feedbackType||''}">${st.feedback||''}</div></div></div>`;
     $("careerInfoBtn")?.addEventListener("click",()=>{const panel=$("careerInfoPanel"),btn=$("careerInfoBtn");const opening=panel?.classList.contains("hidden");panel?.classList.toggle("hidden",!opening);btn?.setAttribute("aria-expanded",opening?"true":"false");});
     $("careerHintBtn")?.addEventListener("click",()=>hintCareerMatch(round));
     $("careerGiveUpBtn")?.addEventListener("click",()=>giveUpCareerMatch(round));
@@ -7518,6 +7711,40 @@ The Machine`.split("\n")
     const counts=collabValidAnswers(item).map(answer=>collabFilmsFor(item,answer).length);
     return counts.length?Math.max(...counts):0;
   }
+  function collabFilmSetFor(item,answer){return new Set(collabFilmsFor(item,answer).map(norm));}
+  function validateCollaboratorRoundData(set,overlapLimit=.75){
+    const items=set?.items||[],subject=norm(set?.person||"");
+    for(let i=0;i<items.length;i++){
+      if(collabValidAnswers(items[i]).some(answer=>norm(answer)===subject)){
+        return {ok:false,reason:`${items[i].kind} includes the round subject as a collaborator`,pair:[items[i].kind],sharedFraction:1};
+      }
+      for(let j=i+1;j<items.length;j++){
+        const leftAnswers=collabValidAnswers(items[i]),rightAnswers=collabValidAnswers(items[j]);
+        for(const leftAnswer of leftAnswers){
+          const left=collabFilmSetFor(items[i],leftAnswer);
+          for(const rightAnswer of rightAnswers){
+            const right=collabFilmSetFor(items[j],rightAnswer);
+            const smaller=Math.min(left.size,right.size);if(!smaller)continue;
+            let shared=0;for(const film of left)if(right.has(film))shared+=1;
+            const sharedFraction=shared/smaller;
+            if(sharedFraction>=overlapLimit){
+              return {ok:false,reason:`${items[i].kind} (${leftAnswer}) and ${items[j].kind} (${rightAnswer}) reuse ${shared}/${smaller} of the smaller shared-film set`,pair:[items[i].kind,items[j].kind],sharedFraction};
+            }
+          }
+        }
+      }
+    }
+    return {ok:true,reason:"collaborator categories use materially different film sets"};
+  }
+  function makeCollaboratorRound(rng=Math.random){
+    for(const set of shuffle(COLLABORATORS,rng)){
+      const validation=validateCollaboratorRoundData(set);
+      if(validation.ok)return set;
+      console.warn("Rejected Frequent Collaborators round:",validation.reason,set?.person);
+    }
+    throw new Error("Frequent Collaborators has no sufficiently diverse rounds.");
+  }
+  window.validateFrequentCollaboratorRounds=()=>COLLABORATORS.map((set,index)=>({index,person:set.person,...validateCollaboratorRoundData(set)}));
   function collabItemMax(item){return 1+collabFilmCount(item);}
   function collabOptionPool(item){
     const answers=collabValidAnswers(item);
@@ -7658,12 +7885,13 @@ The Machine`.split("\n")
   function revealCollaboratorFilms(round,index){
     const st=session.current,item=round.data.items[index];if(round.type!=="collab"||!item||st.done||!st.locked.includes(index))return;
     const films=collabFilmsFor(item,st.answers[index]),found=collabFoundFilms(st,index),foundNorm=new Set(found.map(norm));
-    const remaining=films.filter(f=>!foundNorm.has(norm(f)));
-    if(!remaining.length)return;
-    st.filmRevealed={...(st.filmRevealed||{}),[index]:[...collabRevealedFilms(st,index),...remaining]};
-    st.filmFound={...(st.filmFound||{}),[index]:[...found,...remaining]};
+    const target=films.find(f=>!foundNorm.has(norm(f)));
+    if(!target)return;
+    st.filmRevealed={...(st.filmRevealed||{}),[index]:[...collabRevealedFilms(st,index),target]};
+    st.filmFound={...(st.filmFound||{}),[index]:[...found,target]};
     session.revealed+=1;
-    st.filmFeedback={...(st.filmFeedback||{}),[index]:{text:`Revealed ${remaining.length} remaining film${remaining.length===1?'':'s'}.`,type:"near"}};
+    const left=Math.max(0,films.length-found.length-1);
+    st.filmFeedback={...(st.filmFeedback||{}),[index]:{text:`Revealed ${target}.${left?` ${left} shared film${left===1?'':'s'} still hidden.`:""}`,type:"near"}};
     if(collabAllComplete(round,st)){st.done=true;completeCurrentRound(st.points,st.points>0);}
     else collabAdvanceIfComplete(round,st,index);
     renderCollaborators(round);
@@ -7675,7 +7903,7 @@ The Machine`.split("\n")
     if(!missing.length)return `<div class="collab-film-stage"><div class="collab-film-head"><div class="collab-film-title">Shared films</div><div class="collab-film-count">${films.length} / ${films.length} found</div></div>${pills}<div class="collab-film-complete">All shared films accounted for ✓</div></div>`;
     const unhintedMissing=missing.filter(f=>!collabHintedFilms(st,index).some(h=>norm(h)===norm(f)));
     const spelling=st.filmSpellingSuggestions?.[index]||"";
-    return `<div class="collab-film-stage"><div class="collab-film-head"><div class="collab-film-title">Name all shared films</div><div class="collab-film-count">${found.length} / ${films.length} found</div></div>${clueBudgetMarkup(missing.length,films.length,"films left")}${pills}${hintText?`<div class="assist-hint-copy">${escapeHtml(hintText)}</div>`:""}<div class="collab-film-input-row"><input class="collab-film-input" data-collab-film-input="${index}" autocomplete="off" autocapitalize="words" placeholder="Shared film title…" value="${escapeAttr(st.filmInputs?.[index]||'')}" /><button class="collab-film-add" type="button" data-collab-film-add="${index}">Add film</button></div><div class="collab-film-feedback ${feedback.type||''}">${escapeHtml(feedback.text||'')}</div>${spelling?`<button class="spelling-fix local-spelling-fix" type="button" data-collab-film-spell="${index}" data-spelling-value="${escapeAttr(spelling)}">Fix my spelling</button>`:""}<div class="game-assist-actions"><button class="game-assist-btn hint" type="button" data-collab-film-hint="${index}" ${!unhintedMissing.length?'disabled':''}>Hint · one movie</button><button class="game-assist-btn give-up" type="button" data-collab-film-giveup="${index}">Give up · reveal remaining</button></div></div>`;
+    return `<div class="collab-film-stage"><div class="collab-film-head"><div class="collab-film-title">Name all shared films</div><div class="collab-film-count">${found.length} / ${films.length} found</div></div>${clueBudgetMarkup(missing.length,films.length,"films left")}${pills}${hintText?`<div class="assist-hint-copy">${escapeHtml(hintText)}</div>`:""}<div class="collab-film-input-row"><input class="collab-film-input" data-collab-film-input="${index}" autocomplete="off" autocapitalize="words" placeholder="Shared film title…" value="${escapeAttr(st.filmInputs?.[index]||'')}" /><button class="collab-film-add" type="button" data-collab-film-add="${index}">Add film</button></div><div class="collab-film-feedback ${feedback.type||''}">${escapeHtml(feedback.text||'')}</div>${spelling?`<button class="spelling-fix local-spelling-fix" type="button" data-collab-film-spell="${index}" data-spelling-value="${escapeAttr(spelling)}">Fix my spelling</button>`:""}<div class="game-assist-actions"><button class="game-assist-btn hint" type="button" data-collab-film-hint="${index}" ${!unhintedMissing.length?'disabled':''}>Hint · one movie</button><button class="game-assist-btn give-up" type="button" data-collab-film-giveup="${index}">Give up · reveal one movie</button></div></div>`;
   }
   function collabCompletedIndices(round,st){
     return round.data.items.map((item,i)=>collabFilmsComplete(item,st,i)?i:-1).filter(i=>i>=0);
@@ -7715,12 +7943,12 @@ The Machine`.split("\n")
     stage.innerHTML=`<div class="stage-label">FREQUENT COLLABORATORS</div>${gamePremiseMarkup("collab")}<div class="collab-wrap"><div class="collab-person"><div class="collab-person-name">${escapeHtml(d.person)}</div>${completedStrip}</div>${card}<div class="feedback ${st.feedbackType||''}">${st.feedback||''}</div></div>`;
 
     stage.querySelectorAll('[data-collab-input]').forEach(inp=>{inp.addEventListener('input',()=>{const idx=Number(inp.dataset.collabInput);st.answers[idx]=inp.value;if(st.spellingSuggestions)delete st.spellingSuggestions[idx];if(idx===st.activeIndex)primaryBtn.disabled=!norm(inp.value);});inp.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();checkCollaborators(round);}});});
-    stage.querySelectorAll('[data-collab-spell]').forEach(btn=>btn.addEventListener('click',()=>{const idx=Number(btn.dataset.collabSpell);st.answers[idx]=btn.dataset.spellingValue||"";if(st.spellingSuggestions)delete st.spellingSuggestions[idx];checkCollaborators(round);}));
+    stage.querySelectorAll('[data-collab-spell]').forEach(btn=>btn.addEventListener('click',()=>{const idx=Number(btn.dataset.collabSpell),value=btn.dataset.spellingValue||"";st.answers[idx]=value;if(st.spellingSuggestions)delete st.spellingSuggestions[idx];const inp=stage.querySelector(`[data-collab-input="${idx}"]`);if(inp){inp.value=value;inp.focus();try{inp.setSelectionRange(value.length,value.length);}catch(_){ }}btn.remove();primaryBtn.disabled=!norm(value);}));
     stage.querySelectorAll('[data-collab-choice]').forEach(btn=>btn.addEventListener('click',()=>{const idx=Number(btn.dataset.collabChoice);st.answers[idx]=btn.dataset.collabValue||"";renderCollaborators(round);}));
     stage.querySelectorAll('[data-collab-hint]').forEach(btn=>btn.addEventListener('click',()=>hintCollaborator(round,Number(btn.dataset.collabHint))));
     stage.querySelectorAll('[data-collab-giveup]').forEach(btn=>btn.addEventListener('click',()=>revealCollaborator(round,Number(btn.dataset.collabGiveup))));
     stage.querySelectorAll('[data-collab-film-input]').forEach(inp=>{inp.addEventListener('input',()=>{const idx=Number(inp.dataset.collabFilmInput);st.filmInputs={...(st.filmInputs||{}),[idx]:inp.value};if(st.filmSpellingSuggestions)delete st.filmSpellingSuggestions[idx];});inp.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();addCollaboratorFilm(round,Number(inp.dataset.collabFilmInput));}});});
-    stage.querySelectorAll('[data-collab-film-spell]').forEach(btn=>btn.addEventListener('click',()=>{const idx=Number(btn.dataset.collabFilmSpell);st.filmInputs={...(st.filmInputs||{}),[idx]:btn.dataset.spellingValue||""};if(st.filmSpellingSuggestions)delete st.filmSpellingSuggestions[idx];addCollaboratorFilm(round,idx);}));
+    stage.querySelectorAll('[data-collab-film-spell]').forEach(btn=>btn.addEventListener('click',()=>{const idx=Number(btn.dataset.collabFilmSpell),value=btn.dataset.spellingValue||"";st.filmInputs={...(st.filmInputs||{}),[idx]:value};if(st.filmSpellingSuggestions)delete st.filmSpellingSuggestions[idx];const inp=stage.querySelector(`[data-collab-film-input="${idx}"]`);if(inp){inp.value=value;inp.focus();try{inp.setSelectionRange(value.length,value.length);}catch(_){ }}btn.remove();}));
     stage.querySelectorAll('[data-collab-film-add]').forEach(btn=>btn.addEventListener('click',()=>addCollaboratorFilm(round,Number(btn.dataset.collabFilmAdd))));
     stage.querySelectorAll('[data-collab-film-hint]').forEach(btn=>btn.addEventListener('click',()=>hintCollaboratorFilm(round,Number(btn.dataset.collabFilmHint))));
     stage.querySelectorAll('[data-collab-film-giveup]').forEach(btn=>btn.addEventListener('click',()=>revealCollaboratorFilms(round,Number(btn.dataset.collabFilmGiveup))));
@@ -7753,6 +7981,11 @@ The Machine`.split("\n")
   let connectionNetworkSaveTimer=null;
   const connectionPairFetches=new Map();
   const connectionPersonFetches=new Map();
+  // Avoid hammering Wikidata / re-rendering the Statham board when the network
+  // is offline or a request is temporarily blocked. Failures are not treated as
+  // proof that two people never worked together; they simply cool down briefly.
+  const connectionPairRetryAfter=new Map();
+  const CONNECTION_RETRY_COOLDOWN_MS=60*1000;
   function saveConnectionNetworkSoon(){
     clearTimeout(connectionNetworkSaveTimer);
     connectionNetworkSaveTimer=setTimeout(()=>{
@@ -7803,6 +8036,8 @@ The Machine`.split("\n")
     if(!a||!b)return {films:[],ok:false};
     const key=connectionPairKey(a,b);
     if(connectionPairChecked(a,b))return {films:cachedConnectionFilms(a,b),ok:true,cached:true};
+    const retryAt=Number(connectionPairRetryAfter.get(key)||0);
+    if(retryAt>Date.now())return {films:cachedConnectionFilms(a,b),ok:false,cooldown:true};
     if(connectionPairFetches.has(key))return connectionPairFetches.get(key);
     const job=(async()=>{
       const [pa,pb]=await Promise.all([resolveWikidataPerson(a),resolveWikidataPerson(b)]);
@@ -7818,8 +8053,12 @@ The Machine`.split("\n")
       const params=new URLSearchParams({query,format:"json",origin:"*"});
       const data=await wikidataJson(`https://query.wikidata.org/sparql?${params}`);
       const films=[...new Set((data?.results?.bindings||[]).map(row=>row?.filmLabel?.value).filter(Boolean))];
+      connectionPairRetryAfter.delete(key);
       addDiscoveredConnectionFilms(a,b,films);return {films,ok:true};
-    })().catch(error=>({films:[],ok:false,error:String(error?.message||error)})).finally(()=>connectionPairFetches.delete(key));
+    })().catch(error=>{
+      connectionPairRetryAfter.set(key,Date.now()+CONNECTION_RETRY_COOLDOWN_MS);
+      return {films:[],ok:false,error:String(error?.message||error)};
+    }).finally(()=>connectionPairFetches.delete(key));
     connectionPairFetches.set(key,job);return job;
   }
   function connectionPeople(){
@@ -7892,13 +8131,14 @@ The Machine`.split("\n")
     const localFeedback=selected&&st.feedback?`<div class="statham-gap-feedback ${st.feedbackType||''}" role="status">${escapeHtml(st.feedback)}</div>`:"";
     const spelling=selected&&st.spellingSuggestion?.gapIndex===index?st.spellingSuggestion.value:"";
     const spellingFix=spelling?`<button class="spelling-fix local-spelling-fix" id="stathamSpellingFixBtn" type="button">Fix my spelling</button>`:"";
-    const entry=selected?`<div class="statham-gap-entry"><input id="stathamGapInput" list="stathamPeopleList" autocomplete="off" autocapitalize="words" placeholder="Add someone between ${escapeAttr(left)} and ${escapeAttr(right)}"/><button id="stathamGapAddBtn" type="button">Add</button>${localFeedback}${spellingFix}<div class="statham-gap-entry-actions"><button class="statham-gap-hint" type="button" data-statham-hint="${index}">Give me a movie hint</button></div></div>`:`<button class="statham-gap-plus" type="button" data-statham-gap="${index}" aria-label="Add a person between ${escapeAttr(left)} and ${escapeAttr(right)}">+</button>`;
+    const entry=selected?`<div class="statham-gap-entry"><input id="stathamGapInput" list="stathamPeopleList" autocomplete="off" autocapitalize="words" placeholder="Add someone between ${escapeAttr(left)} and ${escapeAttr(right)}" value="${escapeAttr(st.gapDraft||"")}"/><button id="stathamGapAddBtn" type="button">Add</button>${localFeedback}${spellingFix}<div class="statham-gap-entry-actions"><button class="statham-gap-hint" type="button" data-statham-hint="${index}">Movie idea</button></div></div>`:`<button class="statham-gap-plus" type="button" data-statham-gap="${index}" aria-label="Add a person between ${escapeAttr(left)} and ${escapeAttr(right)}">+</button>`;
     return `<div class="statham-connector disconnected">${entry}</div>`;
   }
   async function stathamInsertIntoGap(round,gapIndex,raw){
     const st=session.current,d=round.data;
     if(gapIndex<0||gapIndex>=st.nodes.length-1||st.lookupBusy)return;
     const typed=String(raw||"").trim();
+    st.gapDraft=String(raw||"");
     if(!typed){st.selectedGap=gapIndex;st.feedback="Type a person first.";st.feedbackType="near";renderStathamSix(round);return;}
     const local=canonicalConnectionPerson(typed);
     const spelling=!local?typoCandidate(typed,connectionPeople()):null;
@@ -7923,7 +8163,7 @@ The Machine`.split("\n")
       else{st.feedback=`I couldn't find a shared film connecting ${next} to either side of this gap.`;st.feedbackType="wrong";}
       renderStathamSix(round);return;
     }
-    st.nodes.splice(gapIndex+1,0,next);st.insertions.push(next);st.selectedGap=null;st.spellingSuggestion=null;st.feedback="";st.feedbackType="";
+    st.nodes.splice(gapIndex+1,0,next);st.insertions.push(next);st.selectedGap=null;st.gapDraft="";st.spellingSuggestion=null;st.feedback="";st.feedbackType="";
     if(stathamAllConnected(st)){st.done=true;const added=st.insertions.length;st.points=Math.max(1,stathamAvailableScore(st));completeCurrentRound(st.points,true);}
     renderStathamSix(round);
   }
@@ -7935,54 +8175,55 @@ The Machine`.split("\n")
     st.nodes.splice(index,1);
     const insertionIndex=st.insertions.findIndex(name=>norm(name)===norm(person));
     if(insertionIndex>=0)st.insertions.splice(insertionIndex,1);
-    st.selectedGap=null;
+    st.selectedGap=null;st.gapDraft="";
     st.feedback=`Removed ${person}.`;
     st.feedbackType="";
     renderStathamSix(round);
   }
-  function stathamHintCandidates(st,gapIndex){
+  function stathamMovieHintOptions(st,gapIndex){
     if(!st||gapIndex<0||gapIndex>=st.nodes.length-1)return [];
     const left=st.nodes[gapIndex],right=st.nodes[gapIndex+1];
-    const used=new Set(st.nodes.map(norm));
-    const candidates=[];
+    const usedPeople=new Set(st.nodes.map(norm));
+    const byMovie=new Map();
+    const addOption=(anchor,opposite,person,film,side)=>{
+      // Prefer films whose unseen co-star sits on a shorter known route toward
+      // the other side of the open gap. The person/path stays hidden: the UI
+      // only surfaces the movie idea.
+      const route=seededConnectionPath(person,opposite);
+      const distance=route?Math.max(0,route.length-1):999;
+      const key=`${norm(anchor)}|${norm(film)}`;
+      const current=byMovie.get(key);
+      const option={anchor,film,side,distance};
+      if(!current||distance<current.distance)byMovie.set(key,option);
+    };
     for(const person of connectionPeople()){
-      if(used.has(norm(person)))continue;
-      const leftFilms=stathamEdgeFilms(left,person);
-      const rightFilms=stathamEdgeFilms(person,right);
-      if(!leftFilms.length&&!rightFilms.length)continue;
-      candidates.push({person,leftFilms,rightFilms,both:leftFilms.length&&rightFilms.length});
+      if(usedPeople.has(norm(person)))continue;
+      for(const film of stathamEdgeFilms(left,person))addOption(left,right,person,film,"left");
+      for(const film of stathamEdgeFilms(person,right))addOption(right,left,person,film,"right");
     }
-    return candidates.sort((a,b)=>Number(b.both)-Number(a.both)-(b.leftFilms.length+b.rightFilms.length-a.leftFilms.length-a.rightFilms.length)||a.person.localeCompare(b.person));
+    return [...byMovie.values()].sort((a,b)=>a.distance-b.distance||a.anchor.localeCompare(b.anchor)||a.film.localeCompare(b.film));
   }
   function giveStathamMovieHint(round,gapIndex){
     const st=session.current;
-    const candidates=stathamHintCandidates(st,gapIndex);
-    if(!candidates.length){
+    const options=stathamMovieHintOptions(st,gapIndex);
+    if(!options.length){
       st.selectedGap=gapIndex;
-      st.feedback="No useful movie hint is available for that gap in the current network.";
+      st.feedback="No useful movie ideas are available for that gap in the current network.";
       st.feedbackType="near";
       renderStathamSix(round);
       return;
     }
     const historyKey=`${norm(st.nodes[gapIndex])}|${norm(st.nodes[gapIndex+1])}`;
-    const usedHints=new Set((st.hintHistory||[]).filter(item=>item.key===historyKey).map(item=>item.film));
-    let pick=null,side="";
-    for(const candidate of candidates){
-      const options=[...candidate.leftFilms.map(film=>({film,side:"left"})),...candidate.rightFilms.map(film=>({film,side:"right"}))];
-      const fresh=options.find(option=>!usedHints.has(option.film));
-      if(fresh){pick={...candidate,...fresh};side=fresh.side;break;}
-    }
-    if(!pick){
-      const candidate=candidates[0];
-      const film=candidate.leftFilms[0]||candidate.rightFilms[0];
-      pick={...candidate,film,side:candidate.leftFilms.length?"left":"right"};
-    }
+    const history=(st.hintHistory||[]).filter(item=>item.key===historyKey);
+    // Cycle through the ranked movie ideas. Once every known option has been
+    // shown, another press starts again from the strongest option rather than
+    // pretending there is only one correct direction through the network.
+    const pick=options[history.length%options.length];
     st.hintsUsed=(st.hintsUsed||0)+1;
     if(!Array.isArray(st.hintHistory))st.hintHistory=[];
-    st.hintHistory.push({key:historyKey,film:pick.film});
-    const anchor=side==="left"?st.nodes[gapIndex]:st.nodes[gapIndex+1];
+    st.hintHistory.push({key:historyKey,film:pick.film,anchor:pick.anchor});
     st.selectedGap=gapIndex;
-    st.feedback=`Movie hint: ${pick.film} connects to ${anchor}. Think of someone from that film who could help bridge this gap.`;
+    st.feedback=`${pick.anchor} was in ${pick.film}.`;
     st.feedbackType="near";
     renderStathamSix(round);
   }
@@ -7991,12 +8232,17 @@ The Machine`.split("\n")
     const snapshot=st.nodes.join("||"),checks=[];
     for(let i=0;i<st.nodes.length-1;i++){
       const a=st.nodes[i],b=st.nodes[i+1];
-      if(connectionPairChecked(a,b)||connectionPairFetches.has(connectionPairKey(a,b)))continue;
+      const key=connectionPairKey(a,b);
+      if(connectionPairChecked(a,b)||connectionPairFetches.has(key)||(Number(connectionPairRetryAfter.get(key)||0)>Date.now()))continue;
       checks.push(discoverSharedConnectionFilms(a,b));
     }
     if(!checks.length)return;
-    Promise.allSettled(checks).then(()=>{
+    Promise.allSettled(checks).then(results=>{
       if(!session||session.current!==st||st.nodes.join("||")!==snapshot)return;
+      // If every live lookup failed, leave the current UI alone. A later user
+      // action can retry after the cooldown rather than causing a render loop.
+      const anySuccessfulLookup=results.some(result=>result.status==="fulfilled"&&result.value?.ok);
+      if(!anySuccessfulLookup)return;
       // The two required midpoint gaps must start genuinely open. The seed graph
       // filters obvious direct Statham collaborators synchronously; this live
       // check catches any extra direct credit discovered from Wikidata and quietly
@@ -8008,7 +8254,7 @@ The Machine`.split("\n")
           const next=makeStathamRound(rng);
           round.data=next;
           st.nodes=[next.start,"Jason Statham",next.end];
-          st.insertions=[];st.selectedGap=null;st.feedback="";st.feedbackType="";st.lookupBusy=false;
+          st.insertions=[];st.selectedGap=null;st.gapDraft="";st.feedback="";st.feedbackType="";st.lookupBusy=false;
           renderStathamSix(round);return;
         }
       }
@@ -8064,7 +8310,7 @@ The Machine`.split("\n")
       if(i<st.nodes.length-1)pieces.push(renderStathamConnector(st,d,i,allPeople));
     }
     stage.innerHTML=`<div class="stage-label">SIX DEGREES THROUGH JASON STATHAM</div>${gamePremiseMarkup("statham")}<div class="statham-wrap"><div class="statham-status"><span>${connectedEdges} of ${totalEdges} links connected</span><span>${st.insertions.length} added${st.hintsUsed?` · ${st.hintsUsed} hint${st.hintsUsed===1?"":"s"}`:""}</span></div><div class="statham-chain">${pieces.join("")}</div><div class="game-assist-actions"><button class="game-assist-btn give-up" id="stathamGiveUpBtn" type="button">Give up · reveal a route</button></div><datalist id="stathamPeopleList">${allPeople.filter(name=>!st.nodes.some(existing=>norm(existing)===norm(name))).map(name=>`<option value="${escapeAttr(name)}"></option>`).join("")}</datalist></div>`;
-    stage.querySelectorAll('[data-statham-gap]').forEach(btn=>btn.addEventListener('click',()=>{st.selectedGap=Number(btn.dataset.stathamGap);st.spellingSuggestion=null;st.feedback="";st.feedbackType="";renderStathamSix(round);}));
+    stage.querySelectorAll('[data-statham-gap]').forEach(btn=>btn.addEventListener('click',()=>{st.selectedGap=Number(btn.dataset.stathamGap);st.gapDraft="";st.spellingSuggestion=null;st.feedback="";st.feedbackType="";renderStathamSix(round);}));
     stage.querySelectorAll('[data-statham-remove]').forEach(btn=>btn.addEventListener('click',event=>{event.stopPropagation();removeStathamNode(round,Number(btn.dataset.stathamRemove));}));
     stage.querySelectorAll('[data-statham-hint]').forEach(btn=>btn.addEventListener('click',()=>giveStathamMovieHint(round,Number(btn.dataset.stathamHint))));
     $("stathamGiveUpBtn")?.addEventListener("click",()=>giveUpStatham(round));
@@ -8072,9 +8318,9 @@ The Machine`.split("\n")
     if(input&&st.selectedGap!==null){
       const add=()=>stathamInsertIntoGap(round,st.selectedGap,input.value);
       addBtn?.addEventListener('click',add);
-      input.addEventListener('input',()=>{if(st.spellingSuggestion){st.spellingSuggestion=null;const btn=$("stathamSpellingFixBtn");btn?.classList.add("hidden");}});
+      input.addEventListener('input',()=>{st.gapDraft=input.value;if(st.spellingSuggestion){st.spellingSuggestion=null;const btn=$("stathamSpellingFixBtn");btn?.classList.add("hidden");}});
       input.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();add();}});
-      $("stathamSpellingFixBtn")?.addEventListener("click",()=>{const suggestion=st.spellingSuggestion?.value;if(!suggestion)return;input.value=suggestion;st.spellingSuggestion=null;stathamInsertIntoGap(round,st.selectedGap,suggestion);});
+      $("stathamSpellingFixBtn")?.addEventListener("click",()=>{const suggestion=st.spellingSuggestion?.value;if(!suggestion)return;input.value=suggestion;st.gapDraft=suggestion;st.spellingSuggestion=null;st.feedback="";st.feedbackType="";$("stathamSpellingFixBtn")?.remove();const localFeedback=input.closest(".statham-gap-entry")?.querySelector(".statham-gap-feedback");if(localFeedback)localFeedback.remove();input.focus();try{input.setSelectionRange(input.value.length,input.value.length);}catch(_){ }});
       if(st.lookupBusy){input.disabled=true;if(addBtn){addBtn.disabled=true;addBtn.textContent="Checking…";}}
       else requestAnimationFrame(()=>input.focus({preventScroll:true}));
     }
@@ -8106,6 +8352,7 @@ The Machine`.split("\n")
               const input=$("boxOfficeSearch"),pending=$("boxSelectionPending");
               if(input){input.value=item.movie;input.classList.add("hidden");}
               st.selectedRank=item.rank;
+              st.searchDraft=item.movie;
               if(pending){pending.classList.add("hidden");pending.textContent="";}
               spellBtn.classList.add("hidden");
               const results=$("boxOfficeResults");
@@ -8133,6 +8380,7 @@ The Machine`.split("\n")
         return;
       }
       if(!st.guessedRanks.includes(selected))st.guessedRanks.push(selected);
+      st.selectedRank=null;st.searchDraft="";
       st.wrong+=1;st.hintLevel=Math.min(hintsLength(round),(st.hintLevel||0)+1);const hintNo=st.hintLevel;
       st.feedback=`No — ${d.movies[selected-1]} was #${selected}. It's on the board now.${hintNo?` Hint ${hintNo} unlocked.`:""}`;st.feedbackType="wrong";renderRound();return;
     }
@@ -8143,7 +8391,11 @@ The Machine`.split("\n")
         const clue=d.cast[st.clueIndex];
         if(sameAnswer(input,personAnswers(clue.person))){
           feedback(`Correct — ${clue.person}.`,`correct`);
-          setTimeout(()=>ensembleResolveCurrent(false),180);
+          const solvedIndex=st.clueIndex;
+          setTimeout(()=>{
+            if(!session||session.current!==st||st.phase!=="cast"||st.clueIndex!==solvedIndex)return;
+            ensembleResolveCurrent(false);
+          },180);
         }else{
           const spelling=typoCandidate(input,personAnswers(clue.person),clue.person);
           if(!spelling||!offerSpellingFix(spelling)) feedback("Not quite. Try again, skip this clue, or reveal the actor.","wrong");
