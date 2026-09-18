@@ -258,6 +258,8 @@
     .ensemble-clue-nav .give-up{border-color:rgba(227,106,90,.25);color:#d98c82;background:rgba(227,106,90,.045)}
     .ensemble-shared-cta{width:min(560px,100%);min-height:58px;border-radius:16px;background:var(--accent);color:#fff;font-weight:950;font-size:.98rem;letter-spacing:-.015em;box-shadow:0 10px 26px rgba(233,75,53,.18)}
     .ensemble-shared-cta:hover{background:var(--accent-dark)}
+
+    .ensemble-film-locked{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 11px;border-radius:12px;border:1px solid rgba(82,185,123,.22);background:rgba(82,185,123,.06);font-size:.7rem}.ensemble-film-locked span{color:var(--muted);font-weight:850;text-transform:uppercase;letter-spacing:.07em}.ensemble-film-locked strong{font-size:.78rem;color:var(--text);text-align:right}.ensemble-sheet-progress{color:var(--muted);font-size:.64rem;font-weight:850;white-space:nowrap}
     .ensemble-guess-nudge{display:grid;gap:3px;padding:10px 11px;border-radius:13px;border:1px solid rgba(241,184,75,.25);background:rgba(241,184,75,.07);text-align:left}
     .ensemble-guess-nudge-title{color:var(--gold);font-size:.72rem;font-weight:950;letter-spacing:-.01em}
     .ensemble-guess-nudge-copy{color:var(--muted);font-size:.67rem;line-height:1.3}
@@ -274,7 +276,7 @@
     .movie-search-input:focus{border-color:rgba(233,75,53,.65);box-shadow:0 0 0 3px rgba(233,75,53,.12)}
     .movie-search-results{width:100%;max-height:min(310px,42dvh);overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;touch-action:pan-y;scrollbar-gutter:stable;display:grid;gap:5px;padding:5px;border:1px solid var(--line);border-radius:13px;background:#211f1b;text-align:left}
     .movie-search-result{width:100%;min-height:38px;padding:7px 10px;border-radius:9px;background:rgba(246,239,223,.045);color:var(--text);text-align:left;font-size:.8rem;font-weight:760;border:1px solid transparent}
-    .movie-search-result:hover,.movie-search-result:focus{background:rgba(246,239,223,.085);border-color:rgba(246,239,223,.11);outline:none}
+    .movie-search-result:hover,.movie-search-result:focus,.movie-search-result.keyboard-active{background:rgba(241,184,75,.10);border-color:rgba(241,184,75,.42);outline:none}.movie-search-result.keyboard-active{box-shadow:inset 3px 0 0 rgba(241,184,75,.72)}
     .movie-search-results.selection-mode{max-height:none;overflow:visible;padding:0;border:0;background:transparent;scrollbar-gutter:auto}
     .movie-search-selected{padding:11px 12px;border-radius:13px;background:rgba(246,239,223,.07);border:1px solid rgba(246,239,223,.18);font-size:.8rem;font-weight:820;color:var(--text);box-shadow:inset 0 1px 0 rgba(255,255,255,.025)}
     .box-selected-row{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:12px;width:100%}
@@ -373,16 +375,16 @@
     .career-board{display:grid;gap:8px}
     .stage.career-stage{height:100%;max-height:100%;overflow:hidden;justify-content:flex-start;align-items:stretch}
     .stage.career-stage .career-wrap{height:100%;min-height:0;display:flex;flex-direction:column;gap:8px}
-    .stage.career-stage .career-board{flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain;padding-right:2px;scrollbar-gutter:stable}
+    .stage.career-stage .career-board{flex:1 1 auto;min-height:0;width:100%;overflow-y:auto;overscroll-behavior:contain;padding-right:0;scrollbar-gutter:auto}
     .stage.career-stage .career-drawer{flex:0 0 auto}
-    .career-row{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:10px;align-items:stretch;padding:9px;border:1px solid var(--line);border-radius:13px;background:rgba(246,239,223,.025)}
+    .career-row{width:100%;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:10px;align-items:stretch;padding:9px;border:1px solid var(--line);border-radius:13px;background:rgba(246,239,223,.025)}
     .career-row.correct{border-color:rgba(82,185,123,.35);background:rgba(82,185,123,.07)}
-    .career-label{display:flex;align-items:center;font-size:.76rem;font-weight:880;line-height:1.2}
-    .career-slot{min-height:48px;display:flex;align-items:center;justify-content:center;padding:8px 10px;border-radius:10px;border:1px dashed rgba(246,239,223,.20);background:rgba(246,239,223,.018);color:var(--muted);font-size:.72rem;font-weight:820;text-align:center;transition:border-color .14s ease,background .14s ease}
+    .career-label{min-width:0;display:flex;align-items:center;font-size:.76rem;font-weight:880;line-height:1.2}
+    .career-slot{width:100%;min-width:0;min-height:48px;display:flex;align-items:center;justify-content:center;padding:8px 10px;border-radius:10px;border:1px dashed rgba(246,239,223,.20);background:rgba(246,239,223,.018);color:var(--muted);font-size:.72rem;font-weight:820;text-align:center;transition:border-color .14s ease,background .14s ease,box-shadow .14s ease}
     .career-slot.filled{border-style:solid;border-color:rgba(124,151,219,.48);background:linear-gradient(180deg,rgba(74,102,164,.25),rgba(51,72,122,.20));color:var(--text)}
     .career-slot.correct{border-style:solid;border-color:rgba(82,185,123,.35);background:rgba(82,185,123,.08);color:var(--text)}
-    .career-slot.tap-ready{border-color:rgba(233,75,53,.65);background:rgba(233,75,53,.07)}
-    .career-slot.drag-over{border-color:rgba(233,75,53,.8);background:rgba(233,75,53,.11)}
+    .career-slot.tap-ready{border-color:rgba(105,153,255,.72);background:rgba(82,120,214,.10);box-shadow:inset 0 0 0 1px rgba(105,153,255,.08)}
+    .career-slot.drag-over{border-color:rgba(120,166,255,.95);background:rgba(82,120,214,.18);box-shadow:0 0 0 2px rgba(105,153,255,.13)}
     .career-slot.has-letter-hint{border-style:solid;border-color:rgba(241,184,75,.32);background:rgba(241,184,75,.055);color:var(--gold)}
     .career-letter-hint{display:inline-flex;align-items:center;gap:7px;font-size:.65rem;font-weight:850}
     .career-letter-hint span{color:var(--muted);font-weight:780}
@@ -396,7 +398,8 @@
     .career-pool.drag-scrolling{cursor:grabbing}
     .career-film{flex:0 0 min(190px,46vw);min-height:58px;display:flex;align-items:center;justify-content:center;padding:7px 9px;border-radius:11px;border:1px solid rgba(124,151,219,.48);background:linear-gradient(180deg,rgba(74,102,164,.30),rgba(51,72,122,.24));color:var(--text);font-size:.7rem;font-weight:820;line-height:1.18;text-align:left;box-shadow:inset 0 1px 0 rgba(255,255,255,.05)}.career-film .media-card{width:100%}.career-film .media-thumb{width:30px;height:44px;flex-basis:30px;border-radius:7px}.career-slot .media-card{width:100%;justify-content:center}.career-slot .media-thumb{width:28px;height:40px;flex-basis:28px;border-radius:6px}.career-slot .media-title{font-size:.65rem}
     .career-film.selected{border-color:rgba(233,75,53,.66);background:rgba(233,75,53,.11);box-shadow:0 0 0 2px rgba(233,75,53,.08)}
-    .career-film.dragging{opacity:.45}
+    .career-film.dragging,.match-value.dragging{opacity:.45;cursor:grabbing}
+    .match-slot.drag-over{border-color:rgba(120,166,255,.95);background:rgba(82,120,214,.18);box-shadow:0 0 0 2px rgba(105,153,255,.13)}
     .career-pool-empty{width:100%;padding:8px;color:var(--muted);font-size:.68rem;text-align:center}
     .matching-score-note{color:var(--muted);font-size:.63rem;line-height:1.35;text-align:center}
     .collab-grid{display:grid;gap:9px}
@@ -478,7 +481,7 @@
     .match-slot.active-field{border-color:rgba(241,184,75,.38);background:rgba(241,184,75,.045)}
     .match-slot.filled{border-style:solid;border-color:rgba(241,184,75,.38);background:rgba(241,184,75,.075);color:var(--text)}
     .match-slot.correct{border-style:solid;border-color:rgba(82,185,123,.34);background:rgba(82,185,123,.08);color:var(--text)}
-    .match-slot.tap-ready{border-color:rgba(233,75,53,.64);background:rgba(233,75,53,.075)}
+    .match-slot.tap-ready{border-color:rgba(105,153,255,.72);background:rgba(82,120,214,.10);box-shadow:inset 0 0 0 1px rgba(105,153,255,.08)}
     .match-slot-label{color:var(--muted);font-size:.52rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;line-height:1.05}
     .match-slot.correct .match-slot-label{color:var(--correct)}
     .match-slot-value{width:100%;font-size:.64rem;font-weight:790;line-height:1.16;overflow-wrap:anywhere}
@@ -522,11 +525,14 @@
       border-color:rgba(165,181,221,.74);
       background:linear-gradient(180deg,rgba(96,113,153,.80),rgba(62,75,108,.84));
     }
+    @media(hover:hover) and (pointer:fine){
+      .match-value[draggable="true"],.career-film[draggable="true"]{cursor:grab}
+    }
     .match-value.selected,
     .career-film.selected{
-      border-color:rgba(233,75,53,.82);
-      background:linear-gradient(180deg,rgba(154,72,72,.72),rgba(98,54,65,.78));
-      box-shadow:0 0 0 2px rgba(233,75,53,.10),inset 0 1px 0 rgba(255,255,255,.09),inset 0 -2px 0 rgba(8,10,18,.14);
+      border-color:rgba(125,170,255,.92);
+      background:linear-gradient(180deg,rgba(92,123,190,.88),rgba(56,78,130,.90));
+      box-shadow:0 0 0 2px rgba(105,153,255,.13),inset 0 1px 0 rgba(255,255,255,.10),inset 0 -2px 0 rgba(8,10,18,.14);
     }
     .match-slot.correct,
     .career-slot.correct{
@@ -754,10 +760,10 @@
       <div class="daily-head"><div class="section-label">Today's games</div><div class="daily-date" id="dailyDate"></div></div>
       <div class="daily-grid" id="dailyGrid">
         <button class="daily-card" data-daily-mode="title" type="button"><span class="daily-copy"><span class="daily-title">Title Link</span><span class="daily-desc">Find the word shared across movie titles.</span></span><span class="daily-status">Daily</span></button>
-        <button class="daily-card" data-daily-mode="ensemble" type="button"><span class="daily-copy"><span class="daily-title">Ensemble Cast</span><span class="daily-desc">Build the cast, then find the film.</span></span><span class="daily-status">Daily</span></button>
+        <button class="daily-card" data-daily-mode="ensemble" type="button"><span class="daily-copy"><span class="daily-title">Ensemble Cast</span><span class="daily-desc">Find every cast member and the shared film.</span></span><span class="daily-status">Daily</span></button>
         <button class="daily-card" data-daily-mode="boxoffice" type="button"><span class="daily-copy"><span class="daily-title">Box Office Charts</span><span class="daily-desc">Find the film at today's year and chart position.</span></span><span class="daily-status">Daily</span></button>
         <button class="daily-card" data-daily-mode="people" type="button"><span class="daily-copy"><span class="daily-title">Who's Who</span><span class="daily-desc">Match notable films, recent work, birthdays, birthplaces and awards.</span></span><span class="daily-status">Daily</span></button>
-        <button class="daily-card" data-daily-mode="career" type="button"><span class="daily-copy"><span class="daily-title">Career Résumé</span><span class="daily-desc">Match superlatives within one selected set of films.</span></span><span class="daily-status">Daily</span></button>
+        <button class="daily-card" data-daily-mode="career" type="button"><span class="daily-copy"><span class="daily-title">Filmography</span><span class="daily-desc">Match superlatives within one selected set of films.</span></span><span class="daily-status">Daily</span></button>
         <button class="daily-card" data-daily-mode="collab" type="button"><span class="daily-copy"><span class="daily-title">Frequent Collaborators</span><span class="daily-desc">Find recurring collaborators, then name their shared films.</span></span><span class="daily-status">Daily</span></button>
         <button class="daily-card" data-daily-mode="statham" type="button"><span class="daily-copy"><span class="daily-title">Six Degrees Through Jason Statham</span><span class="daily-desc">Build your own film-by-film chain between two people, passing through Jason Statham.</span></span><span class="daily-status">Daily</span></button>
       </div>
@@ -5970,9 +5976,9 @@ The Machine`.split("\n")
   const progressTrack = document.querySelector(".progress-track");
   const modeName = $("modeName"), roundKicker = $("roundKicker"), scorePill = $("scorePill");
   const DAILY_MODES = ["title","ensemble","boxoffice","people","career","collab","statham"];
-  const MODE_NAMES = {ensemble:"Ensemble Cast",title:"Title Link",boxoffice:"Box Office Charts",people:"Who's Who",career:"Career Résumé",collab:"Frequent Collaborators",statham:"Six Degrees Through Jason Statham"};
+  const MODE_NAMES = {ensemble:"Ensemble Cast",title:"Title Link",boxoffice:"Box Office Charts",people:"Who's Who",career:"Filmography",collab:"Frequent Collaborators",statham:"Six Degrees Through Jason Statham"};
   const GAME_DESCRIPTIONS = {
-    ensemble:"Build the cast, then find the film.",
+    ensemble:"Find every cast member and the shared film.",
     title:"Find the word shared across movie titles.",
     boxoffice:"Find the film at today's year and chart position.",
     people:"Match notable films, recent work, birthdays, birthplaces and awards.",
@@ -5981,7 +5987,7 @@ The Machine`.split("\n")
     statham:"Build your own film-by-film chain between two people, passing through Jason Statham."
   };
   const GAME_PREMISES = {
-    ensemble:"Guess a movie by building its cast. Identify cast members from two other films they appeared in.",
+    ensemble:"Complete the whole cast sheet: identify every cast member from their two films, and fill in the shared film.",
     title:"Find the word shared across movie titles. Reveal more actors only when you need another clue.",
     boxoffice:"Guess the film at a specific box-office rank for the year. Wrong guesses show where that film actually placed.",
     people:"Match each film person to their facts. Some film cards overlap, so use the whole board to narrow them down.",
@@ -6676,6 +6682,7 @@ The Machine`.split("\n")
 
     rail.addEventListener("pointerdown",event=>{
       if(event.pointerType!=="mouse"||event.button!==0)return;
+      if(event.target?.closest?.('[draggable="true"]'))return;
       pointerId=event.pointerId;
       startX=event.clientX;
       startScroll=rail.scrollLeft;
@@ -6712,6 +6719,10 @@ The Machine`.split("\n")
       event.preventDefault();
       event.stopPropagation();
     },true);
+  }
+
+  function desktopDragEnabled(){
+    try{return !!window.matchMedia?.("(hover:hover) and (pointer:fine)")?.matches;}catch(_){return false;}
   }
 
   function personAnswers(person){
@@ -6875,9 +6886,9 @@ The Machine`.split("\n")
     for(const set of shuffle(CAREER_MATCH,rng)){
       const validation=validateCareerRoundData(set);
       if(validation.ok)return set;
-      console.warn("Rejected Career Résumé round:",validation.reason,set?.person);
+      console.warn("Rejected Filmography round:",validation.reason,set?.person);
     }
-    throw new Error("Career Résumé has no valid rounds. Each category needs a different movie.");
+    throw new Error("Filmography has no valid rounds. Each category needs a different movie.");
   }
   window.validateCareerResumeRounds=()=>CAREER_MATCH.map((set,index)=>({index,person:set.person,...validateCareerRoundData(set)}));
 
@@ -6900,6 +6911,7 @@ The Machine`.split("\n")
   function makeDailyRound(type){return makeRound(type,seededRng(`${todayKey()}|${type}|filmden-daily-9-unique-crossovers`));}
   function makeInfiniteRound(mode){return makeRound(mode);}
   function roundMaxScore(round){
+    if(round.type==="ensemble") return (round.data.cast?.length||5)+1;
     if(round.type==="boxoffice") return 5;
     if(round.type==="people") return round.data.fields.length;
     if(round.type==="career") return round.data.categories.length;
@@ -6931,7 +6943,7 @@ The Machine`.split("\n")
     overlay.classList.add("hidden"); bottom.classList.remove("hidden"); loadRound();
   }
   function initRoundState(round){
-    if(round.type==="ensemble") return {done:false,phase:"cast",clueIndex:0,resolvedClues:[],people:[],castReveals:0,actorHintLevels:{},actorHintsUsed:0,actorDrafts:{},filmDraft:"",points:0,finalRevealed:false,feedback:"",feedbackType:""};
+    if(round.type==="ensemble") return {done:false,phase:"cast",clueIndex:0,resolvedClues:[],people:[],castReveals:0,actorHintLevels:{},actorHintsUsed:0,actorDrafts:{},filmDraft:"",filmSolved:false,filmRevealed:false,mistakes:0,points:0,finalRevealed:false,feedback:"",feedbackType:""};
     if(round.type==="boxoffice") return {done:false,guessedRanks:[],wrong:0,hintLevel:0,manualHints:0,selectedRank:null,searchDraft:"",points:0,revealed:false,feedback:"",feedbackType:""};
     if(round.type==="people"){
       const pools=Object.fromEntries(round.data.fields.map((field,i)=>[field.id,shuffle(round.data.people.map((p,owner)=>({owner,value:p[field.id]})),seededRng(`${Date.now()}|${i}|${Math.random()}`))]));
@@ -7024,12 +7036,31 @@ The Machine`.split("\n")
     const chips=st.people.length
       ? st.people.map(person=>`<div class="ensemble-cast-chip">${personMarkup(person,{size:"tiny"})}</div>`).join("")
       : `<div class="ensemble-cast-empty">Solve a cast clue and the name will appear here.</div>`;
-    const guess=withGuess&&st.people.length
-      ? `<button class="ensemble-shared-cta" id="ensembleGuessSharedBtn" type="button">Guess film →</button>`
+    const filmStatus=st.filmSolved
+      ? `<div class="ensemble-film-locked"><span>Shared film</span><strong>${escapeHtml(d.film)}</strong></div>`
       : "";
-    return `<section class="ensemble-cast-strip"><div class="ensemble-section-head"><div><div class="ensemble-section-title">Cast found</div><div class="ensemble-section-meta">${st.people.length} of ${d.cast.length}</div></div></div><div class="ensemble-cast">${chips}</div>${guess}</section>`;
+    const guess=withGuess&&st.people.length&&!st.filmSolved
+      ? `<button class="ensemble-shared-cta" id="ensembleGuessSharedBtn" type="button">Fill in shared film →</button>`
+      : "";
+    return `<section class="ensemble-cast-strip"><div class="ensemble-section-head"><div><div class="ensemble-section-title">Cast found</div><div class="ensemble-section-meta">${st.people.length} of ${d.cast.length}</div></div><div class="ensemble-sheet-progress">${st.people.length+(st.filmSolved?1:0)} / ${d.cast.length+1} filled</div></div><div class="ensemble-cast">${chips}</div>${filmStatus}${guess}</section>`;
   }
-  function ensemblePoints(st){return Math.max(1,4-Math.max(0,st.people.length-2)-st.castReveals-(st.actorHintsUsed||0));}
+  function ensemblePoints(st,d){
+    const max=(d?.cast?.length||5)+1;
+    const penalty=(st.mistakes||0)+(st.actorHintsUsed||0)+(st.castReveals||0)*2+(st.filmRevealed?2:0);
+    return Math.max(0,max-penalty);
+  }
+  function ensembleMaybeComplete(round){
+    const st=session.current,d=round.data;
+    const castComplete=ensembleUnresolvedIndices(st,d).length===0;
+    if(!castComplete||!st.filmSolved||st.done)return false;
+    st.points=ensemblePoints(st,d);
+    st.phase="done";st.done=true;st.feedback="";st.feedbackType="";
+    completeCurrentRound(st.points,!st.filmRevealed&&!(st.castReveals||0));
+    stage.scrollTop=0;
+    renderRound();
+    requestAnimationFrame(()=>{stage.scrollTop=0;});
+    return true;
+  }
   function ensembleActorHintText(clue,level){
     const parts=String(clue?.person||"").trim().split(/\s+/).filter(Boolean);
     if(!parts.length||level<=0)return "";
@@ -7087,7 +7118,10 @@ The Machine`.split("\n")
     if(revealed){st.castReveals+=1;session.revealed+=1;}
     st.feedback=`${revealed?"Revealed":"Added"} ${clue.person} to the cast.`;st.feedbackType="correct";
     const open=ensembleUnresolvedIndices(st,d);
-    if(!open.length){st.phase="guess";renderRound();return;}
+    if(!open.length){
+      if(ensembleMaybeComplete(round))return;
+      st.phase="guess";renderRound();return;
+    }
     const after=open.find(i=>i>idx);
     st.clueIndex=after!==undefined?after:open[0];
     renderRound();
@@ -7095,20 +7129,20 @@ The Machine`.split("\n")
   function revealCurrentEnsembleActor(){ ensembleResolveCurrent(true); }
   function giveUpEnsembleFilm(){
     if(!session)return;
-    const round=session.rounds[session.index],st=session.current;
-    if(round?.type!=="ensemble"||!st||st.done||st.phase!=="guess")return;
+    const round=session.rounds[session.index],st=session.current,d=round.data;
+    if(round?.type!=="ensemble"||!st||st.done||st.phase!=="guess"||st.filmSolved)return;
     session.revealed+=1;
-    st.points=0;st.finalRevealed=true;st.phase="done";st.done=true;st.feedback="";st.feedbackType="";
-    completeCurrentRound(0,false);
-    stage.scrollTop=0;
-    renderRound();
-    requestAnimationFrame(()=>{stage.scrollTop=0;});
+    st.filmSolved=true;st.filmRevealed=true;st.finalRevealed=true;st.filmDraft=d.film;
+    st.feedback=`Film revealed — ${d.film}.`;st.feedbackType="near";
+    if(ensembleMaybeComplete(round))return;
+    const open=ensembleUnresolvedIndices(st,d);
+    if(open.length){st.clueIndex=open[0];st.phase="cast";renderRound();}
   }
   function renderEnsemble(round){
     const st=session.current,d=round.data;
     if(st.phase==="cast"){
       const open=ensembleUnresolvedIndices(st,d);
-      if(!open.length){st.phase="guess";renderEnsemble(round);return;}
+      if(!open.length){if(ensembleMaybeComplete(round))return;st.phase="guess";renderEnsemble(round);return;}
       if(!open.includes(st.clueIndex))st.clueIndex=open[0];
       const clue=d.cast[st.clueIndex];
       const solved=(st.resolvedClues||[]).length;
@@ -7126,16 +7160,16 @@ The Machine`.split("\n")
     }
     if(st.phase==="guess"){
       const open=ensembleUnresolvedIndices(st,d),canAdd=open.length>0;
-      stage.innerHTML=`<div class="stage-label">ENSEMBLE CAST</div>${gamePremiseMarkup("ensemble")}<section class="ensemble-guess-panel"><div class="ensemble-step-label">Guess the film</div>${ensembleBoard(st,d,false)}<h2 class="question small">What film are they all in?</h2>${inputPanel("Movie title",st.filmDraft||"")}<div class="game-assist-actions"><button class="game-assist-btn hint" id="ensembleFilmHintBtn" type="button" ${canAdd?'':'disabled'}>${canAdd?'Back to cast clues':'No cast clues left'}</button><button class="game-assist-btn give-up" id="ensembleFilmGiveUpBtn" type="button">Give up · reveal film</button></div></section>`;
+      stage.innerHTML=`<div class="stage-label">ENSEMBLE CAST</div>${gamePremiseMarkup("ensemble")}<section class="ensemble-guess-panel"><div class="ensemble-step-label">Fill in the shared film</div>${ensembleBoard(st,d,false)}<h2 class="question small">What film are they all in?</h2>${inputPanel("Movie title",st.filmDraft||"")}<div class="game-assist-actions"><button class="game-assist-btn hint" id="ensembleFilmHintBtn" type="button" ${canAdd?'':'disabled'}>${canAdd?'Back to cast clues':'No cast clues left'}</button><button class="game-assist-btn give-up" id="ensembleFilmGiveUpBtn" type="button">Reveal film</button></div></section>`;
       $("answerInput")?.addEventListener("input",event=>{st.filmDraft=event.target.value;});
       $("ensembleFilmHintBtn")?.addEventListener("click",backToCastClue);
       $("ensembleFilmGiveUpBtn")?.addEventListener("click",giveUpEnsembleFilm);
       const fb=$("feedback");if(fb&&st.feedback){fb.textContent=st.feedback;fb.className=`feedback ${st.feedbackType||''}`;}
-      primaryBtn.disabled=false;primaryBtn.textContent="Submit film guess";primaryBtn.onclick=submitAnswer;
+      primaryBtn.disabled=false;primaryBtn.textContent="Check film";primaryBtn.onclick=submitAnswer;
       secondaryBtn.classList.add("hidden");secondaryBtn.onclick=null;return;
     }
-    const ensembleDetail=`Shared film · solved with ${st.people.length} cast member${st.people.length===1?'':'s'}${st.castReveals?` · ${st.castReveals} actor reveal${st.castReveals===1?'':'s'}`:''}`;
-    stage.innerHTML=`<div class="stage-label">ENSEMBLE CAST COMPLETE</div>${roundCompleteHero(d.film,ensembleDetail,st.points,4)}<div class="reveal-card"><div class="reveal-label">The shared film</div><div style="display:flex;justify-content:center">${movieMarkup(d.film,{meta:"Shared film"})}</div></div>${ensembleBoard(st,d)}`;
+    const ensembleDetail=`Full sheet complete · ${st.mistakes||0} mistake${(st.mistakes||0)===1?'':'s'}${st.actorHintsUsed?` · ${st.actorHintsUsed} hint${st.actorHintsUsed===1?'':'s'}`:''}${st.castReveals?` · ${st.castReveals} cast reveal${st.castReveals===1?'':'s'}`:''}${st.filmRevealed?' · film revealed':''}`;
+    stage.innerHTML=`<div class="stage-label">ENSEMBLE CAST COMPLETE</div>${roundCompleteHero(d.film,ensembleDetail,st.points,d.cast.length+1)}<div class="reveal-card"><div class="reveal-label">The shared film</div><div style="display:flex;justify-content:center">${movieMarkup(d.film,{meta:"Shared film"})}</div></div>${ensembleBoard(st,d)}`;
     activateRoundCompleteUI();
   }
   function requestAnotherCast(){ backToCastClue(); }
@@ -7242,10 +7276,34 @@ The Machine`.split("\n")
     const input=$("boxOfficeSearch"),results=$("boxOfficeResults"),pending=$("boxSelectionPending"),spellBtn=$("boxSpellingFixBtn");
     if(!input||!results)return;
     const available=boxOfficeAvailableMovies(round,st);
+    let activeIndex=-1;
+    const resultButtons=()=>[...results.querySelectorAll('[data-box-rank]')];
+    const clearActive=()=>{
+      activeIndex=-1;
+      input.removeAttribute("aria-activedescendant");
+      resultButtons().forEach(btn=>{btn.classList.remove("keyboard-active");btn.setAttribute("aria-selected","false");});
+    };
+    const setActive=(index)=>{
+      const buttons=resultButtons();
+      if(!buttons.length){clearActive();return;}
+      const next=((Number(index)||0)%buttons.length+buttons.length)%buttons.length;
+      buttons.forEach((btn,i)=>{
+        const active=i===next;
+        btn.classList.toggle("keyboard-active",active);
+        btn.setAttribute("aria-selected",active?"true":"false");
+      });
+      activeIndex=next;
+      const btn=buttons[next];
+      if(!btn.id)btn.id=`boxOfficeOption-${btn.dataset.boxRank||next}`;
+      input.setAttribute("aria-activedescendant",btn.id);
+      btn.scrollIntoView({block:"nearest"});
+    };
     const showSelection=(rank)=>{
       if(!rank)return;
       const title=round.data.movies[rank-1];
       st.selectedRank=rank;
+      activeIndex=-1;
+      input.removeAttribute("aria-activedescendant");
       input.value=title;
       input.classList.add("hidden");
       results.classList.add("selection-mode");
@@ -7257,6 +7315,8 @@ The Machine`.split("\n")
     };
     const clearSelection=()=>{
       st.selectedRank=null;
+      activeIndex=-1;
+      input.removeAttribute("aria-activedescendant");
       input.classList.remove("hidden");
       results.classList.remove("selection-mode");
       if(pending){pending.classList.add("hidden");pending.textContent="";}
@@ -7265,14 +7325,47 @@ The Machine`.split("\n")
       primaryBtn.textContent="Guess";
     };
     const draw=()=>{
-      const q=norm(input.value);clearSelection();
+      const q=norm(input.value);
+      clearSelection();
       results.classList.remove("selection-mode");
       const matches=available.filter(item=>!q||norm(item.movie).includes(q));
-      results.innerHTML=matches.length?matches.map(item=>`<button class="movie-search-result" type="button" data-box-rank="${item.rank}">${movieMarkup(item.movie,{size:"tiny",year:round.data.year})}</button>`).join(""):`<div class="movie-search-empty">No matching movies.</div>`;
+      results.innerHTML=matches.length?matches.map(item=>`<button class="movie-search-result" id="boxOfficeOption-${item.rank}" role="option" aria-selected="false" type="button" data-box-rank="${item.rank}">${movieMarkup(item.movie,{size:"tiny",year:round.data.year})}</button>`).join(""):`<div class="movie-search-empty">No matching movies.</div>`;
+      clearActive();
       hydrateMedia(results);
     };
     input.addEventListener("input",()=>{st.searchDraft=input.value;draw();});
     input.addEventListener("focus",()=>{if(st.selectedRank)return;draw();});
+    input.addEventListener("keydown",e=>{
+      if(e.key==="ArrowDown"){
+        e.preventDefault();
+        const buttons=resultButtons();
+        if(buttons.length)setActive(activeIndex<0?0:activeIndex+1);
+        return;
+      }
+      if(e.key==="ArrowUp"){
+        e.preventDefault();
+        const buttons=resultButtons();
+        if(buttons.length)setActive(activeIndex<0?buttons.length-1:activeIndex-1);
+        return;
+      }
+      if(e.key==="Enter"){
+        e.preventDefault();
+        const buttons=resultButtons();
+        const active=activeIndex>=0?buttons[activeIndex]:null;
+        const rank=Number(active?.dataset?.boxRank||0);
+        if(rank){
+          st.selectedRank=rank;
+          st.searchDraft=round.data.movies[rank-1]||"";
+        }
+        submitAnswer();
+      }
+    });
+    results.addEventListener("mousemove",e=>{
+      const btn=e.target.closest?.("[data-box-rank]");
+      if(!btn)return;
+      const buttons=resultButtons(),index=buttons.indexOf(btn);
+      if(index>=0&&index!==activeIndex)setActive(index);
+    });
     results.addEventListener("click",e=>{
       if(e.target.closest("[data-box-submit]")){submitAnswer();return;}
       if(e.target.closest("[data-box-change]")){
@@ -7327,7 +7420,7 @@ The Machine`.split("\n")
       st.focusRank=null;
       activateRoundCompleteUI();return;
     }
-    stage.innerHTML=`<div class="stage-label">BOX OFFICE CHARTS</div>${gamePremiseMarkup("boxoffice")}<div class="boxoffice-hero"><div class="boxoffice-year"><div><div class="boxoffice-year-value">${d.year}</div><div class="boxoffice-mini-label">Release year</div></div></div><div class="boxoffice-rank"><div><div class="boxoffice-rank-value">#${d.targetRank}</div><div class="boxoffice-mini-label">Domestic rank</div></div></div></div><h2 class="question small">Which film finished ${ordinal(d.targetRank)}?</h2>${renderBoxOfficeHints(round,st)}<div class="game-assist-actions"><button class="game-assist-btn hint" id="boxHintBtn" type="button" ${(st.hintLevel||0)>=hintsLength(round)?'disabled':''}>Hint${(st.hintLevel||0)?` · ${Math.max(0,hintsLength(round)-(st.hintLevel||0))} left`:''}</button><button class="game-assist-btn give-up" id="boxGiveUpBtn" type="button">Give up · reveal answer</button></div>${renderBoxChart(round,st,false)}<div class="answer-panel"><div class="movie-search"><input class="movie-search-input" id="boxOfficeSearch" type="search" autocomplete="off" spellcheck="false" placeholder="Search movies from ${d.year}…" aria-label="Search movies released in ${d.year}" /><div class="movie-search-results" id="boxOfficeResults"></div></div><div class="box-selection-pending hidden" id="boxSelectionPending"></div><div class="feedback ${st.feedbackType||''}" id="feedback">${st.feedback||''}</div><button class="spelling-fix hidden" id="boxSpellingFixBtn" type="button">Fix my spelling</button></div><div class="source-note">North American cumulative domestic gross · top 50 films released in ${d.year}.</div>`;
+    stage.innerHTML=`<div class="stage-label">BOX OFFICE CHARTS</div>${gamePremiseMarkup("boxoffice")}<div class="boxoffice-hero"><div class="boxoffice-year"><div><div class="boxoffice-year-value">${d.year}</div><div class="boxoffice-mini-label">Release year</div></div></div><div class="boxoffice-rank"><div><div class="boxoffice-rank-value">#${d.targetRank}</div><div class="boxoffice-mini-label">Domestic rank</div></div></div></div><h2 class="question small">Which film finished ${ordinal(d.targetRank)}?</h2>${renderBoxChart(round,st,false)}<div class="game-assist-actions"><button class="game-assist-btn hint" id="boxHintBtn" type="button" ${(st.hintLevel||0)>=hintsLength(round)?'disabled':''}>Hint${(st.hintLevel||0)?` · ${Math.max(0,hintsLength(round)-(st.hintLevel||0))} left`:''}</button><button class="game-assist-btn give-up" id="boxGiveUpBtn" type="button">Give up · reveal answer</button></div>${renderBoxOfficeHints(round,st)}<div class="answer-panel"><div class="movie-search"><input class="movie-search-input" id="boxOfficeSearch" type="search" autocomplete="off" spellcheck="false" placeholder="Search movies from ${d.year}…" aria-label="Search movies released in ${d.year}" aria-controls="boxOfficeResults" aria-autocomplete="list" /><div class="movie-search-results" id="boxOfficeResults" role="listbox"></div></div><div class="box-selection-pending hidden" id="boxSelectionPending"></div><div class="feedback ${st.feedbackType||''}" id="feedback">${st.feedback||''}</div><button class="spelling-fix hidden" id="boxSpellingFixBtn" type="button">Fix my spelling</button></div><div class="source-note">North American cumulative domestic gross · top 50 films released in ${d.year}.</div>`;
     setupBoxOfficeSearch(round,st);
     if(st.focusRank){
       const rank=st.focusRank;
@@ -7432,7 +7525,8 @@ The Machine`.split("\n")
     const activeAssignments=Object.entries(st.assignments).filter(([key])=>key.startsWith(`${active.id}:`));
     const usedOwners=new Set(activeAssignments.map(([,owner])=>Number(owner)));
     const remaining=activePool.filter(item=>!usedOwners.has(item.owner));
-    const poolHtml=remaining.length?remaining.map(item=>`<button class="match-value ${st.selected===item.owner?'selected':''}" type="button" data-match-value="${item.owner}">${peoplePoolValueMarkup(active,item.value)}</button>`).join(""):`<div class="match-pool-empty">All ${active.label.toLowerCase()} cards are placed.</div>`;
+    const canDrag=desktopDragEnabled();
+    const poolHtml=remaining.length?remaining.map(item=>`<button class="match-value ${st.selected===item.owner?'selected':''}" type="button" draggable="${canDrag?'true':'false'}" data-match-value="${item.owner}">${peoplePoolValueMarkup(active,item.value)}</button>`).join(""):`<div class="match-pool-empty">All ${active.label.toLowerCase()} cards are placed.</div>`;
     const correctCount=d.fields.filter(field=>peopleFieldComplete(round,st,field.id)).length;
     stage.innerHTML=`<div class="stage-label">WHO'S WHO · ${correctCount}/${d.fields.length} CATEGORIES COMPLETE</div>${gamePremiseMarkup("people")}<div class="people-match-wrap"><div class="match-board">${rows}</div><div class="match-drawer"><div class="match-drawer-nav"><button class="match-drawer-arrow" id="matchPrevField" type="button" aria-label="Previous fact type">‹</button><div class="match-drawer-heading"><div class="match-category-name">${active.label}</div><div class="match-category-count">${st.activeFieldIndex+1} of ${d.fields.length} · choose a card, then a slot</div></div><button class="match-drawer-arrow" id="matchNextField" type="button" aria-label="Next fact type">›</button></div><div class="match-pool">${poolHtml}</div>${scoreBudgetMarkup(matchingBoardScore(d.fields.length,st.checks||0,st.revealedFields.length,st.hintsUsed||0),d.fields.length)}<div class="game-assist-actions"><button class="game-assist-btn hint" id="peopleHintBtn" type="button" ${peopleFieldComplete(round,st,active.id)?'disabled':''}>Hint · lock one match</button><button class="game-assist-btn give-up" id="peopleGiveUpBtn" type="button" ${peopleFieldComplete(round,st,active.id)?'disabled':''}>Give up · reveal ${active.label}</button></div><div class="match-feedback ${st.feedbackType||''}">${st.feedback||''}</div></div></div>`;
     enableHorizontalGrabScroll(stage.querySelector(".match-pool"));
@@ -7440,22 +7534,49 @@ The Machine`.split("\n")
     $("matchNextField")?.addEventListener("click",()=>peopleAdvanceDrawer(round,st,1));
     $("peopleHintBtn")?.addEventListener("click",hintPeopleField);
     $("peopleGiveUpBtn")?.addEventListener("click",revealPeopleField);
-    stage.querySelectorAll("[data-match-value]").forEach(btn=>btn.addEventListener("click",()=>{
-      st.selected=Number(btn.dataset.matchValue);st.feedback="";st.feedbackType="";
-      stage.querySelectorAll("[data-match-value]").forEach(other=>other.classList.toggle("selected",other===btn));
-      stage.querySelectorAll(`.match-slot[data-match-field="${active.id}"]:not(.correct)`).forEach(slot=>slot.classList.add("tap-ready"));
-      const feedbackEl=stage.querySelector(".match-feedback");if(feedbackEl){feedbackEl.textContent="";feedbackEl.className="match-feedback";}
-    }));
-    stage.querySelectorAll("[data-match-field][data-match-person]").forEach(btn=>btn.addEventListener("click",()=>{
-      const fieldId=btn.dataset.matchField,personIndex=Number(btn.dataset.matchPerson),key=peopleSlotKey(fieldId,personIndex);
-      if(locked.has(key))return;
-      if(fieldId!==active.id){const idx=d.fields.findIndex(field=>field.id===fieldId);if(idx>=0)st.activeFieldIndex=idx;st.selected=null;st.feedback="";st.feedbackType="";renderPeopleMatch(round);return;}
-      if(st.selected===null){if(st.assignments[key]!==undefined){delete st.assignments[key];renderPeopleMatch(round);}return;}
-      for(const existingKey of Object.keys(st.assignments)){
-        if(existingKey.startsWith(`${active.id}:`)&&Number(st.assignments[existingKey])===st.selected&&!locked.has(existingKey))delete st.assignments[existingKey];
+    stage.querySelectorAll("[data-match-value]").forEach(btn=>{
+      btn.addEventListener("click",()=>{
+        st.selected=Number(btn.dataset.matchValue);st.feedback="";st.feedbackType="";
+        stage.querySelectorAll("[data-match-value]").forEach(other=>other.classList.toggle("selected",other===btn));
+        stage.querySelectorAll(`.match-slot[data-match-field="${active.id}"]:not(.correct)`).forEach(slot=>slot.classList.add("tap-ready"));
+        const feedbackEl=stage.querySelector(".match-feedback");if(feedbackEl){feedbackEl.textContent="";feedbackEl.className="match-feedback";}
+      });
+      if(canDrag){
+        btn.addEventListener("dragstart",event=>{
+          btn.classList.add("dragging");
+          const owner=btn.dataset.matchValue||"";
+          event.dataTransfer?.setData("application/x-filmden-who-owner",owner);
+          event.dataTransfer?.setData("text/plain",owner);
+          if(event.dataTransfer)event.dataTransfer.effectAllowed="move";
+        });
+        btn.addEventListener("dragend",()=>btn.classList.remove("dragging"));
       }
-      st.assignments[key]=st.selected;st.selected=null;st.feedback="";st.feedbackType="";renderPeopleMatch(round);
-    }));
+    });
+    stage.querySelectorAll("[data-match-field][data-match-person]").forEach(btn=>{
+      const fieldId=btn.dataset.matchField,personIndex=Number(btn.dataset.matchPerson),key=peopleSlotKey(fieldId,personIndex);
+      const placeOwner=owner=>{
+        if(locked.has(key)||fieldId!==active.id||owner===null||Number.isNaN(owner))return;
+        for(const existingKey of Object.keys(st.assignments)){
+          if(existingKey.startsWith(`${active.id}:`)&&Number(st.assignments[existingKey])===owner&&!locked.has(existingKey))delete st.assignments[existingKey];
+        }
+        st.assignments[key]=owner;st.selected=null;st.feedback="";st.feedbackType="";renderPeopleMatch(round);
+      };
+      btn.addEventListener("click",()=>{
+        if(locked.has(key))return;
+        if(fieldId!==active.id){const idx=d.fields.findIndex(field=>field.id===fieldId);if(idx>=0)st.activeFieldIndex=idx;st.selected=null;st.feedback="";st.feedbackType="";renderPeopleMatch(round);return;}
+        if(st.selected===null){if(st.assignments[key]!==undefined){delete st.assignments[key];renderPeopleMatch(round);}return;}
+        placeOwner(Number(st.selected));
+      });
+      if(canDrag&&fieldId===active.id&&!locked.has(key)){
+        btn.addEventListener("dragover",event=>{event.preventDefault();btn.classList.add("drag-over");if(event.dataTransfer)event.dataTransfer.dropEffect="move";});
+        btn.addEventListener("dragleave",()=>btn.classList.remove("drag-over"));
+        btn.addEventListener("drop",event=>{
+          event.preventDefault();btn.classList.remove("drag-over");
+          const raw=event.dataTransfer?.getData("application/x-filmden-who-owner")||event.dataTransfer?.getData("text/plain")||"";
+          if(raw!=="")placeOwner(Number(raw));
+        });
+      }
+    });
     const drafts=peoplePlacedDrafts(st), openKeys=[];
     for(const field of d.fields)for(let personIndex=0;personIndex<d.people.length;personIndex++){const key=peopleSlotKey(field.id,personIndex);if(!locked.has(key))openKeys.push(key);}
     primaryBtn.disabled=drafts.length===0;primaryBtn.textContent=drafts.length&&drafts.length===openKeys.length?"Check full board":"Check placed cards";primaryBtn.onclick=checkPeopleMatches;
@@ -7637,7 +7758,7 @@ The Machine`.split("\n")
     if(st.done){
       const rows=d.categories.map((c,i)=>`<div class="career-row correct"><div class="career-label">${escapeHtml(c.label)}</div><div class="career-slot correct">${movieMarkup(c.answer,{size:"tiny"})}</div></div>`).join("");
       const careerDetail=`${d.person} · ${st.checks||0} check${st.checks===1?'':'s'}${st.reveals?` · ${st.reveals} reveal${st.reveals===1?"":"s"}`:""}${st.hintsUsed?` · ${st.hintsUsed} hint${st.hintsUsed===1?"":"s"}`:""}`;
-      stage.innerHTML=`<div class="stage-label">CAREER RÉSUMÉ COMPLETE</div>${roundCompleteHero("Résumé complete",careerDetail,st.points,d.categories.length)}<div class="career-board">${rows}</div><div class="subcopy">Every comparison was only among this round's selected films.</div>`;
+      stage.innerHTML=`<div class="stage-label">FILMOGRAPHY COMPLETE</div>${roundCompleteHero("Filmography complete",careerDetail,st.points,d.categories.length)}<div class="career-board">${rows}</div><div class="subcopy">Every comparison was only among this round's selected films.</div>`;
       activateRoundCompleteUI();return;
     }
     const used=careerUsedMovies(st);
@@ -7648,18 +7769,21 @@ The Machine`.split("\n")
       return `<div class="career-row ${isLocked?'correct':''}" data-career-row="${i}"><div class="career-label">${escapeHtml(c.label)}</div><button class="${classes}" type="button" data-career-slot="${i}" ${isLocked?'disabled':''}>${value?movieMarkup(value,{size:'tiny'}):emptyCopy}</button></div>`;
     }).join("");
     const remaining=d.films.filter(movie=>!used.has(movie));
-    const pool=remaining.length?remaining.map(movie=>`<button class="career-film ${st.selected===movie?'selected':''}" type="button" draggable="true" data-career-movie="${escapeAttr(movie)}">${movieMarkup(movie,{size:'tiny'})}</button>`).join(""):`<div class="career-pool-empty">All movies are placed. Check the board or tap a placed movie to return it to the pool.</div>`;
+    const canDrag=desktopDragEnabled();
+    const pool=remaining.length?remaining.map(movie=>`<button class="career-film ${st.selected===movie?'selected':''}" type="button" draggable="${canDrag?'true':'false'}" data-career-movie="${escapeAttr(movie)}">${movieMarkup(movie,{size:'tiny'})}</button>`).join(""):`<div class="career-pool-empty">All movies are placed. Check the board or tap a placed movie to return it to the pool.</div>`;
     const open=careerOpenIndices(round,st),drafts=careerDraftIndices(st);
     const hintable=d.categories.some((_,i)=>!locked.has(i)&&!(st.hinted||{})[i]);
-    stage.innerHTML=`<div class="stage-label">CAREER RÉSUMÉ</div>${gamePremiseMarkup("career")}<div class="career-wrap"><div class="career-person"><div class="career-person-name">${escapeHtml(d.person)}</div><button class="career-info-btn" id="careerInfoBtn" type="button" aria-label="About Career Résumé" aria-expanded="false">i</button></div><div class="career-info-panel hidden" id="careerInfoPanel"><strong>Only among these ${d.films.length} films.</strong> These are not career records. Every category compares only this round's selected collection, and each movie is used exactly once.</div><div class="career-board">${rows}</div><div class="career-drawer"><div class="career-drawer-head"><div class="career-drawer-title">Movies</div><div class="career-drawer-meta">${remaining.length} unplaced · ${st.checks||0} check${st.checks===1?'':'s'}</div></div><div class="career-pool" id="careerPool">${pool}</div>${scoreBudgetMarkup(matchingBoardScore(d.categories.length,st.checks||0,st.reveals||0,st.hintsUsed||0),d.categories.length)}<div class="game-assist-actions"><button class="game-assist-btn hint" id="careerHintBtn" type="button" ${hintable?'':'disabled'}>${hintable?'Hint · first letter':'First letters shown'}</button><button class="game-assist-btn give-up" id="careerGiveUpBtn" type="button">Give up · reveal one movie</button></div><div class="feedback ${st.feedbackType||''}">${st.feedback||''}</div></div></div>`;
+    stage.innerHTML=`<div class="stage-label">FILMOGRAPHY</div>${gamePremiseMarkup("career")}<div class="career-wrap"><div class="career-person"><div class="career-person-name">${escapeHtml(d.person)}</div><button class="career-info-btn" id="careerInfoBtn" type="button" aria-label="About Filmography" aria-expanded="false">i</button></div><div class="career-info-panel hidden" id="careerInfoPanel"><strong>Only among these ${d.films.length} films.</strong> These are not career records. Every category compares only this round's selected collection, and each movie is used exactly once.</div><div class="career-board">${rows}</div><div class="career-drawer"><div class="career-drawer-head"><div class="career-drawer-title">Movies</div><div class="career-drawer-meta">${remaining.length} unplaced · ${st.checks||0} check${st.checks===1?'':'s'}</div></div><div class="career-pool" id="careerPool">${pool}</div>${scoreBudgetMarkup(matchingBoardScore(d.categories.length,st.checks||0,st.reveals||0,st.hintsUsed||0),d.categories.length)}<div class="game-assist-actions"><button class="game-assist-btn hint" id="careerHintBtn" type="button" ${hintable?'':'disabled'}>${hintable?'Hint · first letter':'First letters shown'}</button><button class="game-assist-btn give-up" id="careerGiveUpBtn" type="button">Give up · reveal one movie</button></div><div class="feedback ${st.feedbackType||''}">${st.feedback||''}</div></div></div>`;
     $("careerInfoBtn")?.addEventListener("click",()=>{const panel=$("careerInfoPanel"),btn=$("careerInfoBtn");const opening=panel?.classList.contains("hidden");panel?.classList.toggle("hidden",!opening);btn?.setAttribute("aria-expanded",opening?"true":"false");});
     $("careerHintBtn")?.addEventListener("click",()=>hintCareerMatch(round));
     $("careerGiveUpBtn")?.addEventListener("click",()=>giveUpCareerMatch(round));
     const rail=$("careerPool"); enableHorizontalGrabScroll(rail); hydrateMedia(stage);
     stage.querySelectorAll('[data-career-movie]').forEach(btn=>{
       btn.addEventListener('click',()=>{st.selected=btn.dataset.careerMovie;st.feedback="";st.feedbackType="";renderCareerMatch(round);});
-      btn.addEventListener('dragstart',e=>{btn.classList.add('dragging');e.dataTransfer?.setData('text/plain',btn.dataset.careerMovie||'');if(e.dataTransfer)e.dataTransfer.effectAllowed='move';});
-      btn.addEventListener('dragend',()=>btn.classList.remove('dragging'));
+      if(canDrag){
+        btn.addEventListener('dragstart',e=>{btn.classList.add('dragging');e.dataTransfer?.setData('application/x-filmden-filmography-movie',btn.dataset.careerMovie||'');e.dataTransfer?.setData('text/plain',btn.dataset.careerMovie||'');if(e.dataTransfer)e.dataTransfer.effectAllowed='move';});
+        btn.addEventListener('dragend',()=>btn.classList.remove('dragging'));
+      }
     });
     stage.querySelectorAll('[data-career-slot]').forEach(slot=>{
       const i=Number(slot.dataset.careerSlot);
@@ -7668,9 +7792,11 @@ The Machine`.split("\n")
         if(st.selected){careerAssignMovie(round,st,i,st.selected);return;}
         if(st.assignments[i]){delete st.assignments[i];renderCareerMatch(round);}
       });
-      slot.addEventListener('dragover',e=>{if(locked.has(i))return;e.preventDefault();slot.classList.add('drag-over');if(e.dataTransfer)e.dataTransfer.dropEffect='move';});
-      slot.addEventListener('dragleave',()=>slot.classList.remove('drag-over'));
-      slot.addEventListener('drop',e=>{if(locked.has(i))return;e.preventDefault();slot.classList.remove('drag-over');const movie=e.dataTransfer?.getData('text/plain')||'';if(movie)careerAssignMovie(round,st,i,movie);});
+      if(canDrag){
+        slot.addEventListener('dragover',e=>{if(locked.has(i))return;e.preventDefault();slot.classList.add('drag-over');if(e.dataTransfer)e.dataTransfer.dropEffect='move';});
+        slot.addEventListener('dragleave',()=>slot.classList.remove('drag-over'));
+        slot.addEventListener('drop',e=>{if(locked.has(i))return;e.preventDefault();slot.classList.remove('drag-over');const movie=e.dataTransfer?.getData('application/x-filmden-filmography-movie')||e.dataTransfer?.getData('text/plain')||'';if(movie)careerAssignMovie(round,st,i,movie);});
+      }
     });
     primaryBtn.disabled=drafts.length===0;primaryBtn.textContent=drafts.length===open.length&&open.length?"Check full board":"Check placed movies";secondaryBtn.classList.add("hidden");secondaryBtn.onclick=null;
     primaryBtn.onclick=()=>{
@@ -8401,23 +8527,23 @@ The Machine`.split("\n")
           },180);
         }else{
           const spelling=typoCandidate(input,personAnswers(clue.person),clue.person);
-          if(!spelling||!offerSpellingFix(spelling)) feedback("Not quite. Try again, skip this clue, or reveal the actor.","wrong");
+          if(!spelling||!offerSpellingFix(spelling)){
+            st.mistakes=(st.mistakes||0)+1;
+            feedback("Not quite. Try again, skip this clue, or reveal the actor.","wrong");
+          }
         }
       }else if(st.phase==="guess"){
         if(filmTitleMatches(input,d.film)||sameAnswer(input,d.aliases||[])){
-          st.points=ensemblePoints(st);
-          st.phase="done";
-          st.done=true;
-          st.feedback="";
-          st.feedbackType="";
-          completeCurrentRound(st.points,true);
-          stage.scrollTop=0;
-          renderRound();
-          requestAnimationFrame(()=>{ stage.scrollTop=0; });
+          st.filmSolved=true;st.filmRevealed=false;st.filmDraft=d.film;
+          if(ensembleMaybeComplete(round))return;
+          const open=ensembleUnresolvedIndices(st,d);
+          st.feedback=`Shared film filled — ${d.film}. ${open.length} cast clue${open.length===1?'':'s'} left.`;st.feedbackType="correct";
+          if(open.length){st.clueIndex=open[0];st.phase="cast";renderRound();}
         }else{
           const spelling=filmTitleTypoCandidate(input,[d.film,...(d.aliases||[])]);
           if(!spelling||!offerSpellingFix(d.film)){
-            st.feedback="Not quite. Add another cast member or try a different film.";st.feedbackType="wrong";feedback(st.feedback,"wrong");
+            st.mistakes=(st.mistakes||0)+1;
+            st.feedback="Not quite. Try another film, or go back to the cast clues.";st.feedbackType="wrong";feedback(st.feedback,"wrong");
           }
         }
       }return;
