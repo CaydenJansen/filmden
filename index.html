@@ -211,6 +211,61 @@
     .collab-film-feedback.wrong{color:var(--wrong)}
     .collab-film-feedback.near{color:var(--gold)}
     .collab-film-complete{padding:7px 9px;border-radius:9px;background:rgba(82,185,123,.065);color:var(--correct);font-size:.66rem;font-weight:850;text-align:center}
+    .collab-role-nav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+    .collab-role-btn{min-height:40px;padding:7px 8px;border-radius:11px;border:1px solid var(--line);background:rgba(246,239,223,.035);color:var(--muted);font-size:.68rem;font-weight:900;text-align:center}
+    .collab-role-btn.active{border-color:rgba(92,142,224,.62);background:rgba(72,116,194,.18);color:var(--text);box-shadow:inset 0 0 0 1px rgba(125,167,235,.08)}
+    .collab-role-btn.complete{border-color:rgba(82,185,123,.30);background:rgba(82,185,123,.07);color:var(--correct)}
+    .collab-role-btn.active.complete{border-color:rgba(82,185,123,.44);background:rgba(82,185,123,.10)}
+    .collab-person-input-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:7px;margin-top:8px}
+    .collab-person-input-row .collab-input{margin-top:0;min-width:0}
+    .collab-check{min-height:43px;padding:0 14px;border-radius:11px;background:var(--accent);color:#fff;font-size:.72rem;font-weight:900}
+    .collab-check:hover{background:var(--accent-dark)}
+    .collab-check:disabled{background:rgba(246,239,223,.07);color:#777269;cursor:not-allowed}
+    .collab-ranking{margin-top:10px;display:grid;gap:6px;padding:9px;border:1px solid rgba(246,239,223,.08);border-radius:12px;background:rgba(10,10,10,.13)}
+    .collab-ranking-head{display:flex;justify-content:space-between;align-items:end;gap:10px;padding:0 1px 2px}
+    .collab-ranking-title{font-size:.67rem;font-weight:930;color:var(--text)}
+    .collab-ranking-note{font-size:.56rem;color:var(--muted);text-align:right}
+    .collab-rank-row{display:grid;grid-template-columns:34px minmax(0,1fr) auto;gap:4px 8px;align-items:center;min-height:38px;padding:7px 8px;border-radius:10px;background:rgba(246,239,223,.035);border:1px solid rgba(246,239,223,.055)}
+    .collab-rank-row.target{border-color:rgba(241,184,75,.25);background:rgba(241,184,75,.045)}
+    .collab-rank-row.correct{border-color:rgba(82,185,123,.28);background:rgba(82,185,123,.06)}
+    .collab-rank-no{font-size:.62rem;font-weight:950;color:var(--muted);text-align:right;align-self:start;padding-top:2px}
+    .collab-rank-row.target .collab-rank-no{color:var(--gold)}
+    .collab-rank-name{min-width:0;font-size:.72rem;font-weight:900;overflow-wrap:anywhere}
+    .collab-rank-meta{font-size:.57rem;color:var(--muted);white-space:nowrap;text-align:right}
+    .collab-rank-films{grid-column:2/-1;display:flex;flex-wrap:wrap;gap:4px;margin-top:1px}
+    .collab-rank-film{padding:3px 6px;border-radius:999px;border:1px solid rgba(92,142,224,.18);background:rgba(72,116,194,.08);color:#b9c9e8;font-size:.54rem;font-weight:780;line-height:1.15}
+    .collab-rank-empty{grid-column:2/-1;color:#777269;font-size:.55rem;line-height:1.2}
+    .collab-role-complete{margin-top:8px;padding:8px 9px;border-radius:10px;background:rgba(82,185,123,.07);border:1px solid rgba(82,185,123,.20);color:var(--correct);font-size:.67rem;font-weight:880;text-align:center}
+    .collab-phase-note{margin-top:6px;color:var(--muted);font-size:.61rem;line-height:1.3}
+    .collab-phase-feedback{margin-top:8px;min-height:1.1em;font-size:.67rem;font-weight:800;line-height:1.3}
+    .collab-phase-feedback.correct{color:var(--correct)}
+    .collab-phase-feedback.wrong{color:var(--wrong)}
+    .collab-phase-feedback.near{color:var(--gold)}
+    .collab-movie-phase{display:grid;gap:10px}
+    .collab-movie-phase-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+    .collab-movie-phase-copy{min-width:0;display:grid;gap:3px}
+    .collab-movie-phase-kicker{color:var(--muted);font-size:.59rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase}
+    .collab-movie-phase-person{font-size:.98rem;font-weight:950;letter-spacing:-.02em;color:var(--correct)}
+    .collab-movie-phase-count{flex:0 0 auto;color:var(--muted);font-size:.62rem;font-weight:850;white-space:nowrap;padding-top:2px}
+    .collab-movie-stack{display:grid;gap:7px}
+    .collab-movie-slot{display:grid;grid-template-columns:58px minmax(0,1fr);gap:8px;align-items:stretch;padding:8px;border-radius:12px;border:1px solid rgba(246,239,223,.075);background:rgba(246,239,223,.022)}
+    .collab-movie-slot.found{border-color:rgba(82,185,123,.24);background:rgba(82,185,123,.045)}
+    .collab-movie-year{display:grid;place-items:center;min-height:44px;border-radius:9px;border:1px solid rgba(241,184,75,.18);background:rgba(241,184,75,.055);color:var(--gold);font-size:.7rem;font-weight:950;font-variant-numeric:tabular-nums}
+    .collab-movie-year.pending{color:#777269;border-color:var(--line);background:rgba(246,239,223,.025)}
+    .collab-movie-slot-main{min-width:0;display:grid;gap:5px}
+    .collab-movie-slot-input-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px}
+    .collab-movie-slot-input{min-width:0;min-height:44px;border-radius:9px;border:1px solid var(--line);background:rgba(246,239,223,.055);color:var(--text);padding:0 10px;font-size:.74rem;font-weight:760;outline:none}
+    .collab-movie-slot-input:focus{border-color:rgba(92,142,224,.72);box-shadow:0 0 0 3px rgba(72,116,194,.12)}
+    .collab-movie-slot-check{min-height:44px;padding:0 11px;border-radius:9px;background:rgba(233,75,53,.16);border:1px solid rgba(233,75,53,.30);color:var(--text);font-size:.67rem;font-weight:900}
+    .collab-movie-slot-title{display:flex;align-items:center;min-height:44px;padding:0 10px;border-radius:9px;background:rgba(82,185,123,.065);border:1px solid rgba(82,185,123,.18);font-size:.76rem;font-weight:900;line-height:1.2}
+    .collab-movie-slot-title.revealed{background:rgba(227,106,90,.045);border-color:rgba(227,106,90,.16);color:#d9a39b}
+    .collab-movie-slot-hint{color:var(--gold);font-size:.59rem;font-weight:850}
+    .collab-movie-slot-feedback{min-height:0;font-size:.59rem;font-weight:780;line-height:1.2;color:var(--muted)}
+    .collab-movie-slot-feedback.correct{color:var(--correct)}
+    .collab-movie-slot-feedback.wrong{color:var(--wrong)}
+    .collab-movie-slot-feedback.near{color:var(--gold)}
+    .collab-movie-phase .game-assist-actions{justify-content:flex-start;margin-top:0}
+
     .round-assist-bar{width:min(560px,100%);display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap}
     .ensemble-board{width:min(560px,100%);display:grid;gap:8px;padding:11px 12px;border:1px solid var(--line);border-radius:16px;background:rgba(246,239,223,.035);text-align:left}
     .ensemble-board-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
@@ -295,6 +350,7 @@
     .boxoffice-ladder-meta{color:var(--muted);font-size:.64rem;font-weight:820;white-space:nowrap}
     .boxoffice-ladder-head>div:first-child .boxoffice-ladder-meta{white-space:normal}
     .boxoffice-chart{width:100%;min-width:0;max-height:min(430px,48dvh);overflow-y:auto;overflow-x:hidden;display:grid;gap:4px;padding:2px 4px 3px 1px;scrollbar-gutter:stable;overscroll-behavior:contain}
+    .boxoffice-continue-cue{display:none;width:100%;min-height:34px;border-radius:10px;background:transparent;border:1px solid rgba(241,184,75,.20);color:var(--gold);font-size:.67rem;font-weight:900;letter-spacing:.01em}
     .chart-row{display:grid;grid-template-columns:46px minmax(0,1fr);align-items:center;gap:10px;min-height:54px;padding:6px 10px;border-radius:10px;background:rgba(246,239,223,.055);border:1px solid rgba(246,239,223,.09);text-align:left;overflow:hidden}
     .chart-row.unknown{background:rgba(246,239,223,.018);border-color:rgba(246,239,223,.045)}
     .chart-row.revealed{background:rgba(246,239,223,.085);border-color:rgba(246,239,223,.13)}
@@ -393,6 +449,9 @@
     .career-drawer-head{display:flex;align-items:end;justify-content:space-between;gap:10px}
     .career-drawer-title{font-size:.82rem;font-weight:950}
     .career-drawer-meta{color:var(--muted);font-size:.6rem;font-weight:780;text-align:right}
+    .career-check-cta{width:100%;min-height:52px;margin-top:2px;border-radius:14px;background:var(--accent);color:#fff;font-size:.9rem;font-weight:950;letter-spacing:-.01em;box-shadow:0 9px 22px rgba(233,75,53,.16)}
+    .career-check-cta:hover{background:var(--accent-dark)}
+    .career-check-cta:disabled{background:rgba(246,239,223,.07);color:#777269;box-shadow:none;cursor:not-allowed;transform:none}
     .career-pool{display:flex;gap:7px;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;padding:2px 1px 4px;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;touch-action:pan-x;cursor:grab;user-select:none}
     .career-pool::-webkit-scrollbar{display:none}
     .career-pool.drag-scrolling{cursor:grabbing}
@@ -554,10 +613,10 @@
       .answer-input{min-height:44px}.action{min-height:42px;font-size:.82rem}.feedback{font-size:.74rem}
       .reveal-card{padding:13px}.reveal-answer{font-size:clamp(1.45rem,7.4vw,2.15rem)}.reveal-detail{font-size:.74rem}
       .actor-chip{padding:12px;font-size:clamp(1.1rem,5.5vw,1.4rem)}
-      .cast-list{gap:6px}.cast-list .person-card{padding:8px 6px}.ensemble-board{padding:9px 10px;gap:7px}.ensemble-cast{gap:5px}.ensemble-cast-chip{padding:7px 8px;font-size:.74rem}.ensemble-loop-head{gap:8px}.ensemble-loop-title{font-size:.82rem}.ensemble-loop-meta{font-size:.61rem}.ensemble-film-guess{min-height:34px;padding:0 9px;font-size:.65rem}.boxoffice-hero{gap:6px}.boxoffice-year,.boxoffice-rank{min-height:64px}.boxoffice-ladder-wrap{padding:9px;border-radius:15px}.boxoffice-chart{max-height:min(330px,44dvh)}.chart-row{min-height:46px;padding:5px 7px}.movie-search-input{min-height:44px;font-size:.82rem}.movie-search-results{max-height:min(250px,36dvh)}.movie-search-result{min-height:35px;font-size:.75rem}.box-selected-row{gap:7px}.box-selected-actions{gap:5px}.box-selected-change,.box-selected-submit{min-height:36px;padding:0 9px;font-size:.61rem}
+      .cast-list{gap:6px}.cast-list .person-card{padding:8px 6px}.ensemble-board{padding:9px 10px;gap:7px}.ensemble-cast{gap:5px}.ensemble-cast-chip{padding:7px 8px;font-size:.74rem}.ensemble-loop-head{gap:8px}.ensemble-loop-title{font-size:.82rem}.ensemble-loop-meta{font-size:.61rem}.ensemble-film-guess{min-height:34px;padding:0 9px;font-size:.65rem}.boxoffice-hero{gap:6px}.boxoffice-year,.boxoffice-rank{min-height:64px}.boxoffice-ladder-wrap{width:calc(100% - 18px);align-self:center;padding:8px;border-radius:15px;gap:6px}.boxoffice-chart{height:clamp(156px,28dvh,210px);max-height:none;scrollbar-gutter:auto;overscroll-behavior-y:auto;touch-action:pan-y}.boxoffice-continue-cue{display:block}.chart-row{min-height:46px;padding:5px 7px}.movie-search-input{min-height:44px;font-size:.82rem}.movie-search-results{max-height:min(250px,36dvh)}.movie-search-result{min-height:35px;font-size:.75rem}.box-selected-row{gap:7px}.box-selected-actions{gap:5px}.box-selected-change,.box-selected-submit{min-height:36px;padding:0 9px;font-size:.61rem}
       .daily-card{padding:10px 11px}.daily-desc{font-size:.66rem}.daily-status{font-size:.56rem}.play-all-btn{min-height:44px}
       .people-match-wrap{gap:7px}.match-board{gap:7px}.match-person-row{grid-template-columns:100px minmax(0,1fr);gap:7px;padding:7px}.match-person-name{min-height:0;padding:6px;font-size:.71rem}.match-person-name .media-thumb.person,.match-person-name .media-thumb.person.tiny{width:76px;height:100px;flex-basis:76px;border-radius:12px}.match-person-name .media-title{font-size:.65rem}.match-slots{grid-template-columns:repeat(2,minmax(0,1fr));gap:5px}.match-slot{min-height:48px;padding:6px 5px}.match-slot-label{font-size:.48rem}.match-slot-value{font-size:.59rem}.match-drawer{gap:5px;padding-top:6px}.match-drawer-nav{grid-template-columns:34px minmax(0,1fr) 34px;gap:5px}.match-drawer-arrow{width:34px;height:34px;min-height:34px}.match-category-name{font-size:.75rem}.match-value{flex-basis:min(165px,46vw);min-height:38px;padding:6px 8px;font-size:.62rem}
-      .career-row{grid-template-columns:1fr;gap:6px;padding:8px}.career-label{font-size:.69rem}.career-slot{min-height:42px;font-size:.66rem}.career-film{flex-basis:min(165px,46vw);min-height:40px;font-size:.64rem}.career-drawer{gap:5px;padding-top:6px}
+      .career-row{grid-template-columns:1fr;gap:6px;padding:8px}.career-label{font-size:.69rem}.career-slot{min-height:42px;font-size:.66rem}.career-film{flex-basis:min(165px,46vw);min-height:40px;font-size:.64rem}.career-drawer{gap:5px;padding-top:6px}.career-check-cta{min-height:44px;font-size:.8rem}
       .controls{margin-top:6px;gap:7px}.controls button{min-height:40px;font-size:.79rem}
       .ensemble-answer-row{grid-template-columns:minmax(0,1fr) auto;gap:6px}.ensemble-add-actor{min-height:44px;padding:0 12px;font-size:.74rem}.controls.ensemble-guess-cta .primary,.controls.title-submit-cta .primary{min-height:50px;font-size:.9rem}
       .ensemble-cast-section,.ensemble-find-section{padding:9px;gap:8px}.ensemble-clue-nav.three{gap:5px}.ensemble-clue-nav.three button{min-height:36px;padding:0 5px;font-size:.62rem}.ensemble-shared-cta{min-height:50px;font-size:.88rem}
@@ -604,7 +663,7 @@
     @media(max-width:520px){
       .clue-budget{padding:4px 7px!important}.clue-budget-head{font-size:.58rem!important}
       .title-progress{padding:6px 8px!important}.title-progress-note{font-size:.58rem!important}
-      .collab-card{padding:11px!important}.collab-person{padding:9px 11px!important}
+      .collab-card{padding:11px!important}.collab-person{padding:9px 11px!important}.collab-role-btn{min-height:40px;padding:6px 4px;font-size:.62rem}.collab-rank-row{grid-template-columns:30px minmax(0,1fr);gap:4px 6px}.collab-rank-meta{grid-column:2;text-align:left;white-space:normal;margin-top:-2px}.collab-rank-films,.collab-rank-empty{grid-column:2}
     }
 
     /* --- mobile UI regression sweep --- */
@@ -764,7 +823,7 @@
         <button class="daily-card" data-daily-mode="boxoffice" type="button"><span class="daily-copy"><span class="daily-title">Box Office Charts</span><span class="daily-desc">Find the film at today's year and chart position.</span></span><span class="daily-status">Daily</span></button>
         <button class="daily-card" data-daily-mode="people" type="button"><span class="daily-copy"><span class="daily-title">Who's Who</span><span class="daily-desc">Match notable films, recent work, birthdays, birthplaces and awards.</span></span><span class="daily-status">Daily</span></button>
         <button class="daily-card" data-daily-mode="career" type="button"><span class="daily-copy"><span class="daily-title">Filmography</span><span class="daily-desc">Match superlatives within one selected set of films.</span></span><span class="daily-status">Daily</span></button>
-        <button class="daily-card" data-daily-mode="collab" type="button"><span class="daily-copy"><span class="daily-title">Frequent Collaborators</span><span class="daily-desc">Find recurring collaborators, then name their shared films.</span></span><span class="daily-status">Daily</span></button>
+        <button class="daily-card" data-daily-mode="collab" type="button"><span class="daily-copy"><span class="daily-title">Collaborators</span><span class="daily-desc">Find the top director, actor and actress, then name their shared films.</span></span><span class="daily-status">Daily</span></button>
         <button class="daily-card" data-daily-mode="statham" type="button"><span class="daily-copy"><span class="daily-title">Six Degrees Through Jason Statham</span><span class="daily-desc">Build your own film-by-film chain between two people, passing through Jason Statham.</span></span><span class="daily-status">Daily</span></button>
       </div>
       <div class="tiny-note">One new daily challenge in each game. Finish today's puzzle to keep playing that game.</div>
@@ -3649,9 +3708,69 @@ Babygirl`.split("\n")
 ];
 
   const COLLABORATOR_OPTION_POOL = {
-    Director:["Martin Scorsese","Steven Spielberg","Steven Soderbergh","Chad Stahelski","Christopher McQuarrie","David O. Russell","Christopher Nolan","David Fincher","Quentin Tarantino","Ron Howard","Robert Zemeckis","Clint Eastwood","Ridley Scott","Wes Anderson","Mike Nichols","Paul Greengrass","James Cameron","Spike Lee","Bryan Singer","Francis Lawrence","Zack Snyder","Todd Haynes"],
+    Director:["Martin Scorsese","Steven Spielberg","Steven Soderbergh","Chad Stahelski","Christopher McQuarrie","David O. Russell","Christopher Nolan","David Fincher","Quentin Tarantino","Ron Howard","Robert Zemeckis","Clint Eastwood","Ridley Scott","Wes Anderson","Mike Nichols","Paul Greengrass","James Cameron","Spike Lee","Bryan Singer","Francis Lawrence","Zack Snyder","Todd Haynes","Nicolas Winding Refn","Derek Cianfrance","Damien Chazelle","Greta Gerwig","Denis Villeneuve","Sam Mendes","Adam McKay","Paul Thomas Anderson","Alejandro G. Iñárritu","Martin McDonagh","Doug Liman","Tony Scott","Stanley Kubrick","Steven Knight","Joe Wright","Gus Van Sant","Ben Affleck","George Miller","Baz Luhrmann","Ang Lee","Todd Phillips","Jon Favreau","Shane Black","Guy Ritchie","Michael Mann","Sidney Lumet","Barry Sonnenfeld","Antoine Fuqua","Rob Reiner","Nancy Meyers","James Mangold","Darren Aronofsky","Sofia Coppola","David Cronenberg","Danny Boyle","Peter Jackson","Alfonso Cuarón","Guillermo del Toro","Rian Johnson","Kenneth Branagh","Joel Coen","Ethan Coen","Coen Brothers","David Lean","Francis Ford Coppola","Brian De Palma","Oliver Stone","Kathryn Bigelow","Patty Jenkins","Taika Waititi","Ryan Coogler","Jon M. Chu","Jordan Peele","Emerald Fennell","Celine Song","Sean Baker","Chloé Zhao","Yorgos Lanthimos","Alexander Payne","Noah Baumbach","Bennett Miller","Tom Ford","Cameron Crowe","Richard Linklater","Edgar Wright","Matthew Vaughn","Matthew Weiner","Peter Weir"],
     Actor:["Joe Pesci","Tim Allen","Sean Penn","Matt Damon","Robert De Niro","George Clooney","Brad Pitt","Laurence Fishburne","Simon Pegg","Michael Caine","James McAvoy","Jonah Hill","Gary Sinise","Robert Downey Jr.","Samuel L. Jackson","Al Pacino","Leonardo DiCaprio","Tom Cruise","Chris Evans","Mark Ruffalo","Denzel Washington","Josh Hutcherson","Ving Rhames","Ben Affleck","John Goodman","Hugo Weaving"],
     Actress:["Catherine Scorsese","Drena De Niro","Cathy Moriarty","Rita Wilson","Kate Winslet","Julia Roberts","Carrie-Anne Moss","Nicole Kidman","Amy Adams","Catherine Zeta-Jones","Elizabeth Banks","Meryl Streep","Meg Ryan","Cate Blanchett","Sandra Bullock","Emma Stone","Julianne Moore","Scarlett Johansson","Frances McDormand","Viola Davis","Anne Hathaway","Natalie Portman","Julia Stiles","Catherine Zeta-Jones","Rooney Mara"]
+  };
+
+  // Broader offline director-credit network used by Collaborators rankings.
+  // These are deliberately separate from the puzzle answers: they make wrong
+  // guesses informative instead of limiting the ranking to the answer set.
+  const COLLAB_DIRECTOR_CREDIT_EXPANSION = {
+    "Nicolas Winding Refn":["Drive","Only God Forgives"],
+    "Derek Cianfrance":["Blue Valentine","The Place Beyond the Pines","The Light Between Oceans"],
+    "Damien Chazelle":["La La Land","First Man"],
+    "Greta Gerwig":["Lady Bird","Little Women","Barbie"],
+    "Denis Villeneuve":["Prisoners","Enemy","Sicario","Arrival","Blade Runner 2049","Dune","Dune: Part Two"],
+    "Sam Mendes":["Road to Perdition","Revolutionary Road","Skyfall","Spectre","1917"],
+    "Adam McKay":["Anchorman: The Legend of Ron Burgundy","Talladega Nights: The Ballad of Ricky Bobby","Step Brothers","The Other Guys","The Big Short","Vice","Don't Look Up"],
+    "Paul Thomas Anderson":["Boogie Nights","Magnolia","Punch-Drunk Love","There Will Be Blood","The Master","Inherent Vice","Phantom Thread","Licorice Pizza","One Battle After Another"],
+    "Alejandro G. Iñárritu":["Babel","Biutiful","Birdman","The Revenant"],
+    "Martin McDonagh":["In Bruges","Seven Psychopaths","Three Billboards Outside Ebbing, Missouri","The Banshees of Inisherin"],
+    "Doug Liman":["Swingers","The Bourne Identity","Mr. & Mrs. Smith","Edge of Tomorrow","American Made","Road House"],
+    "Tony Scott":["Top Gun","Days of Thunder","Crimson Tide","Enemy of the State","Man on Fire","Déjà Vu","Unstoppable"],
+    "Stanley Kubrick":["Spartacus","Lolita","Dr. Strangelove","2001: A Space Odyssey","A Clockwork Orange","Barry Lyndon","The Shining","Full Metal Jacket","Eyes Wide Shut"],
+    "Joe Wright":["Pride & Prejudice","Atonement","Hanna","Anna Karenina","Darkest Hour","Cyrano"],
+    "Gus Van Sant":["Good Will Hunting","Milk","Promised Land"],
+    "George Miller":["Mad Max","Mad Max 2","Mad Max Beyond Thunderdome","Happy Feet","Mad Max: Fury Road","Three Thousand Years of Longing","Furiosa: A Mad Max Saga"],
+    "Baz Luhrmann":["Strictly Ballroom","Romeo + Juliet","Moulin Rouge!","Australia","The Great Gatsby","Elvis"],
+    "Ang Lee":["Sense and Sensibility","Crouching Tiger, Hidden Dragon","Hulk","Brokeback Mountain","Life of Pi","Gemini Man"],
+    "Todd Phillips":["Old School","The Hangover","Due Date","The Hangover Part II","Joker","Joker: Folie à Deux"],
+    "Shane Black":["Kiss Kiss Bang Bang","Iron Man 3","The Nice Guys","The Predator"],
+    "Guy Ritchie":["Lock, Stock and Two Smoking Barrels","Snatch","RocknRolla","Sherlock Holmes","Sherlock Holmes: A Game of Shadows","The Man from U.N.C.L.E.","The Gentlemen","Wrath of Man"],
+    "Michael Mann":["Manhunter","The Last of the Mohicans","Heat","The Insider","Collateral","Miami Vice","Public Enemies","Ferrari"],
+    "Antoine Fuqua":["Training Day","Tears of the Sun","Shooter","Olympus Has Fallen","The Equalizer","Southpaw","The Magnificent Seven","The Equalizer 2","The Equalizer 3"],
+    "Rob Reiner":["This Is Spinal Tap","Stand by Me","The Princess Bride","When Harry Met Sally...","Misery","A Few Good Men"],
+    "Nancy Meyers":["The Parent Trap","Something's Gotta Give","The Holiday","It's Complicated","The Intern"],
+    "Darren Aronofsky":["Pi","Requiem for a Dream","The Wrestler","Black Swan","Noah","mother!","The Whale"],
+    "Sofia Coppola":["The Virgin Suicides","Lost in Translation","Marie Antoinette","Somewhere","The Bling Ring","The Beguiled","On the Rocks","Priscilla"],
+    "David Cronenberg":["The Fly","Crash","A History of Violence","Eastern Promises","A Dangerous Method","Cosmopolis","Maps to the Stars","Crimes of the Future"],
+    "Danny Boyle":["Trainspotting","The Beach","28 Days Later","Sunshine","Slumdog Millionaire","127 Hours","Steve Jobs","Yesterday"],
+    "Peter Jackson":["The Lord of the Rings: The Fellowship of the Ring","The Lord of the Rings: The Two Towers","The Lord of the Rings: The Return of the King","King Kong","The Lovely Bones","The Hobbit: An Unexpected Journey","The Hobbit: The Desolation of Smaug","The Hobbit: The Battle of the Five Armies"],
+    "Alfonso Cuarón":["Y Tu Mamá También","Harry Potter and the Prisoner of Azkaban","Children of Men","Gravity","Roma"],
+    "Guillermo del Toro":["Hellboy","Pan's Labyrinth","Pacific Rim","Crimson Peak","The Shape of Water","Nightmare Alley","Guillermo del Toro's Pinocchio"],
+    "Rian Johnson":["Brick","Looper","Star Wars: The Last Jedi","Knives Out","Glass Onion: A Knives Out Mystery","Wake Up Dead Man: A Knives Out Mystery"],
+    "Kenneth Branagh":["Henry V","Much Ado About Nothing","Thor","Cinderella","Murder on the Orient Express","Belfast","Death on the Nile","A Haunting in Venice"],
+    "Francis Ford Coppola":["The Godfather","The Godfather Part II","Apocalypse Now","The Outsiders","The Cotton Club","The Godfather Part III","Bram Stoker's Dracula","Megalopolis"],
+    "Brian De Palma":["Carrie","Scarface","The Untouchables","Carlito's Way","Mission: Impossible"],
+    "Oliver Stone":["Platoon","Wall Street","Born on the Fourth of July","JFK","Natural Born Killers","Any Given Sunday","Alexander"],
+    "Kathryn Bigelow":["Point Break","The Hurt Locker","Zero Dark Thirty","Detroit"],
+    "Patty Jenkins":["Monster","Wonder Woman","Wonder Woman 1984"],
+    "Taika Waititi":["What We Do in the Shadows","Hunt for the Wilderpeople","Thor: Ragnarok","Jojo Rabbit","Thor: Love and Thunder","Next Goal Wins"],
+    "Ryan Coogler":["Fruitvale Station","Creed","Black Panther","Black Panther: Wakanda Forever","Sinners"],
+    "Jordan Peele":["Get Out","Us","Nope"],
+    "Emerald Fennell":["Promising Young Woman","Saltburn"],
+    "Chloé Zhao":["The Rider","Nomadland","Eternals"],
+    "Yorgos Lanthimos":["The Lobster","The Killing of a Sacred Deer","The Favourite","Poor Things","Kinds of Kindness","Bugonia"],
+    "Alexander Payne":["Election","About Schmidt","Sideways","The Descendants","Nebraska","Downsizing","The Holdovers"],
+    "Noah Baumbach":["The Squid and the Whale","Greenberg","Frances Ha","While We're Young","The Meyerowitz Stories","Marriage Story","White Noise"],
+    "Bennett Miller":["Capote","Moneyball","Foxcatcher"],
+    "Tom Ford":["A Single Man","Nocturnal Animals"],
+    "Cameron Crowe":["Say Anything...","Jerry Maguire","Almost Famous","Vanilla Sky","Elizabethtown","We Bought a Zoo"],
+    "Richard Linklater":["Dazed and Confused","Before Sunrise","Before Sunset","School of Rock","Before Midnight","Boyhood","Everybody Wants Some!!","Hit Man"],
+    "Edgar Wright":["Shaun of the Dead","Hot Fuzz","Scott Pilgrim vs. the World","The World's End","Baby Driver","Last Night in Soho"],
+    "Matthew Vaughn":["Layer Cake","Stardust","Kick-Ass","X-Men: First Class","Kingsman: The Secret Service","Kingsman: The Golden Circle","Argylle"],
+    "Peter Weir":["Witness","Dead Poets Society","The Truman Show","Master and Commander: The Far Side of the World"]
   };
 
   // Counts are based on FilmDen's tracked movie-credit source rather than only
@@ -3739,7 +3858,7 @@ Babygirl`.split("\n")
       {kind:"Actress",answer:"Scarlett Johansson",aliases:["Johansson","ScarJo"],films:["Iron Man 2","The Avengers","Captain America: The Winter Soldier","Avengers: Age of Ultron","Avengers: Infinity War","Avengers: Endgame"]}
     ]},
     {person:"Ryan Gosling",items:[
-      {kind:"Director",answer:"Damien Chazelle",aliases:["Chazelle"],films:["La La Land","First Man"]},
+      {kind:"Director",answers:["Damien Chazelle","Nicolas Winding Refn","Derek Cianfrance"],aliases:["Chazelle","Refn","Nicolas Refn","Cianfrance"],filmsByAnswer:{"Damien Chazelle":["La La Land","First Man"],"Nicolas Winding Refn":["Drive","Only God Forgives"],"Derek Cianfrance":["Blue Valentine","The Place Beyond the Pines"]}},
       {kind:"Actor",answer:"Steve Carell",aliases:["Carell"],films:["Crazy, Stupid, Love.","The Big Short"]},
       {kind:"Actress",answer:"Emma Stone",aliases:["Stone"],films:["Crazy, Stupid, Love.","Gangster Squad","La La Land"]}
     ]},
@@ -6666,14 +6785,14 @@ Babygirl`.split("\n")
   const progressTrack = document.querySelector(".progress-track");
   const modeName = $("modeName"), roundKicker = $("roundKicker"), scorePill = $("scorePill");
   const DAILY_MODES = ["title","ensemble","boxoffice","people","career","collab","statham"];
-  const MODE_NAMES = {ensemble:"Ensemble Cast",title:"Title Link",boxoffice:"Box Office Charts",people:"Who's Who",career:"Filmography",collab:"Frequent Collaborators",statham:"Six Degrees Through Jason Statham"};
+  const MODE_NAMES = {ensemble:"Ensemble Cast",title:"Title Link",boxoffice:"Box Office Charts",people:"Who's Who",career:"Filmography",collab:"Collaborators",statham:"Six Degrees Through Jason Statham"};
   const GAME_DESCRIPTIONS = {
     ensemble:"Find every cast member and the shared film.",
     title:"Find the word shared across movie titles.",
     boxoffice:"Find the film at today's year and chart position.",
     people:"Match notable films, recent work, birthdays, birthplaces and awards.",
     career:"Match superlatives within one selected set of films.",
-    collab:"Find recurring collaborators, then name their shared films.",
+    collab:"Find the top director, actor and actress, then name their shared films.",
     statham:"Build your own film-by-film chain between two people, passing through Jason Statham."
   };
   const GAME_PREMISES = {
@@ -6682,7 +6801,7 @@ Babygirl`.split("\n")
     boxoffice:"Guess the film at a specific box-office rank for the year. Wrong guesses show where that film actually placed.",
     people:"Match each film person to their facts. Some film cards overlap, so use the whole board to narrow them down.",
     career:"Match each category to one movie from this round's selected collection. Each movie is used once.",
-    collab:"Identify a person's recurring collaborators, then name the films they made together.",
+    collab:"Two phases for each role: identify the top Director, Actor or Actress, then use the release years to fill the movies they made together. Wrong collaborator guesses with real shared credits are ranked.",
     statham:"Connect one film person to another through shared movies, but your route must pass through Jason Statham."
   };
   function gamePremiseMarkup(type){
@@ -6703,15 +6822,16 @@ Babygirl`.split("\n")
     let text=norm(value);
     if(!text)return "";
     text=text.split(" ").map(token=>FILM_NUMBER_WORDS[token]||token).join(" ");
-    text=text.replace(/\bpart\s+(\d+)\b/g,"$1");
+    text=text.replace(/\b(?:part|chapter|vol|volume)\s+(\d+)\b/g,"$1");
+    text=text.replace(/\bchapter\b/g,"").replace(/\s+/g," ").trim();
     return text;
   }
   function filmTitleVariants(title){
     const raw=String(title||"").trim(), values=new Set([raw]);
     values.add(raw.replace(/^(the|a|an)\s+/i,""));
     if(raw.includes(":")){
-      const head=raw.split(":")[0].trim();
-      if(head.length>=4)values.add(head);
+      const parts=raw.split(":"),head=parts[0].trim(),suffix=parts.slice(1).join(":").trim();
+      if(head.length>=4&&!/^(?:chapter|part|vol(?:ume)?|episode)\b|\b(?:chapter|part|vol(?:ume)?|episode)\s+[ivx0-9]+\b/i.test(suffix))values.add(head);
     }
     const normalized=filmTitleNorm(raw);
     if(normalized)values.add(normalized);
@@ -6968,7 +7088,164 @@ Babygirl`.split("\n")
     [norm("Malcolm X")]: "1992",
     [norm("Training Day")]: "2001",
     [norm("Inside Man")]: "2006",
-    [norm("The Equalizer")]: "2014"
+    [norm("The Equalizer")]: "2014",
+    [norm("Mean Streets")]: "1973",
+    [norm("Taxi Driver")]: "1976",
+    [norm("New York, New York")]: "1977",
+    [norm("Raging Bull")]: "1980",
+    [norm("The King of Comedy")]: "1982",
+    [norm("Cape Fear")]: "1991",
+    [norm("Casino")]: "1995",
+    [norm("The Irishman")]: "2019",
+    [norm("Killers of the Flower Moon")]: "2023",
+    [norm("Once Upon a Time in America")]: "1984",
+    [norm("A Bronx Tale")]: "1993",
+    [norm("The Godfather Part II")]: "1974",
+    [norm("Marvin's Room")]: "1996",
+    [norm("The Big Wedding")]: "2013",
+    [norm("The Terminal")]: "2004",
+    [norm("Bridge of Spies")]: "2015",
+    [norm("The Post")]: "2017",
+    [norm("Toy Story")]: "1995",
+    [norm("Toy Story 2")]: "1999",
+    [norm("Toy Story 3")]: "2010",
+    [norm("Toy Story 4")]: "2019",
+    [norm("Joe Versus the Volcano")]: "1990",
+    [norm("Sleepless in Seattle")]: "1993",
+    [norm("You've Got Mail")]: "1998",
+    [norm("Gangs of New York")]: "2002",
+    [norm("Shutter Island")]: "2010",
+    [norm("The Wolf of Wall Street")]: "2013",
+    [norm("This Boy's Life")]: "1993",
+    [norm("Out of Sight")]: "1998",
+    [norm("Solaris")]: "2002",
+    [norm("The Good German")]: "2006",
+    [norm("Confessions of a Dangerous Mind")]: "2002",
+    [norm("Wolfs")]: "2024",
+    [norm("Money Monster")]: "2016",
+    [norm("Ticket to Paradise")]: "2022",
+    [norm("John Wick: Chapter 2")]: "2017",
+    [norm("John Wick: Chapter 3 — Parabellum")]: "2019",
+    [norm("John Wick: Chapter 4")]: "2023",
+    [norm("Bill & Ted's Excellent Adventure")]: "1989",
+    [norm("Bill & Ted's Bogus Journey")]: "1991",
+    [norm("Bill & Ted Face the Music")]: "2020",
+    [norm("The Matrix")]: "1999",
+    [norm("The Matrix Reloaded")]: "2003",
+    [norm("The Matrix Revolutions")]: "2003",
+    [norm("The Matrix Resurrections")]: "2021",
+    [norm("Jack Reacher")]: "2012",
+    [norm("Mission: Impossible – Rogue Nation")]: "2015",
+    [norm("Mission: Impossible – Fallout")]: "2018",
+    [norm("Mission: Impossible – Dead Reckoning Part One")]: "2023",
+    [norm("Mission: Impossible – The Final Reckoning")]: "2025",
+    [norm("Top Gun: Maverick")]: "2022",
+    [norm("Days of Thunder")]: "1990",
+    [norm("Far and Away")]: "1992",
+    [norm("Eyes Wide Shut")]: "1999",
+    [norm("The Dark Knight Rises")]: "2012",
+    [norm("Vice")]: "2018",
+    [norm("Se7en")]: "1995",
+    [norm("The Curious Case of Benjamin Button")]: "2008",
+    [norm("Babel")]: "2006",
+    [norm("The Hunger Games: Catching Fire")]: "2013",
+    [norm("The Hunger Games: Mockingjay – Part 1")]: "2014",
+    [norm("The Hunger Games: Mockingjay – Part 2")]: "2015",
+    [norm("Silver Linings Playbook")]: "2012",
+    [norm("Serena")]: "2014",
+    [norm("Joy")]: "2015",
+    [norm("X-Men: Apocalypse")]: "2016",
+    [norm("School Ties")]: "1992",
+    [norm("Good Will Hunting")]: "1997",
+    [norm("Dogma")]: "1999",
+    [norm("Jay and Silent Bob Strike Back")]: "2001",
+    [norm("Jersey Girl")]: "2004",
+    [norm("The Last Duel")]: "2021",
+    [norm("The Bourne Identity")]: "2002",
+    [norm("The Bourne Supremacy")]: "2004",
+    [norm("The Bourne Ultimatum")]: "2007",
+    [norm("Batman v Superman: Dawn of Justice")]: "2016",
+    [norm("Justice League")]: "2017",
+    [norm("Doubt")]: "2008",
+    [norm("Julie & Julia")]: "2009",
+    [norm("Mo' Better Blues")]: "1990",
+    [norm("He Got Game")]: "1998",
+    [norm("Highest 2 Lowest")]: "2025",
+    [norm("Fallen")]: "1998",
+    [norm("Flight")]: "2012",
+    [norm("Antwone Fisher")]: "2002",
+    [norm("Fences")]: "2016",
+    [norm("I'm Not There")]: "2007",
+    [norm("Carol")]: "2015",
+    [norm("The Lord of the Rings: The Fellowship of the Ring")]: "2001",
+    [norm("The Lord of the Rings: The Two Towers")]: "2002",
+    [norm("The Lord of the Rings: The Return of the King")]: "2003",
+    [norm("The Hobbit: An Unexpected Journey")]: "2012",
+    [norm("The Hobbit: The Battle of the Five Armies")]: "2014",
+    [norm("Nightmare Alley")]: "2021",
+    [norm("Silkwood")]: "1983",
+    [norm("Heartburn")]: "1986",
+    [norm("Postcards from the Edge")]: "1990",
+    [norm("The Deer Hunter")]: "1978",
+    [norm("Falling in Love")]: "1984",
+    [norm("Mamma Mia!")]: "2008",
+    [norm("Mamma Mia! Here We Go Again")]: "2018",
+    [norm("Poor Things")]: "2023",
+    [norm("Bugonia")]: "2025",
+    [norm("Crazy, Stupid, Love.")]: "2011",
+    [norm("Gangster Squad")]: "2013",
+    [norm("Zombieland")]: "2009",
+    [norm("Zombieland: Double Tap")]: "2019",
+    [norm("Jackie Brown")]: "1997",
+    [norm("Kill Bill: Vol. 2")]: "2004",
+    [norm("Inglourious Basterds")]: "2009",
+    [norm("Django Unchained")]: "2012",
+    [norm("The Hateful Eight")]: "2015",
+    [norm("Die Hard with a Vengeance")]: "1995",
+    [norm("Unbreakable")]: "2000",
+    [norm("Glass")]: "2019",
+    [norm("Avengers: Age of Ultron")]: "2015",
+    [norm("Avengers: Infinity War")]: "2018",
+    [norm("Brokeback Mountain")]: "2005",
+    [norm("Love & Other Drugs")]: "2010",
+    [norm("The Princess Diaries")]: "2001",
+    [norm("The Princess Diaries 2: Royal Engagement")]: "2004",
+    [norm("Iron Man 3")]: "2013",
+    [norm("Captain America: Civil War")]: "2016",
+    [norm("Kate & Leopold")]: "2001",
+    [norm("The Wolverine")]: "2013",
+    [norm("Logan")]: "2017",
+    [norm("X-Men")]: "2000",
+    [norm("X2: X-Men United")]: "2003",
+    [norm("X-Men: The Last Stand")]: "2006",
+    [norm("X-Men: Days of Future Past")]: "2014",
+    [norm("Reminiscence")]: "2021",
+    [norm("Serpico")]: "1973",
+    [norm("Righteous Kill")]: "2008",
+    [norm("The Godfather")]: "1972",
+    [norm("Men in Black")]: "1997",
+    [norm("Men in Black II")]: "2002",
+    [norm("Men in Black 3")]: "2012",
+    [norm("Bad Boys")]: "1995",
+    [norm("Bad Boys II")]: "2003",
+    [norm("Bad Boys for Life")]: "2020",
+    [norm("Bad Boys: Ride or Die")]: "2024",
+    [norm("Seven Pounds")]: "2008",
+    [norm("Jumanji: Welcome to the Jungle")]: "2017",
+    [norm("Jumanji: The Next Level")]: "2019",
+    [norm("Red One")]: "2024",
+    [norm("Central Intelligence")]: "2016",
+    [norm("DC League of Super-Pets")]: "2022",
+    [norm("Jungle Cruise")]: "2021",
+    [norm("The Smashing Machine")]: "2025",
+    [norm("Mallrats")]: "1995",
+    [norm("Chasing Amy")]: "1997",
+    [norm("Armageddon")]: "1998",
+    [norm("Revolutionary Road")]: "2008",
+    [norm("First Man")]: "2018",
+    [norm("Only God Forgives")]: "2013",
+    [norm("Blue Valentine")]: "2010",
+    [norm("The Place Beyond the Pines")]: "2012",
   };
 
   const MEDIA_CACHE_KEY = "filmden-media-cache-v10";
@@ -7640,7 +7917,7 @@ Babygirl`.split("\n")
       return {done:false,activeFieldIndex:0,points:0,revealedFields:[],completedFields:[],checks:0,wrongChecks:0,hintsUsed:0,selected:null,assignments:{},locked:[],pools,feedback:"",feedbackType:""};
     }
     if(round.type==="career") return {done:false,points:0,assignments:{},locked:[],selected:null,checks:0,reveals:0,hintsUsed:0,hinted:{},feedback:"",feedbackType:""};
-    if(round.type==="collab") return {done:false,activeIndex:0,points:0,answers:{},locked:[],hintLevels:{},revealed:[],checks:0,filmFound:{},filmRevealed:{},filmHinted:{},filmHintText:{},filmInputs:{},filmFeedback:{},feedback:"",feedbackType:""};
+    if(round.type==="collab") return {done:false,activeIndex:0,points:0,answers:{},locked:[],hintLevels:{},revealed:[],checks:0,guessHistory:{},filmFound:{},filmRevealed:{},filmHinted:{},filmHintText:{},filmInputs:{},filmFeedback:{},feedback:"",feedbackType:""};
     if(round.type==="statham") return {done:false,points:0,nodes:[round.data.start,"Jason Statham",round.data.end],insertions:[],selectedGap:null,gapDraft:"",hintsUsed:0,giveUpsUsed:0,hintHistory:[],feedback:"",feedbackType:""};
     return {done:false,points:0,usedReveal:false,shownCount:2,answerDraft:""};
   }
@@ -7940,7 +8217,8 @@ Babygirl`.split("\n")
       html+=`<div class="chart-row ${target?'target':''} ${target&&solved?'solved':''} ${revealed?'revealed':'unknown'}" data-box-chart-rank="${rank}"><div class="chart-rank">#${rank}</div><div class="chart-title">${value}</div></div>`;
     }
     const revealedCount=[...known].filter(rank=>rank>=1&&rank<=d.movies.length).length;
-    return `<section class="boxoffice-ladder-wrap"><div class="boxoffice-ladder-head"><div><div class="boxoffice-ladder-title">${d.year} domestic chart</div><div class="boxoffice-ladder-meta">Uncover the ranking one guess at a time</div></div><div class="boxoffice-ladder-meta">${revealedCount} / ${d.movies.length} revealed</div></div><div class="boxoffice-chart" id="boxOfficeChart">${html}</div></section>`;
+    const continueCue=!solved?`<button class="boxoffice-continue-cue" id="boxOfficeGuessCue" type="button" aria-label="Scroll to movie guess">↓ Guess below</button>`:"";
+    return `<section class="boxoffice-ladder-wrap"><div class="boxoffice-ladder-head"><div><div class="boxoffice-ladder-title">${d.year} domestic chart</div><div class="boxoffice-ladder-meta">Uncover the ranking one guess at a time</div></div><div class="boxoffice-ladder-meta">${revealedCount} / ${d.movies.length} revealed</div></div><div class="boxoffice-chart" id="boxOfficeChart">${html}</div>${continueCue}</section>`;
   }
   function focusBoxOfficeRank(rank,behavior="smooth"){
     const wanted=Number(rank||0);
@@ -8114,6 +8392,10 @@ Babygirl`.split("\n")
     }
     stage.innerHTML=`<div class="stage-label">BOX OFFICE CHARTS</div>${gamePremiseMarkup("boxoffice")}<div class="boxoffice-hero"><div class="boxoffice-year"><div><div class="boxoffice-year-value">${d.year}</div><div class="boxoffice-mini-label">Release year</div></div></div><div class="boxoffice-rank"><div><div class="boxoffice-rank-value">#${d.targetRank}</div><div class="boxoffice-mini-label">Domestic rank</div></div></div></div><h2 class="question small">Which film finished ${ordinal(d.targetRank)}?</h2>${renderBoxChart(round,st,false)}<div class="game-assist-actions"><button class="game-assist-btn hint" id="boxHintBtn" type="button" ${(st.hintLevel||0)>=hintsLength(round)?'disabled':''}>Hint${(st.hintLevel||0)?` · ${Math.max(0,hintsLength(round)-(st.hintLevel||0))} left`:''}</button><button class="game-assist-btn give-up" id="boxGiveUpBtn" type="button">Give up · reveal answer</button></div>${renderBoxOfficeHints(round,st)}<div class="answer-panel"><div class="movie-search"><input class="movie-search-input" id="boxOfficeSearch" type="search" autocomplete="off" spellcheck="false" placeholder="Search movies from ${d.year}…" aria-label="Search movies released in ${d.year}" aria-controls="boxOfficeResults" aria-autocomplete="list" /><div class="movie-search-results" id="boxOfficeResults" role="listbox"></div></div><div class="box-selection-pending hidden" id="boxSelectionPending"></div><div class="feedback ${st.feedbackType||''}" id="feedback">${st.feedback||''}</div><button class="spelling-fix hidden" id="boxSpellingFixBtn" type="button">Fix my spelling</button></div><div class="source-note">North American cumulative domestic gross · top 50 films released in ${d.year}.</div>`;
     setupBoxOfficeSearch(round,st);
+    $("boxOfficeGuessCue")?.addEventListener("click",()=>{
+      const answer=$("boxOfficeSearch")?.closest?.(".answer-panel")||$("boxOfficeSearch");
+      answer?.scrollIntoView?.({behavior:"smooth",block:"center"});
+    });
     if(st.focusRank){
       const rank=st.focusRank;
       st.focusRank=null;
@@ -8220,7 +8502,7 @@ Babygirl`.split("\n")
     const canDrag=desktopDragEnabled();
     const poolHtml=remaining.length?remaining.map(item=>`<button class="match-value ${st.selected===item.owner?'selected':''}" type="button" draggable="${canDrag?'true':'false'}" data-match-value="${item.owner}">${peoplePoolValueMarkup(active,item.value)}</button>`).join(""):`<div class="match-pool-empty">All ${active.label.toLowerCase()} cards are placed.</div>`;
     const correctCount=d.fields.filter(field=>peopleFieldComplete(round,st,field.id)).length;
-    stage.innerHTML=`<div class="stage-label">WHO'S WHO · ${correctCount}/${d.fields.length} CATEGORIES COMPLETE</div>${gamePremiseMarkup("people")}<div class="people-match-wrap"><div class="match-board">${rows}</div><div class="match-drawer"><div class="match-drawer-nav"><button class="match-drawer-arrow" id="matchPrevField" type="button" aria-label="Previous fact type">‹</button><div class="match-drawer-heading"><div class="match-category-name">${active.label}</div><div class="match-category-count">${st.activeFieldIndex+1} of ${d.fields.length} · choose a card, then a slot</div></div><button class="match-drawer-arrow" id="matchNextField" type="button" aria-label="Next fact type">›</button></div><div class="match-pool">${poolHtml}</div>${scoreBudgetMarkup(matchingBoardScore(d.fields.length,st.checks||0,st.revealedFields.length,st.hintsUsed||0),d.fields.length)}<div class="game-assist-actions"><button class="game-assist-btn hint" id="peopleHintBtn" type="button" ${peopleFieldComplete(round,st,active.id)?'disabled':''}>Hint · lock one match</button><button class="game-assist-btn give-up" id="peopleGiveUpBtn" type="button" ${peopleFieldComplete(round,st,active.id)?'disabled':''}>Give up · reveal ${active.label}</button></div><div class="match-feedback ${st.feedbackType||''}">${st.feedback||''}</div></div></div>`;
+    stage.innerHTML=`<div class="stage-label">WHO'S WHO · ${correctCount}/${d.fields.length} CATEGORIES COMPLETE</div>${gamePremiseMarkup("people")}<div class="people-match-wrap"><div class="match-board">${rows}</div><div class="match-drawer"><div class="match-drawer-nav"><button class="match-drawer-arrow" id="matchPrevField" type="button" aria-label="Previous fact type">‹</button><div class="match-drawer-heading"><div class="match-category-name">${active.label}</div><div class="match-category-count">${st.activeFieldIndex+1} of ${d.fields.length} · choose a card, then a slot</div></div><button class="match-drawer-arrow" id="matchNextField" type="button" aria-label="Next fact type">›</button></div><div class="match-pool">${poolHtml}</div>${scoreBudgetMarkup(matchingBoardScore(d.fields.length,st.checks||0,st.revealedFields.length,st.hintsUsed||0),d.fields.length)}<div class="game-assist-actions"><button class="game-assist-btn hint" id="peopleHintBtn" type="button" ${peopleFieldComplete(round,st,active.id)?'disabled':''}>Hint · lock in one answer for me</button><button class="game-assist-btn give-up" id="peopleGiveUpBtn" type="button" ${peopleFieldComplete(round,st,active.id)?'disabled':''}>Give up · reveal all ${active.label.toLowerCase()} answers</button></div><div class="match-feedback ${st.feedbackType||''}">${st.feedback||''}</div></div></div>`;
     enableHorizontalGrabScroll(stage.querySelector(".match-pool"));
     $("matchPrevField")?.addEventListener("click",()=>peopleAdvanceDrawer(round,st,-1));
     $("matchNextField")?.addEventListener("click",()=>peopleAdvanceDrawer(round,st,1));
@@ -8465,7 +8747,8 @@ Babygirl`.split("\n")
     const pool=remaining.length?remaining.map(movie=>`<button class="career-film ${st.selected===movie?'selected':''}" type="button" draggable="${canDrag?'true':'false'}" data-career-movie="${escapeAttr(movie)}">${movieMarkup(movie,{size:'tiny'})}</button>`).join(""):`<div class="career-pool-empty">All movies are placed. Check the board or tap a placed movie to return it to the pool.</div>`;
     const open=careerOpenIndices(round,st),drafts=careerDraftIndices(st);
     const hintable=d.categories.some((_,i)=>!locked.has(i)&&!(st.hinted||{})[i]);
-    stage.innerHTML=`<div class="stage-label">FILMOGRAPHY</div>${gamePremiseMarkup("career")}<div class="career-wrap"><div class="career-person"><div class="career-person-name">${escapeHtml(d.person)}</div><button class="career-info-btn" id="careerInfoBtn" type="button" aria-label="About Filmography" aria-expanded="false">i</button></div><div class="career-info-panel hidden" id="careerInfoPanel"><strong>Only among these ${d.films.length} films.</strong> These are not career records. Every category compares only this round's selected collection, and each movie is used exactly once.</div><div class="career-board">${rows}</div><div class="career-drawer"><div class="career-drawer-head"><div class="career-drawer-title">Movies</div><div class="career-drawer-meta">${remaining.length} unplaced · ${st.checks||0} check${st.checks===1?'':'s'}</div></div><div class="career-pool" id="careerPool">${pool}</div>${scoreBudgetMarkup(matchingBoardScore(d.categories.length,st.checks||0,st.reveals||0,st.hintsUsed||0),d.categories.length)}<div class="game-assist-actions"><button class="game-assist-btn hint" id="careerHintBtn" type="button" ${hintable?'':'disabled'}>${hintable?'Hint · first letter':'First letters shown'}</button><button class="game-assist-btn give-up" id="careerGiveUpBtn" type="button">Give up · reveal one movie</button></div><div class="feedback ${st.feedbackType||''}">${st.feedback||''}</div></div></div>`;
+    const careerCheckLabel=drafts.length&&drafts.length===open.length&&open.length?"Check full board":"Check placed movies";
+    stage.innerHTML=`<div class="stage-label">FILMOGRAPHY</div>${gamePremiseMarkup("career")}<div class="career-wrap"><div class="career-person"><div class="career-person-name">${escapeHtml(d.person)}</div><button class="career-info-btn" id="careerInfoBtn" type="button" aria-label="About Filmography" aria-expanded="false">i</button></div><div class="career-info-panel hidden" id="careerInfoPanel"><strong>Only among these ${d.films.length} films.</strong> These are not career records. Every category compares only this round's selected collection, and each movie is used exactly once.</div><div class="career-board">${rows}</div><div class="career-drawer"><div class="career-drawer-head"><div class="career-drawer-title">Movies</div><div class="career-drawer-meta">${remaining.length} unplaced · ${st.checks||0} check${st.checks===1?'':'s'}</div></div><div class="career-pool" id="careerPool">${pool}</div>${scoreBudgetMarkup(matchingBoardScore(d.categories.length,st.checks||0,st.reveals||0,st.hintsUsed||0),d.categories.length)}<div class="game-assist-actions"><button class="game-assist-btn hint" id="careerHintBtn" type="button" ${hintable?'':'disabled'}>${hintable?'Hint · first letter':'First letters shown'}</button><button class="game-assist-btn give-up" id="careerGiveUpBtn" type="button">Give up · reveal one movie</button></div><div class="feedback ${st.feedbackType||''}">${st.feedback||''}</div><button class="career-check-cta" id="careerCheckBtn" type="button" ${drafts.length?'':'disabled'}>${careerCheckLabel}</button></div></div>`;
     $("careerInfoBtn")?.addEventListener("click",()=>{const panel=$("careerInfoPanel"),btn=$("careerInfoBtn");const opening=panel?.classList.contains("hidden");panel?.classList.toggle("hidden",!opening);btn?.setAttribute("aria-expanded",opening?"true":"false");});
     $("careerHintBtn")?.addEventListener("click",()=>hintCareerMatch(round));
     $("careerGiveUpBtn")?.addEventListener("click",()=>giveUpCareerMatch(round));
@@ -8490,8 +8773,7 @@ Babygirl`.split("\n")
         slot.addEventListener('drop',e=>{if(locked.has(i))return;e.preventDefault();slot.classList.remove('drag-over');const movie=e.dataTransfer?.getData('application/x-filmden-filmography-movie')||e.dataTransfer?.getData('text/plain')||'';if(movie)careerAssignMovie(round,st,i,movie);});
       }
     });
-    primaryBtn.disabled=drafts.length===0;primaryBtn.textContent=drafts.length===open.length&&open.length?"Check full board":"Check placed movies";secondaryBtn.classList.add("hidden");secondaryBtn.onclick=null;
-    primaryBtn.onclick=()=>{
+    const checkCareerBoard=()=>{
       const candidates=careerDraftIndices(st);if(!candidates.length)return;st.checks=(st.checks||0)+1;
       const locks=new Set(st.locked);let newly=0,wrong=0;
       for(const i of candidates){const c=d.categories[i],value=st.assignments[i]||"";if(norm(value)===norm(c.answer)){locks.add(i);newly++;}else{delete st.assignments[i];wrong++;}}
@@ -8499,6 +8781,9 @@ Babygirl`.split("\n")
       st.feedback=[newly?`${newly} correct locked in`:"",wrong?`${wrong} returned to the movie pool`:"",`Score now ${st.points}/${d.categories.length}`].filter(Boolean).join(" · ");st.feedbackType=wrong?'wrong':'correct';
       if(st.locked.length===d.categories.length){st.done=true;completeCurrentRound(st.points,true);}renderCareerMatch(round);
     };
+    $("careerCheckBtn")?.addEventListener("click",checkCareerBoard);
+    bottom.classList.add("hidden");
+    primaryBtn.onclick=null;secondaryBtn.onclick=null;
   }
 
 
@@ -8533,7 +8818,50 @@ Babygirl`.split("\n")
     return counts.length?Math.max(...counts):0;
   }
   function collabFilmSetFor(item,answer){return new Set(collabFilmsFor(item,answer).map(norm));}
-  function validateCollaboratorRoundData(set,overlapLimit=.75){
+
+  // Franchise-heavy overlap makes two nominally different collaborator clues feel
+  // like the same answer twice. Reject rounds where two roles are both dominated
+  // by the same franchise family, even if the exact title sets differ.
+  const COLLAB_FRANCHISE_RULES = [
+    ["x-men",t=>/\bx men\b|\bwolverine\b|^logan$/.test(t)],
+    ["ocean",t=>/^ocean s (?:11|12|13|8)$/.test(t)],
+    ["mcu",t=>/\biron man\b|\bavengers\b|\bcaptain america\b|\bthor\b|spider man homecoming|black widow|doctor strange|ant man|guardians of the galaxy/.test(t)],
+    ["matrix",t=>/\bmatrix\b/.test(t)],
+    ["john-wick",t=>/^john wick\b/.test(t)],
+    ["toy-story",t=>/^toy story\b/.test(t)],
+    ["hunger-games",t=>/\bhunger games\b/.test(t)],
+    ["mission-impossible",t=>/\bmission impossible\b/.test(t)],
+    ["bourne",t=>/\bbourne\b/.test(t)],
+    ["middle-earth",t=>/lord of the rings|\bhobbit\b/.test(t)],
+    ["godfather",t=>/\bgodfather\b/.test(t)],
+    ["mamma-mia",t=>/\bmamma mia\b/.test(t)],
+    ["zombieland",t=>/\bzombieland\b/.test(t)],
+    ["dark-knight",t=>/batman begins|dark knight/.test(t)],
+    ["star-wars",t=>/\bstar wars\b|force awakens|last jedi|rise of skywalker/.test(t)],
+    ["harry-potter",t=>/\bharry potter\b/.test(t)]
+  ];
+  function collabFranchiseCounts(films){
+    const counts=new Map();
+    for(const film of films||[]){
+      const t=filmTitleNorm(film);
+      for(const [tag,test] of COLLAB_FRANCHISE_RULES){
+        if(!test(t))continue;
+        counts.set(tag,(counts.get(tag)||0)+1);
+      }
+    }
+    return counts;
+  }
+  function collabFranchiseCollision(leftFilms,rightFilms,shareLimit=.5){
+    const left=collabFranchiseCounts(leftFilms),right=collabFranchiseCounts(rightFilms);
+    for(const [tag,leftCount] of left){
+      const rightCount=right.get(tag)||0;
+      if(leftCount<2||rightCount<2)continue;
+      const leftShare=leftCount/Math.max(1,leftFilms.length),rightShare=rightCount/Math.max(1,rightFilms.length);
+      if(leftShare>=shareLimit&&rightShare>=shareLimit)return {tag,leftCount,rightCount,leftShare,rightShare};
+    }
+    return null;
+  }
+  function validateCollaboratorRoundData(set,overlapLimit=.67){
     const items=set?.items||[],subject=norm(set?.person||"");
     for(let i=0;i<items.length;i++){
       if(collabValidAnswers(items[i]).some(answer=>norm(answer)===subject)){
@@ -8542,46 +8870,176 @@ Babygirl`.split("\n")
       for(let j=i+1;j<items.length;j++){
         const leftAnswers=collabValidAnswers(items[i]),rightAnswers=collabValidAnswers(items[j]);
         for(const leftAnswer of leftAnswers){
-          const left=collabFilmSetFor(items[i],leftAnswer);
+          const leftFilms=collabFilmsFor(items[i],leftAnswer),left=new Set(leftFilms.map(norm));
           for(const rightAnswer of rightAnswers){
-            const right=collabFilmSetFor(items[j],rightAnswer);
+            const rightFilms=collabFilmsFor(items[j],rightAnswer),right=new Set(rightFilms.map(norm));
             const smaller=Math.min(left.size,right.size);if(!smaller)continue;
             let shared=0;for(const film of left)if(right.has(film))shared+=1;
             const sharedFraction=shared/smaller;
             if(sharedFraction>=overlapLimit){
               return {ok:false,reason:`${items[i].kind} (${leftAnswer}) and ${items[j].kind} (${rightAnswer}) reuse ${shared}/${smaller} of the smaller shared-film set`,pair:[items[i].kind,items[j].kind],sharedFraction};
             }
+            const franchise=collabFranchiseCollision(leftFilms,rightFilms);
+            if(franchise){
+              return {ok:false,reason:`${items[i].kind} (${leftAnswer}) and ${items[j].kind} (${rightAnswer}) are both dominated by the ${franchise.tag} franchise`,pair:[items[i].kind,items[j].kind],sharedFraction:Math.min(franchise.leftShare,franchise.rightShare),franchise:franchise.tag};
+            }
           }
         }
       }
     }
-    return {ok:true,reason:"collaborator categories use materially different film sets"};
+    return {ok:true,reason:"collaborator categories use materially different film/franchise sets"};
   }
   function makeCollaboratorRound(rng=Math.random){
     for(const set of shuffle(COLLABORATORS,rng)){
       const validation=validateCollaboratorRoundData(set);
       if(validation.ok)return set;
-      console.warn("Rejected Frequent Collaborators round:",validation.reason,set?.person);
+      console.warn("Rejected Collaborators round:",validation.reason,set?.person);
     }
-    throw new Error("Frequent Collaborators has no sufficiently diverse rounds.");
+    throw new Error("Collaborators has no sufficiently diverse rounds.");
   }
   window.validateFrequentCollaboratorRounds=()=>COLLABORATORS.map((set,index)=>({index,person:set.person,...validateCollaboratorRoundData(set)}));
+  window.validateCollaboratorRounds=window.validateFrequentCollaboratorRounds;
   function collabItemMax(item){return 1+collabFilmCount(item);}
+  const collabSystemPeopleCache=new Map();
+  let collabSystemMoviesCache=null;
+  const collabPersonFilmsCache=new Map();
+  const collabDirectorFilmsCache=new Map();
+  const collabRoleRankingCache=new Map();
+  const COLLAB_ROLE_CREDIT_CACHE_KEY="filmden-collab-role-credits-v1";
+  let collabRoleCreditCache=(()=>{try{return JSON.parse(localStorage.getItem(COLLAB_ROLE_CREDIT_CACHE_KEY))||{};}catch(_){return {};}})();
+  const collabRoleCreditFetches=new Map();
+  let collabRoleCreditSaveTimer=null;
+  function saveCollabRoleCreditCacheSoon(){
+    clearTimeout(collabRoleCreditSaveTimer);
+    collabRoleCreditSaveTimer=setTimeout(()=>{try{localStorage.setItem(COLLAB_ROLE_CREDIT_CACHE_KEY,JSON.stringify(collabRoleCreditCache));}catch(_){}},180);
+  }
+  function collabRoleCreditKey(subject,candidate,kind){return `${norm(subject)}|${String(kind||"").toLowerCase()}|${norm(candidate)}`;}
+  function collabCachedRoleFilms(subject,candidate,kind){return [...(collabRoleCreditCache[collabRoleCreditKey(subject,candidate,kind)]?.films||[])];}
+  async function discoverRoleCollaboratorFilms(subject,candidate,kind){
+    const key=collabRoleCreditKey(subject,candidate,kind),cached=collabRoleCreditCache[key];
+    if(cached?.checked)return [...(cached.films||[])];
+    if(collabRoleCreditFetches.has(key))return collabRoleCreditFetches.get(key);
+    const job=(async()=>{
+      const [subjectEntity,candidateEntity]=await Promise.all([resolveWikidataPerson(subject),resolveWikidataPerson(candidate)]);
+      if(!subjectEntity?.id||!candidateEntity?.id)return [];
+      const rolePattern=kind==="Director"
+        ? `?film wdt:P161 wd:${subjectEntity.id} . ?film wdt:P57 wd:${candidateEntity.id} .`
+        : `?film wdt:P161 wd:${subjectEntity.id} . ?film wdt:P161 wd:${candidateEntity.id} .`;
+      const query=`SELECT DISTINCT ?film ?filmLabel WHERE {
+        ${rolePattern}
+        ?film wdt:P31/wdt:P279* wd:Q11424 .
+        SERVICE wikibase:label { bd:serviceParam wikibase:language "en". }
+      } LIMIT 80`;
+      const params=new URLSearchParams({query,format:"json",origin:"*"});
+      const data=await wikidataJson(`https://query.wikidata.org/sparql?${params}`);
+      const films=collabUniqueLabels((data?.results?.bindings||[]).map(row=>row?.filmLabel?.value).filter(Boolean));
+      collabRoleCreditCache[key]={films,checked:true,checkedAt:Date.now()};saveCollabRoleCreditCacheSoon();
+      collabRoleRankingCache.delete(`${norm(subject)}|${kind}`);collabSystemMoviesCache=null;
+      return films;
+    })().catch(()=>[]).finally(()=>collabRoleCreditFetches.delete(key));
+    collabRoleCreditFetches.set(key,job);return job;
+  }
+
+  function collabUniqueLabels(values){
+    return [...new Map((values||[]).filter(Boolean).map(value=>[norm(value),String(value).trim()])).values()]
+      .sort((a,b)=>a.localeCompare(b));
+  }
+  function collabSystemPeopleOptions(kind=""){
+    const key=kind||"all";if(collabSystemPeopleCache.has(key))return collabSystemPeopleCache.get(key);
+    const all=[];
+    if(kind==="Director"){
+      all.push(...(COLLABORATOR_OPTION_POOL.Director||[]),...Object.keys(COLLAB_DIRECTOR_CREDIT_EXPANSION||{}));
+      for(const set of COLLABORATORS)for(const item of set.items||[])if(item.kind==="Director")all.push(...collabValidAnswers(item));
+      for(const set of PEOPLE_MATCH)for(const person of set.people||[])if(/director|filmmaker/i.test(person.role||""))all.push(person.name);
+      for(const set of CAREER_MATCH)if(/director|filmmaker/i.test(set.role||""))all.push(set.person);
+    }else{
+      all.push(...(COLLABORATOR_OPTION_POOL.Actor||[]),...(COLLABORATOR_OPTION_POOL.Actress||[]));
+      for(const set of ENSEMBLE)for(const clue of set.cast||[])all.push(clue.person);
+      for(const set of TITLE_LINK)for(const link of set.links||[])all.push(link.person);
+      for(const set of PEOPLE_MATCH)for(const person of set.people||[])all.push(person.name);
+      for(const set of CAREER_MATCH)all.push(set.person);
+      for(const set of COLLABORATORS){all.push(set.person);for(const item of set.items||[])if(item.kind!=="Director")all.push(...collabValidAnswers(item));}
+      for(const item of CONNECTION_FILMS)all.push(...(item.people||[]));
+      if(typeof STATHAM_TARGET_PEOPLE!=="undefined")all.push(...STATHAM_TARGET_PEOPLE);
+    }
+    const result=collabUniqueLabels(all);collabSystemPeopleCache.set(key,result);return result;
+  }
+  function collabSystemMovieOptions(){
+    if(collabSystemMoviesCache)return collabSystemMoviesCache;
+    const all=[];
+    for(const set of ENSEMBLE){all.push(set.film);for(const clue of set.cast||[])all.push(...(clue.movies||[]));}
+    for(const set of TITLE_LINK)for(const link of set.links||[])all.push(link.film);
+    for(const movies of Object.values(BOX_OFFICE_YEARS))all.push(...(movies||[]));
+    for(const set of PEOPLE_MATCH)for(const person of set.people||[])all.push(person.movie,person.recent);
+    for(const set of CAREER_MATCH)all.push(...(set.films||[]));
+    for(const set of COLLABORATORS)for(const item of set.items||[])for(const answer of collabValidAnswers(item))all.push(...collabFilmsFor(item,answer));
+    for(const credits of Object.values(COLLAB_DIRECTOR_CREDIT_EXPANSION||{}))all.push(...(credits||[]));
+    for(const cached of Object.values(collabRoleCreditCache||{}))all.push(...(cached?.films||[]));
+    for(const item of CONNECTION_FILMS)all.push(item.film);
+    collabSystemMoviesCache=collabUniqueLabels(all);return collabSystemMoviesCache;
+  }
+  function collabKnownFilmsForPerson(name){
+    const key=norm(name);if(!key)return new Set();if(collabPersonFilmsCache.has(key))return collabPersonFilmsCache.get(key);
+    const films=new Set(),add=film=>{if(film)films.add(film)};
+    for(const item of CONNECTION_FILMS)if((item.people||[]).some(person=>norm(person)===key))add(item.film);
+    for(const set of ENSEMBLE){
+      const clue=(set.cast||[]).find(c=>norm(c.person)===key);
+      if(clue){for(const film of clue.movies||[])add(film);add(set.film);}
+    }
+    for(const set of TITLE_LINK)for(const link of set.links||[])if(norm(link.person)===key)add(link.film);
+    for(const set of PEOPLE_MATCH)for(const person of set.people||[])if(norm(person.name)===key){add(person.movie);add(person.recent);}
+    for(const set of CAREER_MATCH)if(norm(set.person)===key)for(const film of set.films||[])add(film);
+    for(const set of COLLABORATORS){
+      if(norm(set.person)===key)for(const item of set.items||[])for(const answer of collabValidAnswers(item))for(const film of collabFilmsFor(item,answer))add(film);
+      for(const item of set.items||[])for(const answer of collabValidAnswers(item))if(norm(answer)===key)for(const film of collabFilmsFor(item,answer))add(film);
+    }
+    collabPersonFilmsCache.set(key,films);return films;
+  }
+  function collabKnownDirectedFilms(name){
+    const key=norm(name);if(!key)return new Set();if(collabDirectorFilmsCache.has(key))return collabDirectorFilmsCache.get(key);
+    const films=new Set(),add=film=>{if(film)films.add(film)};
+    for(const [director,credits] of Object.entries(COLLAB_DIRECTOR_CREDIT_EXPANSION||{}))if(norm(director)===key)for(const film of credits||[])add(film);
+    for(const set of COLLABORATORS)for(const item of set.items||[])if(item.kind==="Director")for(const answer of collabValidAnswers(item))if(norm(answer)===key)for(const film of collabFilmsFor(item,answer))add(film);
+    for(const set of PEOPLE_MATCH)for(const person of set.people||[])if(norm(person.name)===key&&/director|filmmaker/i.test(person.role||"")){add(person.movie);add(person.recent);}
+    for(const set of CAREER_MATCH){
+      if(norm(set.person)===key&&/director|filmmaker/i.test(set.role||""))for(const film of set.films||[])add(film);
+      for(const category of set.categories||[]){
+        const match=String(category.label||"").match(/directed by\s+([^,]+?)(?:\s+and\b|$)/i);
+        if(match&&norm(match[1])===key)add(category.answer);
+      }
+    }
+    collabDirectorFilmsCache.set(key,films);return films;
+  }
+  function collabTrackedFilmsForGuess(round,item,name){
+    const subject=round?.data?.person||"",subjectFilms=collabKnownFilmsForPerson(subject);
+    const candidateFilms=item.kind==="Director"?collabKnownDirectedFilms(name):collabKnownFilmsForPerson(name);
+    const shared=[];for(const film of subjectFilms)if([...candidateFilms].some(candidate=>filmTitleMatches(candidate,film)))shared.push(film);
+    shared.push(...collabCachedRoleFilms(subject,name,item.kind));
+    return collabUniqueLabels(shared);
+  }
   function collabOptionPool(item){
-    const answers=collabValidAnswers(item);
-    const base=[...answers,...(item.options||[]),...(COLLABORATOR_OPTION_POOL[item.kind]||[])];
-    return [...new Map(base.filter(Boolean).map(name=>[norm(name),name])).values()];
+    const base=[...collabSystemPeopleOptions(item.kind),...collabValidAnswers(item),...(item.options||[])];
+    return collabUniqueLabels(base);
+  }
+  function collabCompatibleOptions(round,item){
+    const subject=norm(round?.data?.person||"");
+    return collabOptionPool(item).filter(name=>norm(name)!==subject);
+  }
+  function collabCompatibleCanonical(round,item,value){
+    const typed=norm(value);if(!typed)return null;
+    const options=collabCompatibleOptions(round,item);
+    const exact=options.find(name=>norm(name)===typed);if(exact)return exact;
+    if(!typed.includes(" ")){
+      const surnameMatches=options.filter(name=>norm(name).endsWith(` ${typed}`)||norm(name)===typed);
+      if(surnameMatches.length===1)return surnameMatches[0];
+    }
+    return null;
   }
   function collabChoices(round,item,index,level){
     if(level<=0)return [];
     const wanted=level===1?10:level===2?6:3;
     const answers=collabValidAnswers(item);
-    const subject=norm(round?.data?.person||"");
-    // The person the round is about can never be their own collaborator.
-    // Keep valid answers intact, but exclude the subject from every distractor pool.
-    const pool=collabOptionPool(item).filter(name=>
-      norm(name)!==subject && !answers.some(answer=>norm(answer)===norm(name))
-    );
+    const pool=collabCompatibleOptions(round,item).filter(name=>!answers.some(answer=>norm(answer)===norm(name)));
     const rng=seededRng(`${round.data.person}|${item.kind}|${index}|${level}|filmden-collab-hints`);
     const distractors=shuffle(pool,rng).slice(0,Math.max(0,wanted-answers.length));
     return shuffle([...answers,...distractors],seededRng(`${round.data.person}|${item.kind}|${index}|${level}|filmden-collab-order`));
@@ -8623,166 +9081,295 @@ Babygirl`.split("\n")
     return possible;
   }
   function collabMaxTotal(round){return round.data.items.reduce((sum,item)=>sum+collabItemMax(item),0);}
+
+  function collabRoleRanking(round,item){
+    const cacheKey=`${norm(round?.data?.person)}|${item.kind}`;
+    if(collabRoleRankingCache.has(cacheKey))return collabRoleRankingCache.get(cacheKey);
+    const answerNorms=new Set(collabValidAnswers(item).map(norm)),subject=norm(round?.data?.person||"");
+    const rows=collabCompatibleOptions(round,item)
+      .filter(name=>norm(name)!==subject&&!answerNorms.has(norm(name)))
+      .map(name=>{const films=collabTrackedFilmsForGuess(round,item,name);return {name,count:films.length,films};})
+      .filter(entry=>entry.count>0)
+      .sort((a,b)=>b.count-a.count||a.name.localeCompare(b.name));
+    let lastCount=null,lastRank=1;
+    rows.forEach((entry,index)=>{if(entry.count!==lastCount){lastRank=index+2;lastCount=entry.count;}entry.rank=lastRank;});
+    const map=new Map(rows.map(entry=>[norm(entry.name),entry]));
+    collabRoleRankingCache.set(cacheKey,map);return map;
+  }
+  function collabGuessInsight(round,item,name){
+    const canonical=collabCanonicalAnswer(item,name);
+    if(canonical)return {rank:1,count:collabFilmsFor(item,canonical).length,films:collabFilmsFor(item,canonical)};
+    const explicit=(item.ranking||[]).find(entry=>norm(entry?.name)===norm(name));
+    if(explicit)return {rank:Number(explicit.rank)||null,count:Number.isFinite(Number(explicit.count))?Number(explicit.count):null,films:explicit.films||[]};
+    const ranked=collabRoleRanking(round,item).get(norm(name));
+    if(ranked)return {rank:ranked.rank,count:ranked.count,films:ranked.films||[]};
+    const films=collabTrackedFilmsForGuess(round,item,name);
+    return {rank:null,count:films.length,films};
+  }
+  function collabGuessHistory(st,index){return [...(st.guessHistory?.[index]||[])];}
+  function collabRememberWrongGuess(round,item,index,name){
+    const st=session.current,existing=collabGuessHistory(st,index);
+    if(existing.some(entry=>norm(entry.name)===norm(name)))return existing.find(entry=>norm(entry.name)===norm(name));
+    const insight=collabGuessInsight(round,item,name),record={name,rank:insight.rank,count:insight.count,films:insight.films||[],omitted:(Number(insight.count)||0)<=0};
+    if(!record.omitted)st.guessHistory={...(st.guessHistory||{}),[index]:[...existing,record]};
+    return record;
+  }
+  function collabRankFilmsMarkup(films){
+    const list=collabUniqueLabels(films||[]);
+    if(!list.length)return `<div class="collab-rank-empty">No shared films currently found in FilmDen’s network.</div>`;
+    return `<div class="collab-rank-films">${list.map(film=>`<span class="collab-rank-film">${escapeHtml(film)}</span>`).join("")}</div>`;
+  }
+  function collabRankingMarkup(round,item,index,st){
+    const guesses=collabGuessHistory(st,index);
+    const solved=st.locked.includes(index),correct=st.answers[index]||collabValidAnswers(item)[0]||"";
+    const sorted=[...guesses].sort((a,b)=>{
+      const ar=Number.isFinite(a.rank)?a.rank:999,br=Number.isFinite(b.rank)?b.rank:999;
+      return ar-br||(Number(b.count)||0)-(Number(a.count)||0)||a.name.localeCompare(b.name);
+    });
+    const correctFilms=solved?collabFilmsFor(item,correct):[];
+    const target=`<div class="collab-rank-row ${solved?'correct':'target'}"><div class="collab-rank-no">#1</div><div class="collab-rank-name">${solved?escapeHtml(correct):'Top collaborator'}</div><div class="collab-rank-meta">${solved?`${correctFilms.length} shared film${correctFilms.length===1?'':'s'}`:'?'}</div>${solved?collabRankFilmsMarkup(correctFilms):''}</div>`;
+    const rows=sorted.map(entry=>{
+      const rank=Number.isFinite(entry.rank)?`#${entry.rank}`:'—';
+      const meta=`${Number(entry.count)||0} shared film${Number(entry.count)===1?'':'s'}`;
+      return `<div class="collab-rank-row"><div class="collab-rank-no">${rank}</div><div class="collab-rank-name">${escapeHtml(entry.name)}</div><div class="collab-rank-meta">${escapeHtml(meta)}</div>${collabRankFilmsMarkup(entry.films||[])}</div>`;
+    }).join("");
+    return `<div class="collab-ranking"><div class="collab-ranking-head"><div class="collab-ranking-title">${escapeHtml(item.kind)} ranking</div><div class="collab-ranking-note">Your guesses · shared films shown below</div></div>${target}${rows}</div>`;
+  }
+
   function hintCollaborator(round,index){
-    const st=session.current;if(round.type!=="collab"||st.done||st.locked.includes(index)||st.revealed.includes(index))return;
-    const level=Number(st.hintLevels?.[index])||0;if(level>=3)return;
-    st.hintLevels={...(st.hintLevels||{}),[index]:level+1};st.feedback="";st.feedbackType="";renderCollaborators(round);
+    const st=session.current,item=round.data.items[index];if(round.type!=="collab"||!item||st.done||st.locked.includes(index)||st.revealed.includes(index))return;
+    const level=Number(st.hintLevels?.[index])||0;if(level>=1)return;
+    st.hintLevels={...(st.hintLevels||{}),[index]:1};
+    const answer=collabValidAnswers(item)[0]||"",first=(answer.match(/[A-Za-z0-9]/)||["?"])[0].toUpperCase();
+    st.feedback=`Hint: the top ${item.kind.toLowerCase()}'s name starts with “${first}”.`;st.feedbackType="near";renderCollaborators(round);
   }
   function revealCollaborator(round,index){
     const st=session.current,item=round.data.items[index];if(round.type!=="collab"||!item||st.done||st.locked.includes(index))return;
     if(!st.revealed.includes(index)){st.revealed=[...(st.revealed||[]),index];session.revealed+=1;}
     const canonical=collabValidAnswers(item)[0]||"";
     st.locked=[...new Set([...(st.locked||[]),index])];st.answers[index]=canonical;
-    st.feedback=`${canonical} revealed. Now name the ${collabFilmsFor(item,canonical).length} shared films FilmDen is counting.`;st.feedbackType="near";
+    const allPeopleFound=round.data.items.every((_,idx)=>st.locked.includes(idx));
+    st.feedback=allPeopleFound?`All three collaborators are found. Phase 2: fill their shared movies.`:`${canonical} revealed. Keep going — find the other top collaborators.`;st.feedbackType="near";
     renderCollaborators(round);
   }
-  function checkCollaborators(round){
+  async function checkCollaborators(round,index=undefined){
     const st=session.current,d=round.data;if(round.type!=="collab"||st.done)return;
-    const i=Number.isInteger(st.activeIndex)?st.activeIndex:0,item=d.items[i];
+    const i=Number.isInteger(index)?index:(Number.isInteger(st.activeIndex)?st.activeIndex:0),item=d.items[i];
     if(!item||st.locked.includes(i))return;
-    const val=st.answers[i]||"";if(!norm(val))return;
+    const val=String(st.answers[i]||"").trim();if(!norm(val))return;
     st.checks=(st.checks||0)+1;
     const canonical=collabCanonicalAnswer(item,val);
     if(!canonical){
-      const spelling=typoCandidate(val,collabValidAnswers(item));
-      if(spelling){
-        st.spellingSuggestions={...(st.spellingSuggestions||{}),[i]:spelling};
-        st.feedback="Almost — that looks like a spelling slip.";st.feedbackType="near";renderCollaborators(round);return;
+      const compatible=collabCompatibleOptions(round,item),candidate=collabCompatibleCanonical(round,item,val);
+      if(!candidate){
+        const spelling=typoCandidate(val,compatible);
+        if(spelling){
+          st.spellingSuggestions={...(st.spellingSuggestions||{}),[i]:spelling};
+          st.feedback="Almost — that looks like a spelling slip.";st.feedbackType="near";renderCollaborators(round);return;
+        }
+        st.feedback=`Choose a person from FilmDen’s tracked ${item.kind.toLowerCase()} suggestions.`;st.feedbackType="near";renderCollaborators(round);return;
       }
-      st.feedback="Not quite — try another collaborator or use a hint.";st.feedbackType="wrong";renderCollaborators(round);return;
+      if(st.spellingSuggestions)delete st.spellingSuggestions[i];
+      if(st.lookupBusy===i)return;
+      st.lookupBusy=i;
+      await discoverRoleCollaboratorFilms(d.person,candidate,item.kind);
+      if(session?.current!==st||session?.rounds?.[session.index]!==round)return;
+      st.lookupBusy=null;
+      const record=collabRememberWrongGuess(round,item,i,candidate);
+      const count=Number(record.count)||0;
+      const detail=record.omitted?`FilmDen doesn’t currently have a shared film for that pairing, so it wasn’t added to the ranking.`:record.rank?`That places at #${record.rank} with ${count} shared film${count===1?'':'s'}.`:`FilmDen has ${count} tracked shared film${count===1?'':'s'} for that guess.`;
+      st.answers[i]="";
+      st.feedback=`${candidate} isn’t #1. ${detail}`;st.feedbackType="wrong";renderCollaborators(round);return;
     }
     if(st.spellingSuggestions)delete st.spellingSuggestions[i];
     st.locked=[...new Set([...(st.locked||[]),i])];st.answers[i]=canonical;
     const assisted=(st.revealed||[]).includes(i)||(Number(st.hintLevels?.[i])||0)>0;
     if(!assisted)st.points+=1;
-    st.feedback=`${canonical} locked in. Now name the ${collabFilmsFor(item,canonical).length} shared films FilmDen is counting.`;st.feedbackType="correct";
+    const allPeopleFound=d.items.every((_,idx)=>st.locked.includes(idx));
+    st.feedback=allPeopleFound?`All three collaborators found ✓ · Phase 2 is now unlocked.`:`Correct — ${canonical}. Keep going — find the other top collaborators.`;st.feedbackType="correct";
     renderCollaborators(round);
   }
 
-  function addCollaboratorFilm(round,index){
+  const COLLAB_FILM_YEAR_CACHE_KEY="filmden-collab-film-years-v1";
+  let collabFilmYearCache=(()=>{try{return JSON.parse(localStorage.getItem(COLLAB_FILM_YEAR_CACHE_KEY))||{};}catch(_){return {};}})();
+  const collabFilmYearFetches=new Map();
+  let collabFilmYearSaveTimer=null;
+  function saveCollabFilmYearCacheSoon(){
+    clearTimeout(collabFilmYearSaveTimer);
+    collabFilmYearSaveTimer=setTimeout(()=>{try{localStorage.setItem(COLLAB_FILM_YEAR_CACHE_KEY,JSON.stringify(collabFilmYearCache));}catch(_){}},180);
+  }
+  function collabFilmYear(title){
+    const known=resolvedMovieYear(title,"");if(known)return known;
+    return String(collabFilmYearCache[norm(title)]?.year||"");
+  }
+  async function ensureCollabFilmYears(films){
+    const missing=collabUniqueLabels(films||[]).filter(title=>!collabFilmYear(title)&&!collabFilmYearCache[norm(title)]?.checked);
+    if(!missing.length)return false;
+    const batchKey=missing.map(norm).sort().join("|");
+    if(collabFilmYearFetches.has(batchKey))return collabFilmYearFetches.get(batchKey);
+    const job=(async()=>{
+      const values=missing.map(title=>`"${String(title).replace(/\\/g,"\\\\").replace(/"/g,'\\"')}"@en`).join(" ");
+      const query=`SELECT ?title (MIN(?date) AS ?firstDate) WHERE {
+        VALUES ?title { ${values} }
+        ?film rdfs:label ?title ; wdt:P31/wdt:P279* wd:Q11424 ; wdt:P577 ?date .
+      } GROUP BY ?title`;
+      const params=new URLSearchParams({query,format:"json",origin:"*"});
+      const data=await wikidataJson(`https://query.wikidata.org/sparql?${params}`);
+      const found=new Map();
+      for(const row of data?.results?.bindings||[]){
+        const label=row?.title?.value||"",date=row?.firstDate?.value||"",year=(date.match(/^(\d{4})/)||[])[1]||"";
+        if(label&&year)found.set(norm(label),year);
+      }
+      for(const title of missing){
+        const key=norm(title);collabFilmYearCache[key]={year:found.get(key)||"",checked:true,ts:Date.now()};
+      }
+      saveCollabFilmYearCacheSoon();return true;
+    })().catch(()=>false).finally(()=>collabFilmYearFetches.delete(batchKey));
+    collabFilmYearFetches.set(batchKey,job);return job;
+  }
+  function collabFilmSlotKey(film){return norm(film);}
+  function collabFilmSlotInput(st,index,film){return st.filmSlotInputs?.[index]?.[collabFilmSlotKey(film)]||"";}
+  function collabFilmSlotFeedback(st,index,film){return st.filmSlotFeedback?.[index]?.[collabFilmSlotKey(film)]||null;}
+  function setCollabFilmSlotInput(st,index,film,value){
+    st.filmSlotInputs={...(st.filmSlotInputs||{}),[index]:{...(st.filmSlotInputs?.[index]||{}),[collabFilmSlotKey(film)]:value}};
+  }
+  function setCollabFilmSlotFeedback(st,index,film,feedback){
+    st.filmSlotFeedback={...(st.filmSlotFeedback||{}),[index]:{...(st.filmSlotFeedback?.[index]||{}),[collabFilmSlotKey(film)]:feedback}};
+  }
+  function collabFilmSort(films){
+    return [...films].sort((a,b)=>{
+      const ay=Number(collabFilmYear(a))||9999,by=Number(collabFilmYear(b))||9999;
+      return ay-by||a.localeCompare(b);
+    });
+  }
+
+  function addCollaboratorFilm(round,index,targetFilm=""){
     const st=session.current,item=round.data.items[index];if(round.type!=="collab"||!item||st.done||!st.locked.includes(index))return;
-    const answer=st.answers[index],films=collabFilmsFor(item,answer),raw=String(st.filmInputs?.[index]||"").trim();
-    if(!raw){st.filmFeedback={...(st.filmFeedback||{}),[index]:{text:"Type a shared film first.",type:"near"}};renderCollaborators(round);return;}
+    const answer=st.answers[index],films=collabFilmsFor(item,answer),target=targetFilm||films.find(f=>!collabFoundFilms(st,index).some(found=>norm(found)===norm(f)))||"";
+    if(!target)return;
+    const raw=String(collabFilmSlotInput(st,index,target)||"").trim();
+    if(!raw){setCollabFilmSlotFeedback(st,index,target,{text:"Type a movie title first.",type:"near"});renderCollaborators(round);return;}
     const canonical=collabFilmCanonical(item,answer,raw);
     if(!canonical){
       const typo=filmTitleTypoCandidate(raw,films);
       if(typo){
-        st.filmSpellingSuggestions={...(st.filmSpellingSuggestions||{}),[index]:typo};
-        st.filmFeedback={...(st.filmFeedback||{}),[index]:{text:"Almost — that looks like a spelling slip.",type:"near"}};
+        st.filmSpellingSuggestions={...(st.filmSpellingSuggestions||{}),[index]:{target,value:typo}};
+        setCollabFilmSlotFeedback(st,index,target,{text:"Almost — that looks like the right movie with a title/spelling variation.",type:"near"});
       }else{
         if(st.filmSpellingSuggestions)delete st.filmSpellingSuggestions[index];
-        st.filmFeedback={...(st.filmFeedback||{}),[index]:{text:`${raw} isn't one of the shared films FilmDen is counting here.`,type:"wrong"}};
+        setCollabFilmSlotFeedback(st,index,target,{text:`${raw} isn’t one of their tracked shared movies.`,type:"wrong"});
       }
       renderCollaborators(round);return;
     }
     if(st.filmSpellingSuggestions)delete st.filmSpellingSuggestions[index];
     const found=collabFoundFilms(st,index);
     if(found.some(f=>norm(f)===norm(canonical))){
-      st.filmFeedback={...(st.filmFeedback||{}),[index]:{text:`Already got ${canonical}.`,type:"near"}};st.filmInputs={...(st.filmInputs||{}),[index]:""};renderCollaborators(round);return;
+      setCollabFilmSlotFeedback(st,index,target,{text:`Already got ${canonical}.`,type:"near"});setCollabFilmSlotInput(st,index,target,"");renderCollaborators(round);return;
     }
     const hinted=new Set(collabHintedFilms(st,index).map(norm)),revealed=new Set(collabRevealedFilms(st,index).map(norm));
     st.filmFound={...(st.filmFound||{}),[index]:[...found,canonical]};
-    st.filmInputs={...(st.filmInputs||{}),[index]:""};
-    const point=!hinted.has(norm(canonical))&&!revealed.has(norm(canonical))?1:0;
-    st.points+=point;
-    st.filmFeedback={...(st.filmFeedback||{}),[index]:{text:`Correct — ${canonical}${point?' · +1 point':''}.`,type:"correct"}};
+    setCollabFilmSlotInput(st,index,target,"");
+    const point=!hinted.has(norm(canonical))&&!revealed.has(norm(canonical))?1:0;st.points+=point;
+    const canonicalYear=collabFilmYear(canonical),targetYear=collabFilmYear(target);
+    setCollabFilmSlotFeedback(st,index,canonical,{text:`Correct${point?' · +1 point':''}.`,type:"correct"});
+    if(norm(canonical)!==norm(target))setCollabFilmSlotFeedback(st,index,target,{text:canonicalYear&&targetYear&&canonicalYear!==targetYear?`Correct movie — it belongs in the ${canonicalYear} slot.`:`Correct — filled its matching slot.`,type:"correct"});
+    const roleComplete=collabFilmsComplete(item,st,index);
+    if(roleComplete){st.feedback=`${item.kind} complete ✓`;st.feedbackType="correct";}
     if(collabAllComplete(round,st)){st.done=true;completeCurrentRound(st.points,st.points>0);}
-    else collabAdvanceIfComplete(round,st,index);
     renderCollaborators(round);
   }
   function hintCollaboratorFilm(round,index){
     const st=session.current,item=round.data.items[index];if(round.type!=="collab"||!item||st.done||!st.locked.includes(index))return;
-    const films=collabFilmsFor(item,st.answers[index]),found=new Set(collabFoundFilms(st,index).map(norm)),hinted=collabHintedFilms(st,index);
-    const hintedNorm=new Set(hinted.map(norm));
+    const films=collabFilmSort(collabFilmsFor(item,st.answers[index])),found=new Set(collabFoundFilms(st,index).map(norm)),hinted=collabHintedFilms(st,index),hintedNorm=new Set(hinted.map(norm));
     const target=films.find(f=>!found.has(norm(f))&&!hintedNorm.has(norm(f)));
-    if(!target){st.filmFeedback={...(st.filmFeedback||{}),[index]:{text:"No new movie hints left for this collaborator.",type:"near"}};renderCollaborators(round);return;}
-    const words=target.trim().split(/\s+/).filter(Boolean).length;
-    const first=(target.match(/[A-Za-z0-9]/)||["?"])[0].toUpperCase();
+    if(!target){st.feedback="No new first-letter movie hints left for this role.";st.feedbackType="near";renderCollaborators(round);return;}
     st.filmHinted={...(st.filmHinted||{}),[index]:[...hinted,target]};
-    st.filmHintText={...(st.filmHintText||{}),[index]:`One remaining title starts with “${first}” and has ${words} word${words===1?'':'s'}.`};
-    st.filmFeedback={...(st.filmFeedback||{}),[index]:{text:"Movie hint used — that film is no longer worth a point.",type:"near"}};
-    renderCollaborators(round);
+    st.feedback=`Hint added to the ${collabFilmYear(target)||"mystery-year"} movie slot.`;st.feedbackType="near";renderCollaborators(round);
   }
   function revealCollaboratorFilms(round,index){
     const st=session.current,item=round.data.items[index];if(round.type!=="collab"||!item||st.done||!st.locked.includes(index))return;
-    const films=collabFilmsFor(item,st.answers[index]),found=collabFoundFilms(st,index),foundNorm=new Set(found.map(norm));
-    const target=films.find(f=>!foundNorm.has(norm(f)));
-    if(!target)return;
+    const films=collabFilmSort(collabFilmsFor(item,st.answers[index])),found=collabFoundFilms(st,index),foundNorm=new Set(found.map(norm));
+    const target=films.find(f=>!foundNorm.has(norm(f)));if(!target)return;
     st.filmRevealed={...(st.filmRevealed||{}),[index]:[...collabRevealedFilms(st,index),target]};
-    st.filmFound={...(st.filmFound||{}),[index]:[...found,target]};
-    session.revealed+=1;
-    const left=Math.max(0,films.length-found.length-1);
-    st.filmFeedback={...(st.filmFeedback||{}),[index]:{text:`Revealed ${target}.${left?` ${left} shared film${left===1?'':'s'} still hidden.`:""}`,type:"near"}};
+    st.filmFound={...(st.filmFound||{}),[index]:[...found,target]};session.revealed+=1;
+    const left=Math.max(0,films.length-found.length-1),roleComplete=left===0;
+    setCollabFilmSlotFeedback(st,index,target,{text:"Revealed",type:roleComplete?"correct":"near"});
+    st.feedback=roleComplete?`${item.kind} complete ✓`:`Revealed one shared movie · ${left} left`;st.feedbackType=roleComplete?"correct":"near";
     if(collabAllComplete(round,st)){st.done=true;completeCurrentRound(st.points,st.points>0);}
-    else collabAdvanceIfComplete(round,st,index);
     renderCollaborators(round);
   }
   function collaboratorFilmStage(round,item,index,st){
-    const answer=st.answers[index]||collabValidAnswers(item)[0]||"",films=collabFilmsFor(item,answer),found=collabFoundFilms(st,index),foundNorm=new Set(found.map(norm)),revealed=new Set(collabRevealedFilms(st,index).map(norm));
-    const missing=films.filter(f=>!foundNorm.has(norm(f))),feedback=st.filmFeedback?.[index]||{},hintText=st.filmHintText?.[index]||"";
-    const pills=found.length?`<div class="collab-film-found">${found.map(f=>`<span class="collab-film-pill ${revealed.has(norm(f))?'revealed':''}">${escapeHtml(f)}</span>`).join("")}</div>`:"";
-    if(!missing.length)return `<div class="collab-film-stage"><div class="collab-film-head"><div class="collab-film-title">Shared films</div><div class="collab-film-count">${films.length} / ${films.length} found</div></div>${pills}<div class="collab-film-complete">All shared films accounted for ✓</div></div>`;
-    const unhintedMissing=missing.filter(f=>!collabHintedFilms(st,index).some(h=>norm(h)===norm(f)));
-    const spelling=st.filmSpellingSuggestions?.[index]||"";
-    return `<div class="collab-film-stage"><div class="collab-film-head"><div class="collab-film-title">Name all shared films</div><div class="collab-film-count">${found.length} / ${films.length} found</div></div>${clueBudgetMarkup(missing.length,films.length,"films left")}${pills}${hintText?`<div class="assist-hint-copy">${escapeHtml(hintText)}</div>`:""}<div class="collab-film-input-row"><input class="collab-film-input" data-collab-film-input="${index}" autocomplete="off" autocapitalize="words" placeholder="Shared film title…" value="${escapeAttr(st.filmInputs?.[index]||'')}" /><button class="collab-film-add" type="button" data-collab-film-add="${index}">Add film</button></div><div class="collab-film-feedback ${feedback.type||''}">${escapeHtml(feedback.text||'')}</div>${spelling?`<button class="spelling-fix local-spelling-fix" type="button" data-collab-film-spell="${index}" data-spelling-value="${escapeAttr(spelling)}">Fix my spelling</button>`:""}<div class="game-assist-actions"><button class="game-assist-btn hint" type="button" data-collab-film-hint="${index}" ${!unhintedMissing.length?'disabled':''}>Hint · one movie</button><button class="game-assist-btn give-up" type="button" data-collab-film-giveup="${index}">Give up · reveal one movie</button></div></div>`;
+    const answer=st.answers[index]||collabValidAnswers(item)[0]||"",films=collabFilmSort(collabFilmsFor(item,answer)),found=collabFoundFilms(st,index),foundNorm=new Set(found.map(norm)),revealed=new Set(collabRevealedFilms(st,index).map(norm)),hinted=new Set(collabHintedFilms(st,index).map(norm));
+    const missing=films.filter(f=>!foundNorm.has(norm(f))),unhintedMissing=missing.filter(f=>!hinted.has(norm(f))),filmListId=`collabFilmOptions-${index}`,movieOptions=collabSystemMovieOptions();
+    const rows=films.map(film=>{
+      const isFound=foundNorm.has(norm(film)),isRevealed=revealed.has(norm(film)),isHinted=hinted.has(norm(film)),year=collabFilmYear(film),feedback=collabFilmSlotFeedback(st,index,film),input=collabFilmSlotInput(st,index,film);
+      const first=(film.match(/[A-Za-z0-9]/)||["?"])[0].toUpperCase();
+      const spelling=st.filmSpellingSuggestions?.[index],spellingForThis=spelling&&norm(spelling.target||"")===norm(film)?spelling.value||"":"";
+      const main=isFound
+        ? `<div class="collab-movie-slot-title ${isRevealed?'revealed':''}">${escapeHtml(film)}${isRevealed?' · revealed':''}</div>`
+        : `<div class="collab-movie-slot-input-row"><input class="collab-movie-slot-input" data-collab-film-input="${index}" data-collab-film-target="${escapeAttr(film)}" list="${filmListId}" autocomplete="off" autocapitalize="words" placeholder="Movie title…" value="${escapeAttr(input)}" /><button class="collab-movie-slot-check" type="button" data-collab-film-add="${index}" data-collab-film-target="${escapeAttr(film)}">Check</button></div>${isHinted?`<div class="collab-movie-slot-hint">Starts with “${escapeHtml(first)}”</div>`:""}${spellingForThis?`<button class="spelling-fix local-spelling-fix" type="button" data-collab-film-spell="${index}" data-collab-film-target="${escapeAttr(film)}" data-spelling-value="${escapeAttr(spellingForThis)}">Fix my spelling</button>`:""}`;
+      return `<div class="collab-movie-slot ${isFound?'found':''}"><div class="collab-movie-year ${year?'':'pending'}">${escapeHtml(year||'…')}</div><div class="collab-movie-slot-main">${main}${feedback?`<div class="collab-movie-slot-feedback ${feedback.type||''}">${escapeHtml(feedback.text||'')}</div>`:""}</div></div>`;
+    }).join("");
+    const roleComplete=!missing.length;
+    const feedback=st.feedback&&st.activeIndex===index?`<div class="collab-phase-feedback ${st.feedbackType||''}">${escapeHtml(st.feedback)}</div>`:"";
+    return `<div class="collab-movie-phase"><div class="collab-movie-phase-head"><div class="collab-movie-phase-copy"><div class="collab-movie-phase-kicker">${escapeHtml(item.kind)} collaborator found</div><div class="collab-movie-phase-person">${escapeHtml(answer)}</div><div class="collab-phase-note">Fill the mystery movies they made together. The release year is your clue.</div></div><div class="collab-movie-phase-count">${found.length} / ${films.length}</div></div><datalist id="${filmListId}">${movieOptions.map(f=>`<option value="${escapeAttr(f)}"></option>`).join("")}</datalist><div class="collab-movie-stack">${rows}</div>${feedback}${roleComplete?`<div class="collab-role-complete">${escapeHtml(item.kind)} complete ✓ · choose another role above</div>`:`<div class="game-assist-actions"><button class="game-assist-btn hint" type="button" data-collab-film-hint="${index}" ${!unhintedMissing.length?'disabled':''}>Hint · reveal first letter of one movie</button><button class="game-assist-btn give-up" type="button" data-collab-film-giveup="${index}">Give up · reveal one movie</button></div>`}</div>`;
   }
   function collabCompletedIndices(round,st){
     return round.data.items.map((item,i)=>collabFilmsComplete(item,st,i)?i:-1).filter(i=>i>=0);
   }
-  function collabAdvanceIfComplete(round,st,index){
-    if(!collabFilmsComplete(round.data.items[index],st,index))return;
-    const next=round.data.items.findIndex((item,i)=>i>index&&!collabFilmsComplete(item,st,i));
-    if(next>=0)st.activeIndex=next;
-    else{
-      const first=round.data.items.findIndex((item,i)=>!collabFilmsComplete(item,st,i));
-      if(first>=0)st.activeIndex=first;
-    }
-    st.feedback="";st.feedbackType="";
-  }
   function renderCollaborators(round){
-    const st=session.current,d=round.data,locked=new Set(st.locked),revealed=new Set(st.revealed||[]),maxTotal=collabMaxTotal(round);
+    const st=session.current,d=round.data,locked=new Set(st.locked),maxTotal=collabMaxTotal(round);
     if(st.done){
-      stage.innerHTML=`<div class="stage-label">FREQUENT COLLABORATORS COMPLETE</div>${roundCompleteHero(d.person,"Collaborator set complete · one point for each unassisted collaborator and shared film",st.points,maxTotal)}<div class="collab-grid">${d.items.map((item,i)=>{const answer=st.answers[i]||collabValidAnswers(item)[0]||"",films=collabFilmsFor(item,answer);return `<div class="collab-card correct"><div class="collab-label">${item.kind}</div><div class="collab-answer-list"><span class="collab-answer-pill">${escapeHtml(answer)}</span></div><div class="collab-film-found">${films.map(f=>`<span class="collab-film-pill">${escapeHtml(f)}</span>`).join("")}</div></div>`;}).join("")}</div>`;
+      stage.innerHTML=`<div class="stage-label">COLLABORATORS COMPLETE</div>${roundCompleteHero(d.person,"Collaborator set complete · one point for each unassisted collaborator and shared film",st.points,maxTotal)}<div class="collab-grid">${d.items.map((item,i)=>{const answer=st.answers[i]||collabValidAnswers(item)[0]||"",films=collabFilmSort(collabFilmsFor(item,answer));return `<div class="collab-card correct"><div class="collab-label">${item.kind}</div><div class="collab-answer-list"><span class="collab-answer-pill">${escapeHtml(answer)}</span></div><div class="collab-film-found">${films.map(f=>`<span class="collab-film-pill">${escapeHtml(collabFilmYear(f)||'—')} · ${escapeHtml(f)}</span>`).join("")}</div></div>`;}).join("")}</div>`;
       activateRoundCompleteUI();return;
     }
 
-    // Only show one collaborator category at a time. Completed categories become
-    // compact chips so the player keeps context without seeing the whole round.
-    const completed=collabCompletedIndices(round,st);
-    if(!Number.isInteger(st.activeIndex)||st.activeIndex<0||st.activeIndex>=d.items.length||completed.includes(st.activeIndex)){
-      const firstOpen=d.items.findIndex((item,i)=>!collabFilmsComplete(item,st,i));
-      st.activeIndex=firstOpen>=0?firstOpen:0;
-    }
-    const i=st.activeIndex,item=d.items[i],isLocked=locked.has(i),isRevealed=revealed.has(i),level=Number(st.hintLevels?.[i])||0,filmCount=collabFilmCount(item);
-    const choices=collabChoices(round,item,i,level);
-    const choiceMarkup=!isLocked&&level>0?`<div class="choice-grid">${choices.map(name=>`<button class="choice-option ${norm(st.answers[i]||'')===norm(name)?'selected':''}" type="button" data-collab-choice="${i}" data-collab-value="${escapeAttr(name)}">${escapeHtml(name)}</button>`).join("")}</div><div class="collab-choice-note">${choices.length} options · another hint narrows them.</div>`:"";
-    const answerMarkup=isLocked
-      ? `<div class="collab-answer-list"><span class="collab-answer-pill">${escapeHtml(st.answers[i]||collabValidAnswers(item)[0])}</span>${isRevealed?`<span class="collab-answer-pill" style="opacity:.65">revealed</span>`:""}</div>${collaboratorFilmStage(round,item,i,st)}`
-      : `<input class="collab-input" data-collab-input="${i}" autocomplete="off" autocapitalize="words" placeholder="Name the ${item.kind.toLowerCase()}…" value="${escapeAttr(st.answers[i]||'')}" />${st.spellingSuggestions?.[i]?`<button class="spelling-fix local-spelling-fix" type="button" data-collab-spell="${i}" data-spelling-value="${escapeAttr(st.spellingSuggestions[i])}">Fix my spelling</button>`:""}${choiceMarkup}`;
-    const card=`<div class="collab-card ${isLocked?'correct':''}"><div class="collab-step-head"><div class="collab-step-title">${escapeHtml(item.kind)}</div><div class="collab-step-count">${i+1} of ${d.items.length}</div></div><div class="collab-hint">${filmCount} tracked shared film${filmCount===1?'':'s'}${collabValidAnswers(item).length>1?' · tied answers accepted':''}</div>${!isLocked?clueBudgetMarkup(Math.max(0,3-level),3,"hints left"):""}${answerMarkup}${!isLocked?`<div class="game-assist-actions"><button class="game-assist-btn hint" type="button" data-collab-hint="${i}" ${level>=3?'disabled':''}>${level?`Hint ${level+1} · narrow choices`:'Hint · multiple choice'}</button><button class="game-assist-btn give-up" type="button" data-collab-giveup="${i}">Give up · reveal collaborator</button></div>`:""}</div>`;
-    const completedStrip=completed.length?`<div class="collab-completed-strip">${completed.map(idx=>`<span class="collab-completed-chip">${escapeHtml(d.items[idx].kind)} ✓</span>`).join("")}</div>`:"";
-    stage.innerHTML=`<div class="stage-label">FREQUENT COLLABORATORS</div>${gamePremiseMarkup("collab")}<div class="collab-wrap"><div class="collab-person"><div class="collab-person-name">${escapeHtml(d.person)}</div>${completedStrip}</div>${card}<div class="feedback ${st.feedbackType||''}">${st.feedback||''}</div></div>`;
+    if(!Number.isInteger(st.activeIndex)||st.activeIndex<0||st.activeIndex>=d.items.length)st.activeIndex=0;
+    const i=st.activeIndex,item=d.items[i],allCollaboratorsFound=d.items.every((_,idx)=>locked.has(idx)),completed=collabCompletedIndices(round,st),level=Number(st.hintLevels?.[i])||0;
+    const compatible=collabCompatibleOptions(round,item),listId=`collabOptions-${i}`;
+    const allFilmTotal=allCollaboratorsFound?d.items.reduce((sum,role,idx)=>sum+collabFilmsFor(role,st.answers[idx]).length,0):0;
+    const allFilmFound=allCollaboratorsFound?d.items.reduce((sum,role,idx)=>sum+collabFoundFilms(st,idx).length,0):0;
 
-    stage.querySelectorAll('[data-collab-input]').forEach(inp=>{inp.addEventListener('input',()=>{const idx=Number(inp.dataset.collabInput);st.answers[idx]=inp.value;if(st.spellingSuggestions)delete st.spellingSuggestions[idx];if(idx===st.activeIndex)primaryBtn.disabled=!norm(inp.value);});inp.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();checkCollaborators(round);}});});
-    stage.querySelectorAll('[data-collab-spell]').forEach(btn=>btn.addEventListener('click',()=>{const idx=Number(btn.dataset.collabSpell),value=btn.dataset.spellingValue||"";st.answers[idx]=value;if(st.spellingSuggestions)delete st.spellingSuggestions[idx];const inp=stage.querySelector(`[data-collab-input="${idx}"]`);if(inp){inp.value=value;inp.focus();try{inp.setSelectionRange(value.length,value.length);}catch(_){ }}btn.remove();primaryBtn.disabled=!norm(value);}));
-    stage.querySelectorAll('[data-collab-choice]').forEach(btn=>btn.addEventListener('click',()=>{const idx=Number(btn.dataset.collabChoice);st.answers[idx]=btn.dataset.collabValue||"";renderCollaborators(round);}));
+    let roleNav="";
+    if(!allCollaboratorsFound){
+      roleNav=`<div class="collab-role-nav">${d.items.map((role,idx)=>`<button class="collab-role-btn ${idx===i?'active':''} ${locked.has(idx)?'complete':''}" type="button" data-collab-role="${idx}">${escapeHtml(role.kind)}${locked.has(idx)?' ✓':''}</button>`).join("")}</div>`;
+    }else{
+      roleNav=`<div class="collab-role-nav">${d.items.map((role,idx)=>{const found=collabFoundFilms(st,idx).length,total=collabFilmsFor(role,st.answers[idx]).length,complete=completed.includes(idx);return `<button class="collab-role-btn ${idx===i?'active':''} ${complete?'complete':''}" type="button" data-collab-role="${idx}">${escapeHtml(role.kind)} · ${found}/${total}${complete?' ✓':''}</button>`;}).join("")}</div>`;
+    }
+
+    let card="";
+    if(!allCollaboratorsFound){
+      if(locked.has(i)){
+        const answer=st.answers[i]||collabValidAnswers(item)[0]||"",ranking=collabRankingMarkup(round,item,i,st),feedback=st.feedback?`<div class="collab-phase-feedback ${st.feedbackType||''}">${escapeHtml(st.feedback)}</div>`:"";
+        card=`<div class="collab-card correct"><div class="collab-step-head"><div><div class="collab-movie-phase-kicker">Top ${escapeHtml(item.kind)}</div><div class="collab-movie-phase-person">${escapeHtml(answer)}</div></div><div class="collab-step-count">Found ✓</div></div>${feedback}${ranking}<div class="collab-role-complete">Collaborator found · choose another role above</div></div>`;
+      }else{
+        const personHint=level>0?(()=>{const answer=collabValidAnswers(item)[0]||"",first=(answer.match(/[A-Za-z0-9]/)||["?"])[0].toUpperCase();return `<div class="assist-hint-copy">The top ${escapeHtml(item.kind.toLowerCase())}'s name starts with “${escapeHtml(first)}”.</div>`;})():"";
+        const ranking=collabRankingMarkup(round,item,i,st),feedback=st.feedback?`<div class="collab-phase-feedback ${st.feedbackType||''}">${escapeHtml(st.feedback)}</div>`:"";
+        card=`<div class="collab-card"><div class="collab-step-head"><div><div class="collab-step-title">Find the top ${escapeHtml(item.kind.toLowerCase())}</div><div class="collab-phase-note">Guess collaborators. Only guesses with at least one tracked shared movie are added to the ranking.</div></div><div class="collab-step-count">Phase 1</div></div>${personHint}<div class="collab-person-input-row"><input class="collab-input" data-collab-input="${i}" list="${listId}" autocomplete="off" autocapitalize="words" placeholder="Name the top ${item.kind.toLowerCase()}…" value="${escapeAttr(st.answers[i]||'')}" /><button class="collab-check" type="button" data-collab-check="${i}" ${!norm(st.answers[i]||'')||st.lookupBusy===i?'disabled':''}>${st.lookupBusy===i?'Checking…':'Check'}</button></div><datalist id="${listId}">${compatible.map(name=>`<option value="${escapeAttr(name)}"></option>`).join("")}</datalist>${st.spellingSuggestions?.[i]?`<button class="spelling-fix local-spelling-fix" type="button" data-collab-spell="${i}" data-spelling-value="${escapeAttr(st.spellingSuggestions[i])}">Fix my spelling</button>`:""}${feedback}${ranking}<div class="game-assist-actions"><button class="game-assist-btn hint" type="button" data-collab-hint="${i}" ${level>=1?'disabled':''}>Hint · reveal first letter of top ${escapeHtml(item.kind.toLowerCase())}</button><button class="game-assist-btn give-up" type="button" data-collab-giveup="${i}">Give up · reveal top ${escapeHtml(item.kind.toLowerCase())}</button></div></div>`;
+      }
+    }else{
+      const films=collabFilmsFor(item,st.answers[i]);
+      if(films.some(f=>!collabFilmYear(f)))ensureCollabFilmYears(films).then(changed=>{if(changed&&session?.current===st&&session?.rounds?.[session.index]===round)renderCollaborators(round);});
+      card=`<div class="collab-card correct">${collaboratorFilmStage(round,item,i,st)}</div>`;
+    }
+
+    const headerMeta=allCollaboratorsFound?`Phase 2 · ${allFilmFound}/${allFilmTotal} movies`:`Phase 1 · ${locked.size}/3 collaborators`;
+    const transition=allCollaboratorsFound&&allFilmFound===0?`<div class="assist-hint-copy">All three collaborators found. Now use the release years to fill their shared movies.</div>`:"";
+    stage.innerHTML=`<div class="stage-label">COLLABORATORS</div>${gamePremiseMarkup("collab")}<div class="collab-wrap"><div class="collab-person"><div class="collab-person-name">${escapeHtml(d.person)}</div><div class="collab-step-count">${headerMeta}</div></div>${transition}${roleNav}${card}</div>`;
+
+    stage.querySelectorAll('[data-collab-role]').forEach(btn=>btn.addEventListener('click',()=>{st.activeIndex=Number(btn.dataset.collabRole);st.feedback="";st.feedbackType="";renderCollaborators(round);}));
+    stage.querySelectorAll('[data-collab-input]').forEach(inp=>{inp.addEventListener('input',()=>{const idx=Number(inp.dataset.collabInput);st.answers[idx]=inp.value;if(st.spellingSuggestions)delete st.spellingSuggestions[idx];const check=stage.querySelector(`[data-collab-check="${idx}"]`);if(check)check.disabled=!norm(inp.value);});inp.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();checkCollaborators(round,Number(inp.dataset.collabInput));}});});
+    stage.querySelectorAll('[data-collab-check]').forEach(btn=>btn.addEventListener('click',()=>checkCollaborators(round,Number(btn.dataset.collabCheck))));
+    stage.querySelectorAll('[data-collab-spell]').forEach(btn=>btn.addEventListener('click',()=>{const idx=Number(btn.dataset.collabSpell),value=btn.dataset.spellingValue||"";st.answers[idx]=value;if(st.spellingSuggestions)delete st.spellingSuggestions[idx];const inp=stage.querySelector(`[data-collab-input="${idx}"]`);if(inp){inp.value=value;inp.focus();try{inp.setSelectionRange(value.length,value.length);}catch(_){ }}btn.remove();const check=stage.querySelector(`[data-collab-check="${idx}"]`);if(check)check.disabled=!norm(value);}));
     stage.querySelectorAll('[data-collab-hint]').forEach(btn=>btn.addEventListener('click',()=>hintCollaborator(round,Number(btn.dataset.collabHint))));
     stage.querySelectorAll('[data-collab-giveup]').forEach(btn=>btn.addEventListener('click',()=>revealCollaborator(round,Number(btn.dataset.collabGiveup))));
-    stage.querySelectorAll('[data-collab-film-input]').forEach(inp=>{inp.addEventListener('input',()=>{const idx=Number(inp.dataset.collabFilmInput);st.filmInputs={...(st.filmInputs||{}),[idx]:inp.value};if(st.filmSpellingSuggestions)delete st.filmSpellingSuggestions[idx];});inp.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();addCollaboratorFilm(round,Number(inp.dataset.collabFilmInput));}});});
-    stage.querySelectorAll('[data-collab-film-spell]').forEach(btn=>btn.addEventListener('click',()=>{const idx=Number(btn.dataset.collabFilmSpell),value=btn.dataset.spellingValue||"";st.filmInputs={...(st.filmInputs||{}),[idx]:value};if(st.filmSpellingSuggestions)delete st.filmSpellingSuggestions[idx];const inp=stage.querySelector(`[data-collab-film-input="${idx}"]`);if(inp){inp.value=value;inp.focus();try{inp.setSelectionRange(value.length,value.length);}catch(_){ }}btn.remove();}));
-    stage.querySelectorAll('[data-collab-film-add]').forEach(btn=>btn.addEventListener('click',()=>addCollaboratorFilm(round,Number(btn.dataset.collabFilmAdd))));
+    stage.querySelectorAll('[data-collab-film-input]').forEach(inp=>{inp.addEventListener('input',()=>{const idx=Number(inp.dataset.collabFilmInput),target=inp.dataset.collabFilmTarget||"";setCollabFilmSlotInput(st,idx,target,inp.value);if(st.filmSpellingSuggestions?.[idx]&&norm(st.filmSpellingSuggestions[idx].target||"")===norm(target))delete st.filmSpellingSuggestions[idx];});inp.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();addCollaboratorFilm(round,Number(inp.dataset.collabFilmInput),inp.dataset.collabFilmTarget||"");}});});
+    stage.querySelectorAll('[data-collab-film-add]').forEach(btn=>btn.addEventListener('click',()=>addCollaboratorFilm(round,Number(btn.dataset.collabFilmAdd),btn.dataset.collabFilmTarget||"")));
+    stage.querySelectorAll('[data-collab-film-spell]').forEach(btn=>btn.addEventListener('click',()=>{const idx=Number(btn.dataset.collabFilmSpell),target=btn.dataset.collabFilmTarget||"",value=btn.dataset.spellingValue||"";setCollabFilmSlotInput(st,idx,target,value);if(st.filmSpellingSuggestions)delete st.filmSpellingSuggestions[idx];const inp=stage.querySelector(`[data-collab-film-input="${idx}"][data-collab-film-target="${CSS.escape(target)}"]`);if(inp){inp.value=value;inp.focus();try{inp.setSelectionRange(value.length,value.length);}catch(_){ }}btn.remove();}));
     stage.querySelectorAll('[data-collab-film-hint]').forEach(btn=>btn.addEventListener('click',()=>hintCollaboratorFilm(round,Number(btn.dataset.collabFilmHint))));
     stage.querySelectorAll('[data-collab-film-giveup]').forEach(btn=>btn.addEventListener('click',()=>revealCollaboratorFilms(round,Number(btn.dataset.collabFilmGiveup))));
 
-    // The bottom CTA checks only the current collaborator. Once their identity is
-    // locked, shared-film entry is self-contained in the card and the bottom CTA
-    // disappears until the next category.
-    if(!isLocked){
-      primaryBtn.classList.remove("hidden");primaryBtn.disabled=!norm(st.answers[i]||"");primaryBtn.textContent="Check collaborator";primaryBtn.onclick=()=>checkCollaborators(round);
-    }else{
-      primaryBtn.classList.add("hidden");primaryBtn.onclick=null;
-    }
-    secondaryBtn.classList.add("hidden");secondaryBtn.onclick=null;
+    primaryBtn.classList.add("hidden");primaryBtn.onclick=null;secondaryBtn.classList.add("hidden");secondaryBtn.onclick=null;
   }
 
 
