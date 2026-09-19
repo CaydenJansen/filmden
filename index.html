@@ -241,6 +241,9 @@
     .collab-phase-feedback.correct{color:var(--correct)}
     .collab-phase-feedback.wrong{color:var(--wrong)}
     .collab-phase-feedback.near{color:var(--gold)}
+    .collab-phase-feedback.loading{display:flex;align-items:center;gap:7px;color:var(--muted)}
+    .collab-phase-feedback.loading::before{content:"";width:12px;height:12px;flex:0 0 12px;border-radius:50%;border:2px solid rgba(246,239,223,.18);border-top-color:var(--gold);animation:collab-spin .7s linear infinite}
+    @keyframes collab-spin{to{transform:rotate(360deg)}}
     .collab-movie-phase{display:grid;gap:10px}
     .collab-movie-phase-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
     .collab-movie-phase-copy{min-width:0;display:grid;gap:3px}
@@ -387,8 +390,15 @@
     .actor-chip .media-copy{text-align:left}
     .person-card .person-media{justify-content:flex-start}
     .person-card .person-label{margin-bottom:6px}
-    .link-example-card{padding:10px 11px;border-radius:14px;background:rgba(246,239,223,.05);border:1px solid var(--line)}
+    .link-example-card{padding:10px 11px;border-radius:14px;background:rgba(246,239,223,.05);border:1px solid var(--line);display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:10px;align-items:center}
+    .link-example-side{min-width:0;padding:3px 5px}
+    .link-example-side + .link-example-side{border-left:1px solid rgba(246,239,223,.09);padding-left:12px}
+    .link-example-side .person-media,.link-example-side .media-card{width:100%;align-items:center}
+    .link-example-side .media-title{font-size:.78rem;line-height:1.16}
+    .link-example-side .media-meta{font-size:.58rem}
+    .title-link-word{color:var(--gold);font-weight:950;background:rgba(241,184,75,.11);border-radius:4px;padding:0 .08em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
     .link-example-card .media-meta strong{color:var(--text)}
+    .smart-spelling-fix{margin-top:6px}
     .ensemble-cast{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:8px}
     .ensemble-cast-chip{padding:10px;border-radius:14px;background:rgba(246,239,223,.05);border:1px solid var(--line)}
     .ensemble-cast-chip .media-title{font-size:.8rem}
@@ -623,8 +633,8 @@
       .stage > .done{min-height:0;height:100%;padding:20px 12px}.summary-card{padding:10px 5px}.summary-value{font-size:1.25rem}
       .menu{padding:15px;border-radius:20px}.menu-intro{font-size:.82rem;margin-bottom:13px}.mode-card{padding:11px 12px}.mode-desc{font-size:.69rem}.section-label{margin-top:12px}
     }
-    @media(max-width:380px){.movie-chip{font-size:.9rem}.question{font-size:1.55rem}.answer-actions{grid-template-columns:.85fr 1.4fr}.summary-label{font-size:.56rem}.round-complete-hero{padding:16px 12px 15px;border-radius:16px}.round-complete-icon{width:36px;height:36px}.round-complete-detail{font-size:.7rem}}
-    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+    @media(max-width:380px){.movie-chip{font-size:.9rem}.question{font-size:1.55rem}.answer-actions{grid-template-columns:.85fr 1.4fr}.summary-label{font-size:.56rem}.round-complete-hero{padding:16px 12px 15px;border-radius:16px}.round-complete-icon{width:36px;height:36px}.round-complete-detail{font-size:.7rem}.link-example-card{grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:6px;padding:8px}.link-example-side{padding:2px 3px}.link-example-side + .link-example-side{padding-left:8px}.link-example-side .media-thumb.person.tiny{width:28px;height:28px;flex-basis:28px}.link-example-side .media-thumb.tiny{width:30px;height:44px;flex-basis:30px}.link-example-side .media-title{font-size:.68rem}.link-example-side .media-meta{font-size:.52rem}}
+    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}.collab-phase-feedback.loading::before{animation:none}}
   
     /* --- vNext: quieter shared status language --- */
     .clue-budget{
@@ -6792,7 +6802,7 @@ Babygirl`.split("\n")
     boxoffice:"Find the film at today's year and chart position.",
     people:"Match notable films, recent work, birthdays, birthplaces and awards.",
     career:"Match superlatives within one selected set of films.",
-    collab:"Find the top director, actor and actress, then name their shared films.",
+    collab:"For each role, find the top collaborator, then fill the movies they made together.",
     statham:"Build your own film-by-film chain between two people, passing through Jason Statham."
   };
   const GAME_PREMISES = {
@@ -7948,9 +7958,95 @@ Babygirl`.split("\n")
     if(session.style==="infinite") return "Next round →";
     return session.index+1<session.rounds.length?"Next daily →":"Daily complete →";
   }
-  function inputPanel(placeholder="Type your answer",value=""){
-    return `<div class="answer-panel"><input class="answer-input" id="answerInput" autocomplete="off" autocapitalize="words" spellcheck="false" placeholder="${placeholder}" value="${escapeAttr(value)}" /><div class="feedback" id="feedback"></div><button class="spelling-fix hidden" id="spellingFixBtn" type="button">Fix my spelling</button></div>`;
+  function inputPanel(placeholder="Type your answer",value="",smartKind="",smartAnswer=""){
+    const smart=smartKind?` data-smart-kind="${escapeAttr(smartKind)}"${smartAnswer?` data-smart-answer="${escapeAttr(smartAnswer)}"`:""}`:"";
+    return `<div class="answer-panel"><input class="answer-input" id="answerInput" autocomplete="off" autocapitalize="words" spellcheck="false" placeholder="${placeholder}" value="${escapeAttr(value)}"${smart} /><div class="feedback" id="feedback"></div><button class="spelling-fix hidden" id="spellingFixBtn" type="button">Fix my spelling</button></div>`;
   }
+  let filmdenAllPeopleOptionsCache=null,filmdenAllMovieOptionsCache=null;
+  function filmdenAllPeopleOptions(){
+    if(filmdenAllPeopleOptionsCache)return filmdenAllPeopleOptionsCache;
+    const all=[];
+    try{all.push(...collabSystemPeopleOptions("Director"),...collabSystemPeopleOptions("Actor"),...collabSystemPeopleOptions("Actress"));}catch(_){}
+    try{all.push(...connectionPeople());}catch(_){}
+    filmdenAllPeopleOptionsCache=typeof collabUniqueLabels==="function"?collabUniqueLabels(all):[...new Set(all)].sort((a,b)=>a.localeCompare(b));
+    return filmdenAllPeopleOptionsCache;
+  }
+  function filmdenAllMovieOptions(){
+    if(filmdenAllMovieOptionsCache)return filmdenAllMovieOptionsCache;
+    let all=[];try{all=collabSystemMovieOptions();}catch(_){}
+    filmdenAllMovieOptionsCache=[...all];return filmdenAllMovieOptionsCache;
+  }
+  function ensureFilmdenSuggestionList(kind){
+    if(kind!=="person"&&kind!=="movie")return "";
+    const id=kind==="person"?"filmdenPeopleSuggestions":"filmdenMovieSuggestions";
+    let list=$(id);if(list)return id;
+    list=document.createElement("datalist");list.id=id;
+    const options=kind==="person"?filmdenAllPeopleOptions():filmdenAllMovieOptions();
+    list.innerHTML=options.map(value=>`<option value="${escapeAttr(value)}"></option>`).join("");
+    stage.appendChild(list);return id;
+  }
+  function smartInputCandidates(input,kind){
+    if(kind==="word")return [input.dataset.smartAnswer||""].filter(Boolean);
+    return kind==="person"?filmdenAllPeopleOptions():kind==="movie"?filmdenAllMovieOptions():[];
+  }
+  function smartInputSuggestion(input,kind){
+    const raw=String(input.value||"").trim(),candidates=smartInputCandidates(input,kind);if(raw.length<4||!candidates.length)return null;
+    if(kind==="movie"){
+      if(candidates.some(value=>filmTitleMatches(raw,value)))return null;
+      return filmTitleTypoCandidate(raw,candidates);
+    }
+    if(candidates.some(value=>norm(value)===norm(raw)))return null;
+    return typoCandidate(raw,candidates);
+  }
+  function smartSpellingButton(input){
+    if(input.id==="answerInput")return $("spellingFixBtn");
+    if(input.id==="boxOfficeSearch")return $("boxSpellingFixBtn");
+    if(input.id==="stathamGapInput"){
+      let btn=$("stathamSpellingFixBtn");
+      if(!btn){btn=document.createElement("button");btn.type="button";btn.id="stathamSpellingFixBtn";btn.className="spelling-fix local-spelling-fix hidden smart-spelling-fix";btn.textContent="Fix my spelling";input.closest(".statham-gap-entry")?.appendChild(btn);}return btn;
+    }
+    const row=input.closest(".collab-person-input-row,.collab-movie-slot-input-row");
+    if(row){
+      const parent=row.parentElement;let btn=parent?.querySelector(`.smart-spelling-fix[data-smart-for="${input.dataset.smartUid||""}"]`);
+      if(!input.dataset.smartUid)input.dataset.smartUid=`smart-${Math.random().toString(36).slice(2)}`;
+      btn=parent?.querySelector(`.smart-spelling-fix[data-smart-for="${input.dataset.smartUid}"]`);
+      if(!btn&&parent){btn=document.createElement("button");btn.type="button";btn.className="spelling-fix local-spelling-fix hidden smart-spelling-fix";btn.dataset.smartFor=input.dataset.smartUid;btn.textContent="Fix my spelling";row.insertAdjacentElement("afterend",btn);}return btn;
+    }
+    // Generic fallback so any future typed FilmDen field gets the same spelling UX.
+    if(!input.dataset.smartUid)input.dataset.smartUid=`smart-${Math.random().toString(36).slice(2)}`;
+    const host=input.parentElement;if(!host)return null;
+    let btn=host.querySelector(`.smart-spelling-fix[data-smart-for="${input.dataset.smartUid}"]`);
+    if(!btn){btn=document.createElement("button");btn.type="button";btn.className="spelling-fix local-spelling-fix hidden smart-spelling-fix";btn.dataset.smartFor=input.dataset.smartUid;btn.textContent="Fix my spelling";input.insertAdjacentElement("afterend",btn);}return btn;
+  }
+  function bindSmartInput(input){
+    if(!input||input.dataset.smartBound==="1")return;const kind=input.dataset.smartKind||"";if(!kind)return;
+    input.dataset.smartBound="1";
+    if(kind==="person"||kind==="movie")input.setAttribute("list",ensureFilmdenSuggestionList(kind));
+    const button=smartSpellingButton(input);if(!button)return;
+    let timer=null,currentSuggestion="";
+    const hide=()=>{currentSuggestion="";button.classList.add("hidden");if(button.dataset.smartOwned==="1")button.onclick=null;};
+    const refresh=()=>{
+      clearTimeout(timer);timer=setTimeout(()=>{
+        const suggestion=smartInputSuggestion(input,kind);if(!suggestion){hide();return;}
+        currentSuggestion=suggestion;button.dataset.smartOwned="1";button.title=`Replace with ${suggestion}`;button.classList.remove("hidden");
+        button.onclick=()=>{
+          if(!currentSuggestion)return;input.value=currentSuggestion;input.dispatchEvent(new Event("input",{bubbles:true}));hide();input.focus();try{input.setSelectionRange(input.value.length,input.value.length);}catch(_){}
+        };
+      },120);
+    };
+    input.addEventListener("input",refresh);input.addEventListener("blur",()=>{clearTimeout(timer);});refresh();
+  }
+  function enhanceTypedInputs(root=stage){
+    if(root?.matches?.("input[data-smart-kind]"))bindSmartInput(root);
+    root?.querySelectorAll?.("input[data-smart-kind]").forEach(bindSmartInput);
+  }
+  // Inputs are frequently rebuilt in-place by hints, spelling fixes and role changes.
+  // Observe the stage so autocomplete + live spelling help is reapplied consistently,
+  // even when a mode calls its own render function instead of renderRound().
+  const typedInputObserver=new MutationObserver(mutations=>{
+    for(const mutation of mutations)for(const node of mutation.addedNodes||[])if(node?.nodeType===1)enhanceTypedInputs(node);
+  });
+  typedInputObserver.observe(stage,{childList:true,subtree:true});
   function renderRound(){
     bottom.classList.remove("hidden","ensemble-guess-cta","title-submit-cta");
     secondaryBtn.classList.remove("hidden");
@@ -7968,6 +8064,7 @@ Babygirl`.split("\n")
     else if(round.type==="statham") renderStathamSix(round);
     else renderTitle(round);
     hydrateMedia(stage);
+    enhanceTypedInputs(stage);
     ensureGamesButton();
     requestAnimationFrame(()=>( $("answerInput")||$("boxOfficeSearch") )?.focus({preventScroll:true}));
   }
@@ -8072,7 +8169,7 @@ Babygirl`.split("\n")
     st.phase="cast";st.feedback="";st.feedbackType="";renderRound();
   }
   function ensembleActorInputPanel(value=""){
-    return `<div class="ensemble-clue-feedback"><div class="ensemble-answer-row"><input class="answer-input" id="answerInput" autocomplete="off" autocapitalize="words" spellcheck="false" placeholder="Actor name" value="${escapeAttr(value)}" /><button class="ensemble-add-actor" id="ensembleAddActorBtn" type="button">Check</button></div><div class="feedback" id="feedback"></div><button class="spelling-fix hidden" id="spellingFixBtn" type="button">Fix my spelling</button></div>`;
+    return `<div class="ensemble-clue-feedback"><div class="ensemble-answer-row"><input class="answer-input" id="answerInput" data-smart-kind="person" autocomplete="off" autocapitalize="words" spellcheck="false" placeholder="Actor name" value="${escapeAttr(value)}" /><button class="ensemble-add-actor" id="ensembleAddActorBtn" type="button">Check</button></div><div class="feedback" id="feedback"></div><button class="spelling-fix hidden" id="spellingFixBtn" type="button">Fix my spelling</button></div>`;
   }
   function ensembleResolveCurrent(revealed=false,expectedIndex=null){
     const round=session.rounds[session.index],st=session.current,d=round.data;
@@ -8129,7 +8226,7 @@ Babygirl`.split("\n")
     }
     if(st.phase==="guess"){
       const open=ensembleUnresolvedIndices(st,d),canAdd=open.length>0;
-      stage.innerHTML=`<div class="stage-label">ENSEMBLE CAST</div>${gamePremiseMarkup("ensemble")}<section class="ensemble-guess-panel"><div class="ensemble-step-label">Fill in the shared film</div>${ensembleBoard(st,d,false)}<h2 class="question small">What film are they all in?</h2>${inputPanel("Movie title",st.filmDraft||"")}<div class="game-assist-actions"><button class="game-assist-btn hint" id="ensembleFilmHintBtn" type="button" ${canAdd?'':'disabled'}>${canAdd?'Back to cast clues':'No cast clues left'}</button><button class="game-assist-btn give-up" id="ensembleFilmGiveUpBtn" type="button">Reveal film</button></div></section>`;
+      stage.innerHTML=`<div class="stage-label">ENSEMBLE CAST</div>${gamePremiseMarkup("ensemble")}<section class="ensemble-guess-panel"><div class="ensemble-step-label">Fill in the shared film</div>${ensembleBoard(st,d,false)}<h2 class="question small">What film are they all in?</h2>${inputPanel("Movie title",st.filmDraft||"","movie")}<div class="game-assist-actions"><button class="game-assist-btn hint" id="ensembleFilmHintBtn" type="button" ${canAdd?'':'disabled'}>${canAdd?'Back to cast clues':'No cast clues left'}</button><button class="game-assist-btn give-up" id="ensembleFilmGiveUpBtn" type="button">Reveal film</button></div></section>`;
       $("answerInput")?.addEventListener("input",event=>{st.filmDraft=event.target.value;});
       $("ensembleFilmHintBtn")?.addEventListener("click",backToCastClue);
       $("ensembleFilmGiveUpBtn")?.addEventListener("click",giveUpEnsembleFilm);
@@ -8147,7 +8244,18 @@ Babygirl`.split("\n")
   function titlePoints(st){return Math.max(1,4-Math.max(0,st.shownCount-2));}
   function titlePeople(d,st){return d.links.slice(0,st.shownCount);}
   function titleActorChips(d,st){return `<div class="title-link-people">${titlePeople(d,st).map(link=>`<div class="actor-chip">${personMarkup(link.person,{meta:"Actor clue"})}</div>`).join("")}</div>`;}
-  function titleExamples(d,st){return `<div class="link-example">${titlePeople(d,st).map(link=>`<div class="link-example-card">${personMarkup(link.person,{size:"tiny",meta:"Connected actor"})}<div style="margin-top:8px">${movieMarkup(link.film,{size:"tiny",meta:`Contains “${d.word}”`})}</div></div>`).join("")}</div>`;}
+  function highlightTitleLinkWord(title,word){
+    const source=String(title||""),needle=String(word||"").trim();if(!needle)return escapeHtml(source);
+    const escaped=needle.replace(/[.*+?^${}()|[\]\\]/g,"\\$&");
+    const re=new RegExp(`(${escaped})`,"ig");
+    let last=0,out="";source.replace(re,(match,_capture,offset)=>{out+=escapeHtml(source.slice(last,offset));out+=`<span class="title-link-word">${escapeHtml(match)}</span>`;last=offset+match.length;return match;});
+    return out+escapeHtml(source.slice(last));
+  }
+  function titleLinkMovieMarkup(title,word){
+    const year=resolvedMovieYear(title,""),meta=movieMeta(title,year),art=moviePosterMarkup(title,meta,"tiny");
+    return `<div class="media-card compact" data-media-kind="movie" data-media-key="${escapeAttr(movieCacheKey(title,year))}" data-title="${escapeAttr(title)}" data-year="${escapeAttr(year)}" data-media-size="tiny">${art}<div class="media-copy"><div class="media-title">${highlightTitleLinkWord(title,word)}</div><div class="media-meta">Shared word highlighted</div></div></div>`;
+  }
+  function titleExamples(d,st){return `<div class="link-example">${titlePeople(d,st).map(link=>`<div class="link-example-card"><div class="link-example-side">${personMarkup(link.person,{size:"tiny",meta:"Actor"})}</div><div class="link-example-side">${titleLinkMovieMarkup(link.film,d.word)}</div></div>`).join("")}</div>`;}
   function clueUrgencyClass(left,total){
     if(left<=1)return "danger";
     if(left<=Math.max(2,Math.ceil(total*.4)))return "warn";
@@ -8187,7 +8295,7 @@ Babygirl`.split("\n")
     if(!st.done){
       const remaining=d.links.length-st.shownCount,canAdd=remaining>0;
       const revealLabel=remaining>1?`Reveal another actor · ${remaining} left`:remaining===1?"Reveal final actor":"Reveal word";
-      stage.innerHTML=`<div class="stage-label">TITLE LINK</div>${gamePremiseMarkup("title")}<h2 class="question small">What word connects their movie titles?</h2>${titleProgress(d,st)}${titleActorChips(d,st)}<div class="game-assist-actions"><button class="game-assist-btn hint" id="titleRevealNextBtn" type="button" ${!canAdd?'disabled':''}>${canAdd?revealLabel:"No actor hints left"}</button><button class="game-assist-btn give-up" id="titleGiveUpBtn" type="button">Give up · reveal word</button></div>${inputPanel("Connecting word",st.answerDraft||"")}`;
+      stage.innerHTML=`<div class="stage-label">TITLE LINK</div>${gamePremiseMarkup("title")}<h2 class="question small">What word connects their movie titles?</h2>${titleProgress(d,st)}${titleActorChips(d,st)}<div class="game-assist-actions"><button class="game-assist-btn hint" id="titleRevealNextBtn" type="button" ${!canAdd?'disabled':''}>${canAdd?revealLabel:"No actor hints left"}</button><button class="game-assist-btn give-up" id="titleGiveUpBtn" type="button">Give up · reveal word</button></div>${inputPanel("Connecting word",st.answerDraft||"","word",d.word)}`;
       $("answerInput")?.addEventListener("input",event=>{st.answerDraft=event.target.value;});
       $("titleRevealNextBtn")?.addEventListener("click",requestAnotherTitleActor);
       $("titleGiveUpBtn")?.addEventListener("click",giveUpTitleLink);
@@ -8390,7 +8498,7 @@ Babygirl`.split("\n")
       st.focusRank=null;
       activateRoundCompleteUI();return;
     }
-    stage.innerHTML=`<div class="stage-label">BOX OFFICE CHARTS</div>${gamePremiseMarkup("boxoffice")}<div class="boxoffice-hero"><div class="boxoffice-year"><div><div class="boxoffice-year-value">${d.year}</div><div class="boxoffice-mini-label">Release year</div></div></div><div class="boxoffice-rank"><div><div class="boxoffice-rank-value">#${d.targetRank}</div><div class="boxoffice-mini-label">Domestic rank</div></div></div></div><h2 class="question small">Which film finished ${ordinal(d.targetRank)}?</h2>${renderBoxChart(round,st,false)}<div class="game-assist-actions"><button class="game-assist-btn hint" id="boxHintBtn" type="button" ${(st.hintLevel||0)>=hintsLength(round)?'disabled':''}>Hint${(st.hintLevel||0)?` · ${Math.max(0,hintsLength(round)-(st.hintLevel||0))} left`:''}</button><button class="game-assist-btn give-up" id="boxGiveUpBtn" type="button">Give up · reveal answer</button></div>${renderBoxOfficeHints(round,st)}<div class="answer-panel"><div class="movie-search"><input class="movie-search-input" id="boxOfficeSearch" type="search" autocomplete="off" spellcheck="false" placeholder="Search movies from ${d.year}…" aria-label="Search movies released in ${d.year}" aria-controls="boxOfficeResults" aria-autocomplete="list" /><div class="movie-search-results" id="boxOfficeResults" role="listbox"></div></div><div class="box-selection-pending hidden" id="boxSelectionPending"></div><div class="feedback ${st.feedbackType||''}" id="feedback">${st.feedback||''}</div><button class="spelling-fix hidden" id="boxSpellingFixBtn" type="button">Fix my spelling</button></div><div class="source-note">North American cumulative domestic gross · top 50 films released in ${d.year}.</div>`;
+    stage.innerHTML=`<div class="stage-label">BOX OFFICE CHARTS</div>${gamePremiseMarkup("boxoffice")}<div class="boxoffice-hero"><div class="boxoffice-year"><div><div class="boxoffice-year-value">${d.year}</div><div class="boxoffice-mini-label">Release year</div></div></div><div class="boxoffice-rank"><div><div class="boxoffice-rank-value">#${d.targetRank}</div><div class="boxoffice-mini-label">Domestic rank</div></div></div></div><h2 class="question small">Which film finished ${ordinal(d.targetRank)}?</h2>${renderBoxChart(round,st,false)}<div class="game-assist-actions"><button class="game-assist-btn hint" id="boxHintBtn" type="button" ${(st.hintLevel||0)>=hintsLength(round)?'disabled':''}>Hint${(st.hintLevel||0)?` · ${Math.max(0,hintsLength(round)-(st.hintLevel||0))} left`:''}</button><button class="game-assist-btn give-up" id="boxGiveUpBtn" type="button">Give up · reveal answer</button></div>${renderBoxOfficeHints(round,st)}<div class="answer-panel"><div class="movie-search"><input class="movie-search-input" id="boxOfficeSearch" data-smart-kind="movie" type="search" autocomplete="off" spellcheck="false" placeholder="Search movies from ${d.year}…" aria-label="Search movies released in ${d.year}" aria-controls="boxOfficeResults" aria-autocomplete="list" /><div class="movie-search-results" id="boxOfficeResults" role="listbox"></div></div><div class="box-selection-pending hidden" id="boxSelectionPending"></div><div class="feedback ${st.feedbackType||''}" id="feedback">${st.feedback||''}</div><button class="spelling-fix hidden" id="boxSpellingFixBtn" type="button">Fix my spelling</button></div><div class="source-note">North American cumulative domestic gross · top 50 films released in ${d.year}.</div>`;
     setupBoxOfficeSearch(round,st);
     $("boxOfficeGuessCue")?.addEventListener("click",()=>{
       const answer=$("boxOfficeSearch")?.closest?.(".answer-panel")||$("boxOfficeSearch");
@@ -9027,7 +9135,11 @@ Babygirl`.split("\n")
   }
   function collabCompatibleCanonical(round,item,value){
     const typed=norm(value);if(!typed)return null;
-    const options=collabCompatibleOptions(round,item);
+    // The global person autocomplete is intentionally broad. Anything FilmDen
+    // suggests there must also be accepted here, even when that person is not
+    // already present in this role's local ranking seed.
+    const subject=norm(round?.data?.person||"");
+    const options=filmdenAllPeopleOptions().filter(name=>norm(name)!==subject);
     const exact=options.find(name=>norm(name)===typed);if(exact)return exact;
     if(!typed.includes(" ")){
       const surnameMatches=options.filter(name=>norm(name).endsWith(` ${typed}`)||norm(name)===typed);
@@ -9127,7 +9239,9 @@ Babygirl`.split("\n")
       return ar-br||(Number(b.count)||0)-(Number(a.count)||0)||a.name.localeCompare(b.name);
     });
     const correctFilms=solved?collabFilmsFor(item,correct):[];
-    const target=`<div class="collab-rank-row ${solved?'correct':'target'}"><div class="collab-rank-no">#1</div><div class="collab-rank-name">${solved?escapeHtml(correct):'Top collaborator'}</div><div class="collab-rank-meta">${solved?`${correctFilms.length} shared film${correctFilms.length===1?'':'s'}`:'?'}</div>${solved?collabRankFilmsMarkup(correctFilms):''}</div>`;
+    // Phase 1 may show movie evidence for WRONG guesses, but never leaks the
+    // correct collaborator's movie titles. Those belong to this role's Phase 2.
+    const target=`<div class="collab-rank-row ${solved?'correct':'target'}"><div class="collab-rank-no">#1</div><div class="collab-rank-name">${solved?escapeHtml(correct):'Top collaborator'}</div><div class="collab-rank-meta">${solved?`${correctFilms.length} shared film${correctFilms.length===1?'':'s'}`:'?'}</div></div>`;
     const rows=sorted.map(entry=>{
       const rank=Number.isFinite(entry.rank)?`#${entry.rank}`:'—';
       const meta=`${Number(entry.count)||0} shared film${Number(entry.count)===1?'':'s'}`;
@@ -9148,8 +9262,8 @@ Babygirl`.split("\n")
     if(!st.revealed.includes(index)){st.revealed=[...(st.revealed||[]),index];session.revealed+=1;}
     const canonical=collabValidAnswers(item)[0]||"";
     st.locked=[...new Set([...(st.locked||[]),index])];st.answers[index]=canonical;
-    const allPeopleFound=round.data.items.every((_,idx)=>st.locked.includes(idx));
-    st.feedback=allPeopleFound?`All three collaborators are found. Phase 2: fill their shared movies.`:`${canonical} revealed. Keep going — find the other top collaborators.`;st.feedbackType="near";
+    const movieCount=collabFilmsFor(item,canonical).length;
+    st.feedback=`${canonical} revealed · ${movieCount} shared film${movieCount===1?'':'s'} to fill in.`;st.feedbackType="near";
     renderCollaborators(round);
   }
   async function checkCollaborators(round,index=undefined){
@@ -9160,18 +9274,21 @@ Babygirl`.split("\n")
     st.checks=(st.checks||0)+1;
     const canonical=collabCanonicalAnswer(item,val);
     if(!canonical){
-      const compatible=collabCompatibleOptions(round,item),candidate=collabCompatibleCanonical(round,item,val);
+      const subject=norm(d.person||"");
+      const compatible=filmdenAllPeopleOptions().filter(name=>norm(name)!==subject),candidate=collabCompatibleCanonical(round,item,val);
       if(!candidate){
         const spelling=typoCandidate(val,compatible);
         if(spelling){
           st.spellingSuggestions={...(st.spellingSuggestions||{}),[i]:spelling};
           st.feedback="Almost — that looks like a spelling slip.";st.feedbackType="near";renderCollaborators(round);return;
         }
-        st.feedback=`Choose a person from FilmDen’s tracked ${item.kind.toLowerCase()} suggestions.`;st.feedbackType="near";renderCollaborators(round);return;
+        st.feedback="Choose a person from FilmDen’s suggestions, or keep typing the full name.";st.feedbackType="near";renderCollaborators(round);return;
       }
       if(st.spellingSuggestions)delete st.spellingSuggestions[i];
       if(st.lookupBusy===i)return;
       st.lookupBusy=i;
+      st.feedback=`Checking FilmDen’s database for ${candidate}…`;st.feedbackType="loading";
+      renderCollaborators(round);
       await discoverRoleCollaboratorFilms(d.person,candidate,item.kind);
       if(session?.current!==st||session?.rounds?.[session.index]!==round)return;
       st.lookupBusy=null;
@@ -9185,8 +9302,8 @@ Babygirl`.split("\n")
     st.locked=[...new Set([...(st.locked||[]),i])];st.answers[i]=canonical;
     const assisted=(st.revealed||[]).includes(i)||(Number(st.hintLevels?.[i])||0)>0;
     if(!assisted)st.points+=1;
-    const allPeopleFound=d.items.every((_,idx)=>st.locked.includes(idx));
-    st.feedback=allPeopleFound?`All three collaborators found ✓ · Phase 2 is now unlocked.`:`Correct — ${canonical}. Keep going — find the other top collaborators.`;st.feedbackType="correct";
+    const movieCount=collabFilmsFor(item,canonical).length;
+    st.feedback=`Correct — ${canonical}. You have ${movieCount} shared film${movieCount===1?'':'s'} together. Fill them in below.`;st.feedbackType="correct";
     renderCollaborators(round);
   }
 
@@ -9307,12 +9424,12 @@ Babygirl`.split("\n")
       const spelling=st.filmSpellingSuggestions?.[index],spellingForThis=spelling&&norm(spelling.target||"")===norm(film)?spelling.value||"":"";
       const main=isFound
         ? `<div class="collab-movie-slot-title ${isRevealed?'revealed':''}">${escapeHtml(film)}${isRevealed?' · revealed':''}</div>`
-        : `<div class="collab-movie-slot-input-row"><input class="collab-movie-slot-input" data-collab-film-input="${index}" data-collab-film-target="${escapeAttr(film)}" list="${filmListId}" autocomplete="off" autocapitalize="words" placeholder="Movie title…" value="${escapeAttr(input)}" /><button class="collab-movie-slot-check" type="button" data-collab-film-add="${index}" data-collab-film-target="${escapeAttr(film)}">Check</button></div>${isHinted?`<div class="collab-movie-slot-hint">Starts with “${escapeHtml(first)}”</div>`:""}${spellingForThis?`<button class="spelling-fix local-spelling-fix" type="button" data-collab-film-spell="${index}" data-collab-film-target="${escapeAttr(film)}" data-spelling-value="${escapeAttr(spellingForThis)}">Fix my spelling</button>`:""}`;
+        : `<div class="collab-movie-slot-input-row"><input class="collab-movie-slot-input" data-smart-kind="movie" data-collab-film-input="${index}" data-collab-film-target="${escapeAttr(film)}" list="${filmListId}" autocomplete="off" autocapitalize="words" placeholder="Movie title…" value="${escapeAttr(input)}" /><button class="collab-movie-slot-check" type="button" data-collab-film-add="${index}" data-collab-film-target="${escapeAttr(film)}">Check</button></div>${isHinted?`<div class="collab-movie-slot-hint">Starts with “${escapeHtml(first)}”</div>`:""}`;
       return `<div class="collab-movie-slot ${isFound?'found':''}"><div class="collab-movie-year ${year?'':'pending'}">${escapeHtml(year||'…')}</div><div class="collab-movie-slot-main">${main}${feedback?`<div class="collab-movie-slot-feedback ${feedback.type||''}">${escapeHtml(feedback.text||'')}</div>`:""}</div></div>`;
     }).join("");
     const roleComplete=!missing.length;
     const feedback=st.feedback&&st.activeIndex===index?`<div class="collab-phase-feedback ${st.feedbackType||''}">${escapeHtml(st.feedback)}</div>`:"";
-    return `<div class="collab-movie-phase"><div class="collab-movie-phase-head"><div class="collab-movie-phase-copy"><div class="collab-movie-phase-kicker">${escapeHtml(item.kind)} collaborator found</div><div class="collab-movie-phase-person">${escapeHtml(answer)}</div><div class="collab-phase-note">Fill the mystery movies they made together. The release year is your clue.</div></div><div class="collab-movie-phase-count">${found.length} / ${films.length}</div></div><datalist id="${filmListId}">${movieOptions.map(f=>`<option value="${escapeAttr(f)}"></option>`).join("")}</datalist><div class="collab-movie-stack">${rows}</div>${feedback}${roleComplete?`<div class="collab-role-complete">${escapeHtml(item.kind)} complete ✓ · choose another role above</div>`:`<div class="game-assist-actions"><button class="game-assist-btn hint" type="button" data-collab-film-hint="${index}" ${!unhintedMissing.length?'disabled':''}>Hint · reveal first letter of one movie</button><button class="game-assist-btn give-up" type="button" data-collab-film-giveup="${index}">Give up · reveal one movie</button></div>`}</div>`;
+    return `<div class="collab-movie-phase"><div class="collab-movie-phase-head"><div class="collab-movie-phase-copy"><div class="collab-movie-phase-kicker">${escapeHtml(item.kind)} collaborator found</div><div class="collab-movie-phase-person">${escapeHtml(answer)}</div><div class="collab-phase-note">Fill the mystery movies they made together. The release year is your clue.</div></div><div class="collab-movie-phase-count">${found.length} / ${films.length}</div></div>${feedback}<datalist id="${filmListId}">${movieOptions.map(f=>`<option value="${escapeAttr(f)}"></option>`).join("")}</datalist><div class="collab-movie-stack">${rows}</div>${roleComplete?`<div class="collab-role-complete">${escapeHtml(item.kind)} complete ✓ · choose another role above</div>`:`<div class="game-assist-actions"><button class="game-assist-btn hint" type="button" data-collab-film-hint="${index}" ${!unhintedMissing.length?'disabled':''}>Hint · reveal first letter of one movie</button><button class="game-assist-btn give-up" type="button" data-collab-film-giveup="${index}">Give up · reveal one movie</button></div>`}</div>`;
   }
   function collabCompletedIndices(round,st){
     return round.data.items.map((item,i)=>collabFilmsComplete(item,st,i)?i:-1).filter(i=>i>=0);
@@ -9325,37 +9442,30 @@ Babygirl`.split("\n")
     }
 
     if(!Number.isInteger(st.activeIndex)||st.activeIndex<0||st.activeIndex>=d.items.length)st.activeIndex=0;
-    const i=st.activeIndex,item=d.items[i],allCollaboratorsFound=d.items.every((_,idx)=>locked.has(idx)),completed=collabCompletedIndices(round,st),level=Number(st.hintLevels?.[i])||0;
+    const i=st.activeIndex,item=d.items[i],completed=collabCompletedIndices(round,st),level=Number(st.hintLevels?.[i])||0;
     const compatible=collabCompatibleOptions(round,item),listId=`collabOptions-${i}`;
-    const allFilmTotal=allCollaboratorsFound?d.items.reduce((sum,role,idx)=>sum+collabFilmsFor(role,st.answers[idx]).length,0):0;
-    const allFilmFound=allCollaboratorsFound?d.items.reduce((sum,role,idx)=>sum+collabFoundFilms(st,idx).length,0):0;
 
-    let roleNav="";
-    if(!allCollaboratorsFound){
-      roleNav=`<div class="collab-role-nav">${d.items.map((role,idx)=>`<button class="collab-role-btn ${idx===i?'active':''} ${locked.has(idx)?'complete':''}" type="button" data-collab-role="${idx}">${escapeHtml(role.kind)}${locked.has(idx)?' ✓':''}</button>`).join("")}</div>`;
-    }else{
-      roleNav=`<div class="collab-role-nav">${d.items.map((role,idx)=>{const found=collabFoundFilms(st,idx).length,total=collabFilmsFor(role,st.answers[idx]).length,complete=completed.includes(idx);return `<button class="collab-role-btn ${idx===i?'active':''} ${complete?'complete':''}" type="button" data-collab-role="${idx}">${escapeHtml(role.kind)} · ${found}/${total}${complete?' ✓':''}</button>`;}).join("")}</div>`;
-    }
+    // Each role owns its own two-phase loop: find the collaborator, then fill
+    // that collaborator's movies. Players may switch roles at any time.
+    const roleNav=`<div class="collab-role-nav">${d.items.map((role,idx)=>{
+      const isLocked=locked.has(idx),found=isLocked?collabFoundFilms(st,idx).length:0,total=isLocked?collabFilmsFor(role,st.answers[idx]).length:0,complete=completed.includes(idx);
+      const progress=isLocked?` · ${found}/${total}`:"";
+      return `<button class="collab-role-btn ${idx===i?'active':''} ${complete?'complete':''}" type="button" data-collab-role="${idx}">${escapeHtml(role.kind)}${progress}${complete?' ✓':''}</button>`;
+    }).join("")}</div>`;
 
     let card="";
-    if(!allCollaboratorsFound){
-      if(locked.has(i)){
-        const answer=st.answers[i]||collabValidAnswers(item)[0]||"",ranking=collabRankingMarkup(round,item,i,st),feedback=st.feedback?`<div class="collab-phase-feedback ${st.feedbackType||''}">${escapeHtml(st.feedback)}</div>`:"";
-        card=`<div class="collab-card correct"><div class="collab-step-head"><div><div class="collab-movie-phase-kicker">Top ${escapeHtml(item.kind)}</div><div class="collab-movie-phase-person">${escapeHtml(answer)}</div></div><div class="collab-step-count">Found ✓</div></div>${feedback}${ranking}<div class="collab-role-complete">Collaborator found · choose another role above</div></div>`;
-      }else{
-        const personHint=level>0?(()=>{const answer=collabValidAnswers(item)[0]||"",first=(answer.match(/[A-Za-z0-9]/)||["?"])[0].toUpperCase();return `<div class="assist-hint-copy">The top ${escapeHtml(item.kind.toLowerCase())}'s name starts with “${escapeHtml(first)}”.</div>`;})():"";
-        const ranking=collabRankingMarkup(round,item,i,st),feedback=st.feedback?`<div class="collab-phase-feedback ${st.feedbackType||''}">${escapeHtml(st.feedback)}</div>`:"";
-        card=`<div class="collab-card"><div class="collab-step-head"><div><div class="collab-step-title">Find the top ${escapeHtml(item.kind.toLowerCase())}</div><div class="collab-phase-note">Guess collaborators. Only guesses with at least one tracked shared movie are added to the ranking.</div></div><div class="collab-step-count">Phase 1</div></div>${personHint}<div class="collab-person-input-row"><input class="collab-input" data-collab-input="${i}" list="${listId}" autocomplete="off" autocapitalize="words" placeholder="Name the top ${item.kind.toLowerCase()}…" value="${escapeAttr(st.answers[i]||'')}" /><button class="collab-check" type="button" data-collab-check="${i}" ${!norm(st.answers[i]||'')||st.lookupBusy===i?'disabled':''}>${st.lookupBusy===i?'Checking…':'Check'}</button></div><datalist id="${listId}">${compatible.map(name=>`<option value="${escapeAttr(name)}"></option>`).join("")}</datalist>${st.spellingSuggestions?.[i]?`<button class="spelling-fix local-spelling-fix" type="button" data-collab-spell="${i}" data-spelling-value="${escapeAttr(st.spellingSuggestions[i])}">Fix my spelling</button>`:""}${feedback}${ranking}<div class="game-assist-actions"><button class="game-assist-btn hint" type="button" data-collab-hint="${i}" ${level>=1?'disabled':''}>Hint · reveal first letter of top ${escapeHtml(item.kind.toLowerCase())}</button><button class="game-assist-btn give-up" type="button" data-collab-giveup="${i}">Give up · reveal top ${escapeHtml(item.kind.toLowerCase())}</button></div></div>`;
-      }
-    }else{
+    if(locked.has(i)){
       const films=collabFilmsFor(item,st.answers[i]);
       if(films.some(f=>!collabFilmYear(f)))ensureCollabFilmYears(films).then(changed=>{if(changed&&session?.current===st&&session?.rounds?.[session.index]===round)renderCollaborators(round);});
       card=`<div class="collab-card correct">${collaboratorFilmStage(round,item,i,st)}</div>`;
+    }else{
+      const personHint=level>0?(()=>{const answer=collabValidAnswers(item)[0]||"",first=(answer.match(/[A-Za-z0-9]/)||["?"])[0].toUpperCase();return `<div class="assist-hint-copy">The top ${escapeHtml(item.kind.toLowerCase())}'s name starts with “${escapeHtml(first)}”.</div>`;})():"";
+      const ranking=collabRankingMarkup(round,item,i,st),feedback=st.feedback?`<div class="collab-phase-feedback ${st.feedbackType||''}">${escapeHtml(st.feedback)}</div>`:"";
+      card=`<div class="collab-card"><div class="collab-step-head"><div><div class="collab-step-title">Find the top ${escapeHtml(item.kind.toLowerCase())}</div><div class="collab-phase-note">Guess collaborators. Wrong guesses with real shared credits are ranked, with those shared movies shown as evidence.</div></div><div class="collab-step-count">Find collaborator</div></div>${personHint}<div class="collab-person-input-row"><input class="collab-input" data-smart-kind="person" data-collab-input="${i}" list="${listId}" autocomplete="off" autocapitalize="words" placeholder="Name the top ${item.kind.toLowerCase()}…" value="${escapeAttr(st.answers[i]||'')}" ${st.lookupBusy===i?'disabled':''}/><button class="collab-check" type="button" data-collab-check="${i}" ${!norm(st.answers[i]||'')||st.lookupBusy===i?'disabled':''}>${st.lookupBusy===i?'Checking…':'Check'}</button></div><datalist id="${listId}">${compatible.map(name=>`<option value="${escapeAttr(name)}"></option>`).join("")}</datalist>${feedback}${ranking}<div class="game-assist-actions"><button class="game-assist-btn hint" type="button" data-collab-hint="${i}" ${level>=1?'disabled':''}>Hint · reveal first letter of top ${escapeHtml(item.kind.toLowerCase())}</button><button class="game-assist-btn give-up" type="button" data-collab-giveup="${i}">Give up · reveal top ${escapeHtml(item.kind.toLowerCase())}</button></div></div>`;
     }
 
-    const headerMeta=allCollaboratorsFound?`Phase 2 · ${allFilmFound}/${allFilmTotal} movies`:`Phase 1 · ${locked.size}/3 collaborators`;
-    const transition=allCollaboratorsFound&&allFilmFound===0?`<div class="assist-hint-copy">All three collaborators found. Now use the release years to fill their shared movies.</div>`:"";
-    stage.innerHTML=`<div class="stage-label">COLLABORATORS</div>${gamePremiseMarkup("collab")}<div class="collab-wrap"><div class="collab-person"><div class="collab-person-name">${escapeHtml(d.person)}</div><div class="collab-step-count">${headerMeta}</div></div>${transition}${roleNav}${card}</div>`;
+    const headerMeta=`${completed.length}/3 roles complete`;
+    stage.innerHTML=`<div class="stage-label">COLLABORATORS</div>${gamePremiseMarkup("collab")}<div class="collab-wrap"><div class="collab-person"><div class="collab-person-name">${escapeHtml(d.person)}</div><div class="collab-step-count">${headerMeta}</div></div>${roleNav}${card}</div>`;
 
     stage.querySelectorAll('[data-collab-role]').forEach(btn=>btn.addEventListener('click',()=>{st.activeIndex=Number(btn.dataset.collabRole);st.feedback="";st.feedbackType="";renderCollaborators(round);}));
     stage.querySelectorAll('[data-collab-input]').forEach(inp=>{inp.addEventListener('input',()=>{const idx=Number(inp.dataset.collabInput);st.answers[idx]=inp.value;if(st.spellingSuggestions)delete st.spellingSuggestions[idx];const check=stage.querySelector(`[data-collab-check="${idx}"]`);if(check)check.disabled=!norm(inp.value);});inp.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();checkCollaborators(round,Number(inp.dataset.collabInput));}});});
@@ -9564,8 +9674,8 @@ Babygirl`.split("\n")
     const selected=st.selectedGap===index;
     const localFeedback=selected&&st.feedback?`<div class="statham-gap-feedback ${st.feedbackType||''}" role="status">${escapeHtml(st.feedback)}</div>`:"";
     const spelling=selected&&st.spellingSuggestion?.gapIndex===index?st.spellingSuggestion.value:"";
-    const spellingFix=spelling?`<button class="spelling-fix local-spelling-fix" id="stathamSpellingFixBtn" type="button">Fix my spelling</button>`:"";
-    const entry=selected?`<div class="statham-gap-entry"><input id="stathamGapInput" list="stathamPeopleList" autocomplete="off" autocapitalize="words" placeholder="Add someone between ${escapeAttr(left)} and ${escapeAttr(right)}" value="${escapeAttr(st.gapDraft||"")}"/><button id="stathamGapAddBtn" type="button">Add</button>${localFeedback}${spellingFix}<div class="statham-gap-entry-actions"><button class="statham-gap-hint" type="button" data-statham-hint="${index}">Movie idea</button></div></div>`:`<button class="statham-gap-plus" type="button" data-statham-gap="${index}" aria-label="Add a person between ${escapeAttr(left)} and ${escapeAttr(right)}">+</button>`;
+    const spellingFix=selected?`<button class="spelling-fix local-spelling-fix ${spelling?'':'hidden'}" id="stathamSpellingFixBtn" type="button">Fix my spelling</button>`:"";
+    const entry=selected?`<div class="statham-gap-entry"><input id="stathamGapInput" data-smart-kind="person" list="stathamPeopleList" autocomplete="off" autocapitalize="words" placeholder="Add someone between ${escapeAttr(left)} and ${escapeAttr(right)}" value="${escapeAttr(st.gapDraft||"")}"/><button id="stathamGapAddBtn" type="button">Add</button>${localFeedback}${spellingFix}<div class="statham-gap-entry-actions"><button class="statham-gap-hint" type="button" data-statham-hint="${index}">Movie idea</button></div></div>`:`<button class="statham-gap-plus" type="button" data-statham-gap="${index}" aria-label="Add a person between ${escapeAttr(left)} and ${escapeAttr(right)}">+</button>`;
     return `<div class="statham-connector disconnected">${entry}</div>`;
   }
   async function stathamInsertIntoGap(round,gapIndex,raw){
@@ -9741,7 +9851,7 @@ Babygirl`.split("\n")
       stage.innerHTML=`<div class="stage-label">SIX DEGREES THROUGH JASON STATHAM COMPLETE</div>${roundCompleteHero(`${d.start} → ${d.end}`,stathamDetail,st.points,6)}<div class="statham-chain">${st.nodes.map((_,i)=>`${stathamNodeMarkup(st,d,i)}${i<st.nodes.length-1?renderStathamConnector(st,d,i,[]):''}`).join("")}</div>`;
       activateRoundCompleteUI();return;
     }
-    const allPeople=connectionPeople();
+    const allPeople=filmdenAllPeopleOptions();
     const pieces=[];
     for(let i=0;i<st.nodes.length;i++){
       pieces.push(stathamNodeMarkup(st,d,i));
@@ -9805,7 +9915,11 @@ Babygirl`.split("\n")
           }
         }
       }
-      if(!selected){feedback("Select a movie first, then press Submit guess.","near");return;}
+      if(!selected){
+        const knownMovie=raw&&filmdenAllMovieOptions().find(movie=>filmTitleMatches(raw,movie));
+        if(knownMovie){feedback(`${knownMovie} isn’t in this year’s tracked top 50.`,"wrong");return;}
+        feedback("Select a movie first, then press Submit guess.","near");return;
+      }
       st.focusRank=selected;
       if(selected===Number(d.targetRank)){
         st.points=Math.max(1,5-st.wrong-(st.manualHints||0));
